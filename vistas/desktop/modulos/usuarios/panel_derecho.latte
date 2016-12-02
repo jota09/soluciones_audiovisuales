@@ -1,0 +1,27 @@
+<script type="text/javascript" src="librerias/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="assets/js/general/panel_derecho.js"></script>
+<script type="text/javascript" src="assets/js/modulos/{$modulo}/panel_derecho.js"></script>
+
+<!--  ANALITICA --> 
+<div class="panel panel-primary">
+  <div class="panel-heading">{$L_APP.lbl_analitica}</div>               
+  <div class="panel-body">
+
+    <div class="col-sm-12 no-padding">
+      <div class="text-rosado " style="font-size: 20px; font-weight: bolder; ">
+        {$L_MOD.lbl_tiempo_transcurrido} </div></div>
+
+    <div class="col-sm-12 ">
+
+      <div id="dias"  class=" col-sm-9 text-right text-rosado " style="font-size: 80px; font-weight: bolder; "> 
+                   {$t_transcurrido->days}
+
+      </div>
+      <div class="col-sm-3 text-left texto_transcurrido no-padding" > Días </div>
+
+    </div>
+
+  </div>
+</div>
+      
+      

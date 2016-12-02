@@ -1,0 +1,4 @@
+global: 
+    objetoBD: documentos
+    nombre_general: 
+        nombre

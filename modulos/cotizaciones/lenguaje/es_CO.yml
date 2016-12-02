@@ -1,0 +1,134 @@
+modulo: "Cotizaciones "
+lbl_tit_crear: Crear
+lbl_tit_actualizar: Actualizar
+
+lbl_numero: 'Número: '
+lbl_cuenta: 'Cuenta:<span class="text-danger">*</span>'
+lbl_fecha_cotizacion: Fecha Cotización:<span class="text-danger">*</span>
+
+lbl_etapa: 'Etapa:<span class="text-danger">*</span>'
+lbl_descripcion: "Descripción:"
+lbl_asesor_asignado: Asesor Asignado:<span class="text-danger">*</span>
+lbl_oportunidad: 'Oportunidad:<span class="text-danger">*</span>'
+lbl_linea: Linea:<span class="text-danger">*</span>
+lbl_fecha_caducidad: Fecha caducidad:<span class="text-danger">*</span>
+lbl_fecha_cierre: Fecha cierre:<span class="text-danger">*</span>
+lbl_fecha_factura: 'Fecha factura:'
+lbl_numero_factura: 'Número Factura:'
+lbl_version: 'Versión:<span class="text-danger">*</span>'
+
+#DETALLE
+lbl_panel_detalle: Detalle
+lbl_agregar_referencia: 'Agregar Referencia'
+lbl_cantidad: 'Cantidad'
+lbl_categoria: 'Categoria'
+lbl_referencia: 'Referencia'
+lbl_valor_unitario: 'Valor Unitario'
+lbl_total: 'Total'
+
+lbl_subtotal: 'Subtotal:'
+lbl_descuento: 'Descuento: '
+lbl_subtotal_descuento: 'Subtotal con Descuento: '
+lbl_iva: 'Iva:'
+lbl_retencion: 'Retención:'
+
+lbl_pdf: Impresión PDF
+lbl_enviar_cot: Enviar Cotización
+
+#PDF
+lbl_fecha_cotizacion: 'FECHA COTIZ: '
+lbl_empresa: 'EMPRESA: '
+lbl_concepto: 'CONCEPTO'
+lbl_cant: 'CANT.'
+lbl_vr_unit: 'Vr UNIT.'
+lbl_vr_total: 'Vr TOTAL'
+lbl_saludos: 'Apreciados Señores:'
+lbl_introduccion: 'Reciba un cordial saludo y nuestros mejores deseos en el desarrollo de sus actividades. de acuerdo a su solicitud, con gusto presento nuestra oferta de servicios para su próximo evento.'
+lbl_nota: 'NUESTRA OFERTA INCLUYE SERVICIO TECNICO PERMANENTE Y TRANSPORTE.'
+lbl_forma_pago: 'FORMA PAGO:    FACTURA A 30 DIAS'
+lbl_despedida: 'Agradezco su amable atencion y quedo en espera de sus importantes <br> Atentamente,'
+lbl_firma: '<strong>ALEXANDRA CASTRO</strong><br >Directora Comercial<br>PBX 743-8050 EXT 100<br >MOVIL 312-4333164'
+
+lbl_header1: VER Y OIR PARA CRECER...
+lbl_header2: LA SOLUCION COMPLETA EN TECNOLOGIA
+lbl_header3: www.solucionesaudiovisuales.com
+
+lbl_ciudad: Bogotá
+
+lbl_presentacion: "Señores:<br> CENTRO DE CONVENCIONES<br> Atn. SR. PEDRO PULIDO<br> GERENTE<br> Ciudad"
+lbl_presentacion2: "<br>Reciba un cordial saludo y nuestros mejores deseos en el éxito del desarrollo de sus labores.<br>"
+lbl_presentacion3: "Soluciones Audiovisuales es una empresa con una trayectoria de más de 18 años en el mercado brindando las mejores soluciones en el mercado audiovisual; lo  que nos ha llevado a desarrollar distintas líneas de negocio que se ajustan a las diferentes necesidades en renta y venta de nuestros clientes.<br>"
+lbl_presentacion4: "A continuación presentamos nuestras líneas de producto:<br>"
+lbl_presentacion5: "Ponemos a su disposición toda nuestra infraestructura y capital humano para llegar a la herramienta que más se ajuste a sus necesidades y presupuesto.<br>"
+lbl_presentacion6: "Quedamos a la espera de sus importantes comentarios.<br>"
+lbl_presentacion7: "Cordialmente.<br>"
+
+lbl_footer: "PBX BOGOTA 743-8050- 437-0966 – 307-0966 MOVIL 312-4333164<br>"
+
+lbl_producto1: 'Renta y venta de equipos audiovisuales.'
+lbl_producto2: 'Sistematización y modernización de salas y auditorios.'
+lbl_producto3: 'Modelos Económicos de renta y prestación de servicios audiovisuales.'
+lbl_producto4: 'Pantallas y montajes de señalización digital.'
+lbl_producto5: 'Administración de contenidos señalización digital.'
+
+lbl_alcance: 'ALCANCES DE LAS PROPUESTAS'
+lbl_alcance2: 'Esta propuesta contempla desarrollar un contrato por la duración de tiempo en renta que el cliente escoja, estos precios serán incrementados anualmente de acuerdo a la duración del contrato en un porcentaje igual al I.P.C, de darse por terminado el contrato antes de tiempo el cliente deberá pagar la penalidad estipulada en el contrato.<br>'
+lbl_alcance3: 'La garantía del equipo cubre partes y mano de obra durante el tiempo del contrato, los daños ocasionados por el cliente correrán por cuenta del mismo como la póliza del equipo que deberá ser expedida a nombre de nuestra compañía.<br>'
+lbl_alcance4: 'Para los contratos de 12 y 24 meses se incluye el mantenimiento preventivo del equipo, para el caso de los 36 meses incluye además del mantenimiento un cambio de lámpara durante el tiempo del contrato.<br>'
+lbl_alcance5: 'La facturación será mensualmente según términos del contrato y esta será cancelada según los plazos establecidos dentro del mismo.<br>'
+lbl_alcance6: '<br>ALCANCE COMERCIAL<br>'
+lbl_alcance7: 'DESCRIPCION DE EQUIPOS'
+
+lbl_culminacion: 'ESTOS VALORES NO INCLUYEN I.V.A'
+lbl_culminacion2: 'VALIDEZ DE LA OFERTA: '
+lbl_culminacion3: '15 Días fecha de la propuesta'
+lbl_culminacion4: 'Gracias por contar con nosotros, quedamos a la espera de sus importantes comentarios'
+lbl_culminacion5: 'ALEXANDRA CASTRO<br>Directora Comercial<br>Móvil 312-4333164<br>'
+
+#PDF2
+
+lbl_presentacion_2: "Señores:<br>"
+lbl_presentacion_2_ciudad: "<br>Ciudad<br>"
+lbl_alcance_2: 'LINEA SEÑALIZACION DIGITAL Y ADMINISTRACION DE CONTENIDOS'
+
+lbl_administracion_2: 'Nuestro amplio portafolio de señalización digital le permite proyectar a su empresa una imagen de última tecnología migrando de los sistemas estáticos tradicionales impresos a una publicidad con imágenes dinámicas y luminosas que le garantiza un mayor impacto y recordación de marca e información, este sistema abarca diferentes campos de aplicación como son:'
+lbl_administracion2_2: 'Centros comerciales, Comercio/retail/franquicias, Centros de educación, Salas de espera, Canales corporativos privados, Sistemas información a clientes/usuarios/trabajadores, Hotelería, Restaurantes e Industria.'
+lbl_administracion3_2: 'Con Soluciones Audiovisuales podrá gestionar y diseñar los contenidos de las diferentes soluciones de las pantallas instaladas la gestión de parrilla en línea, segmentación de información de acuerdo a la ubicación de las pantallas, e integración de las diferentes líneas de contenido digital.'
+lbl_administracion4_2: 'Nuestro producto está compuesto por un <strong>hardware</strong> que son equipos industriales de alto rendimiento, que permiten la administración, operación y monitoreo de los diferentes sistemas de información en tiempo real y un <strong>Software</strong> que opera bajo diferentes plataformas permitiendo definir su publicidad.'
+lbl_administracion5_2: 'La conexión de las diferentes pantallas se puede tener con Servicio en la nube donde toda la red será administrada en la nube y el tiempo de actualización es mínimo. Servidor de intranet que se crea teniendo una red interna entre las diferentes pantallas a un computador central que será el administrador de ellas.'
+lbl_administracion6_2: ' El manejo de contenidos de las diferentes pantallas de acuerdo al esquema que se maneje dentro de la propuesta final, si es el cliente que lo administrara o será nuestra compañía apoyado en la mesa de trabajo.'
+
+lbl_mesa: 'NUESTRA MESA DE AYUDA'
+
+#PDF3
+lbl_presentacion_3: "<br>Señores:<br> HALL 74<br> Atn. Sra. Alexandra Giraldo<br> GERENTE<br> Ciudad"
+lbl_presentacion2_3: "<br>Ref. ADMINISTRACION DE EQUIPOS Y ALQUILER EQUIPOS ADICIONALES<br>"
+lbl_presentacion3_3: "<br>Soluciones Audiovisuales es una empresa dedicada alquiler de equipos audiovisuales de última tecnología; contamos con una trayectoria de más de 18 años en el mercado atendiendo los más prestigiosos eventos que nos han llevado a ser líderes en el mercado audiovisual, contamos con un personal altamente calificado para brindar un excelente servicio al cliente y con el más completo portafolio de servicios. Algunos de nuestros clientes como <strong><i>CADENNA DANN BOGOTA Y BUCARAMANGA, (HOTEL CASA DANN CARLTON, HOTEL DANN DE LA 103, HOTEL DANN AV.19,)  HOTEL BOGOTA PLAZA, HOTEL CIUDAD BONITA, HOTEL COSMOS INSIGNIA, HOTEL HOLY DAY INN  BUCARAMANGA, CLUB METROPOLITAN, HOTEL ROSALES PLAZA,  HOTEL RAMADA, HOTEL CABRERA IMPERIAL, HOTEL PORTON BOGOTA ENTRE OTROS  Y PRESTIGIOSAS EMPRESAS COMO COLSANITAS, COLMENA ARP, PROCAPS, TECNOQUIMICAS Dan fe de nuestro excelente servicio.</i></strong>"
+lbl_presentacion4_3: "A continuación presentamos nuestras propuestas técnica y comercial para su estudio:"
+lbl_presentacion5_3: "PROPUESTA TECNICA"
+lbl_presentacion6_3: '<strong><i>ADMINISTRACION:</i></strong> Nuestra propuesta contempla suministrar el personal idóneo para el manejo de los equipos audiovisuales del centro de convenciones en dos turnos de ocho horas cada am y pm. '
+lbl_alcance2_3: 'Como nuestra propuesta contempla el suministro técnico idóneo para el manejo de los equipos audiovisuales del centro de convenciones de escoger la opción comercial numero 1 los técnicos de apoyo que se necesiten adicional tendrán un costo.'
+lbl_alcance3_3: 'Los equipos adicionales se manejaran por una lista de precios preferente competitiva dentro del mercado, los pasadores de diapositivas, laser pointer, convertidores de Mac y hdmi están incluidas dentro de la propuesta sin ningún costo para el cliente.'
+lbl_alcance4_3: 'Los equipos audiovisuales serán operados por personal de nuestra empresa y serán cobrados únicamente cuando sean utilizados.'
+lbl_alcance5_3: 'El mantenimiento preventivo de los equipos audiovisuales del centro de convenciones estará a cargo  de nuestra compañía, el mantenimiento correctivo de los mismos por uso o desgaste estará a cargo del centro de convenciones.'
+lbl_alcance6_3: 'Para hacer un retorno de la inversión  de equipos de propiedad de Soluciones Audiovisuales hemos estimado un contrato de exclusividad como proveedores de 4 años renovables.'
+lbl_ventaja_3: 'VENTAJAS DE LA PROPUESTA'
+lbl_ventaja2_3: 'Nuestra empresa como valor en agregado pone a su disposición poner sin costo la señalización digital del centro de convenciones como son los habladores digitales de los salones y una pantalla e 55” para el lobby con la cual se busca anunciar los diferentes eventos del centro de convenciones.'
+lbl_ventaja3_3: 'Contar con personal calificado con carga prestacional  a cargo de nuestra empresa para estar dispuestos a resolver problemas técnicos con los clientes que lleven sus propios equipos.'
+lbl_ventaja4_3: 'Suministro del software de administración de salones y aplicativo de encuesta de servicio y solicitudes de última hora como esta descrito en la solicitud.'
+lbl_ventaja5_3: 'Permanencia total de equipos de acuerdo a los requerimientos del centro de convenciones.'
+lbl_ventaja6_3: 'Minimizar tiempo de respuesta frente a solicitudes de última hora.'
+lbl_alcance7_3: 'OPCION No.1'
+lbl_alcance8_3: 'En esta propuesta nuestra empresa plantea cobrar un 6% del valor del cobro del salón a los clientes, estaría incluido una persona adicional por turno, las personas adicionales a las ya mencionadas tendrán un costo de $ 60.000.'
+lbl_alcance9_3: 'Los equipos adicionales al inventario del centro de convenciones se manejaran por lista de precios.'
+lbl_alcance10_3: 'OPCION No.2'
+lbl_alcance11_3_1: 'En esta propuesta nuestra empresa plantea el valor de $ '
+lbl_alcance11_3_2: ' más Iva como valor mensual por la administración de los equipos audiovisuales, estaría incluido dos personas adicionales por turno en caso de ser necesarias.'
+lbl_alcance12_3: 'Los equipos adicionales al inventario del centro de convenciones se manejaran por lista de precios.'
+lbl_alcance13_3: '<br>Quedamos a la espera de sus importantes comentarios o de aclaraciones que deseen ser revisada en el término de esta propuesta.'
+lbl_alcance14_3: '<br>OFERTA COMERCIAL 1 CON GESTION DE CONTENIDOS.'
+lbl_firma2: 'ALEXANDRA CASTRO<br>Directora Comercial<br>'
+
+lbl_tiempo_transcurrido: 'Tiempo transcurrido desde la creación' 
+
+lbl_remitentes: 'Remitente(s)'

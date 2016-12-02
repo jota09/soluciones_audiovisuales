@@ -1,0 +1,36 @@
+html, body { height: 100%; width: 100%; overflow-y: hidden}
+/*body { background: #FFF url('../../img/general/_fondo_login_.jpg') no-repeat; background-size: cover; height:100%; padding-top: 0px; }*/
+.bg-azul{background-color: #2C4452}
+body{padding: 0px;}
+.no-padding { padding: 0px; }
+.text-white{color:white}
+.text-bold{font-weight: bold !important}
+.container{ padding: 0px;margin: 0px;width: 100%;}
+#login{top: 10px;bottom: 0;position: fixed; width: 500px;/* background-color:#2C4452 */}
+#formulario{     padding: 0px 55px 10px 55px;}
+#trapecio{width: 520px;position: absolute;top: 0;right: 0;z-index: 1;border-left: 30px solid transparent;border-top: 80px solid #AC7C22;}
+#trapecio h3{    margin-left: 30px;    margin-top: -60px;}
+#borde-externo-login { padding: 2em; margin-top: 6em; background-color: rgba(255, 255, 255, 0.5); }
+#borde-externo-login #borde-interno-login { max-width: 450px; display: inline-block; margin: 0 auto; }
+#sup{background-color:  #2C4452;color:white;    height: 60px;}
+#borde-externo-login h3 { color: #2C4452; border-bottom: 1px #2C4452 solid; }
+#img-login{width: 102%}
+
+#borde-externo-login #borde-interno-login #div-btn-login-acceder { border-top: 1px #2C4452 solid; padding-top: 10px; }
+footer { position: absolute; bottom:0; width:100%; background-color: rgba(255,255,255,0.5); }
+@media (max-width:700px){
+    #trapecio,#sup{display: none}
+    #login{width: 100%;top: 0;left: 0;}
+}
+
+
+
+.btn-default {
+    color: white;
+    background-color: #AC7C22;
+    border-color: #AC7C22;
+}
+#formulario h4{    margin-bottom: 0px;}
+#formulario h3{    margin-top: 0px;}
+#logo img{height: 150px}
+#logo{padding-top: 40px; }

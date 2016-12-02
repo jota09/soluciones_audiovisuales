@@ -1,0 +1,81 @@
+<section class="content-header">
+  <h3> <strong>
+      {if condition="empty($registro.id)"}
+        {$L_MOD.lbl_tit_crear}
+      {else}
+        {$L_MOD.lbl_tit_actualizar}
+      {/if}
+
+    {$L_APP.lbl_edicion_modulo} {if condition="empty($L_MOD.modulo)"}{$modulo}{else}{$L_MOD.modulo}{/if}
+
+  </strong></h3>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="box box-primary">
+
+        <form method="post" class="form-horizontal" role="form" action="index.php" id="form_editar" enctype='multipart/form-data' onsubmit="return validarFormulario();
+            return false;">
+          <div class="box-header">
+            <div class="col-sm-9">
+              <h5 class=" box-title col-sm-6">{$L_APP.lbl_requeridos}</h5>
+              <!-- BTN CONVERTIR -->
+              {if condition="!empty($registro.id) && $modulo=='clientes_potenciales'"}
+                {if condition="$registro.convertido == 1 "}<span class="alert alert-info ver_js pull-right ">Convertido </span>{else}
+                  <a class="btn btn-primary ver_js pull-right " href="index.php?modulo=clientes_potenciales&accion=editar&proceso=conversion&registro={$registro.id}" >{$L_MOD.lbl_convertir_cliente}</a>
+                {/if}
+              </div>
+            {/if}
+            <!-- BTN PDF y ENVIAR CORREO COTIZACION -->
+            {if condition="!empty($registro.id) && $modulo=='cotizaciones'"}
+
+              <a class="btn btn-primary ver_js pull-right marginx5 " href="index.php?modulo=cotizaciones&accion=obtenerPDF&registro={$registro.id}" >{$L_MOD.lbl_pdf}</a>&nbsp;&nbsp;
+              <a class="btn btn-primary ver_js pull-right marginx5 " href="javascript:void(0);" data-toggle="modal" data-target="#enviar_correo" >{$L_MOD.lbl_enviar_cot}</a>
+<!-- href="index.php?modulo=cotizaciones&accion=enviarCorreo&registro={$registro.id} " -->
+            </div>
+          {/if}
+
+      </div>
+      <div class="clearfix"></div>
+      <input type="hidden" name="modulo" value="{$modulo}"/>
+      <input type="hidden" name="accion" value="Guardar"/>
+      <input type="hidden" name="registro_id" id="registro_id" value="{$registro.id}"/>
+      <div class="box-body">
+        <div class=" col-sm-{if condition="!empty($panel_derecho) && $registro.id>0"}9{else}12{/if} no-padding-left panel_principal">
+          {if condition="!empty($tpl_editar)"}
+            {include="$tpl_editar"}
+          {else}
+            {include="modulos/$modulo/editar"}
+          {/if}
+        </div>
+        {if condition="!empty($panel_derecho) && $registro.id>0"}
+          <div class="col-sm-3 no-padding panel_derecho">
+            {include="$panel_derecho"}
+          </div>
+        {/if}
+
+        <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="box-footer col-sm-{if condition="!empty($panel_derecho) && $registro.id>0"}9{else}12{/if} no-padding-left panel_principal">
+        <div class=" pull-right ">
+          <a class="btn btn-default" id="btn_cancelar" {if condition="$usuario->getPerfilId()!=1 && $modulo==usuarios"} href="index.php?modulo=home&accion=administrador"{else}href="index.php?modulo={$modulo}&accion=listar"{/if}>
+            {$L_APP.lbl_boton_cancelar}</a>
+
+          <button type="submit" id="btn_guardar" class="btn btn-primary editar_js">
+            {if condition="empty($registro.id)"}<i class="fa fa-save"> </i> {$L_APP.lbl_boton_guardar}{else}<i class="fa fa-refresh"> </i> {$L_APP.lbl_boton_actualizar}{/if}
+          </button>
+          {if condition=" (!empty($registro.id) && $modulo!=='clientes_potenciales') || ($modulo=='clientes_potenciales' && $registro.convertido == 0) && !empty($registro.id) "}
+            <button type="button" id="btn_ver" class="btn btn-primary ver_js">
+              <i class="fa fa-pencil"> </i> {$L_APP.lbl_boton_editar}
+            </button>
+          {/if}
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+</section>

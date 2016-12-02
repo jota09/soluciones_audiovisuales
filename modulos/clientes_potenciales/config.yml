@@ -1,0 +1,28 @@
+global: 
+    objetoBD: cliente_potencial
+    nombre_general: 
+        nombres 
+        apellidos
+filtros: 
+    estado_id:
+        tipo: lm_mul
+        lbl: lbl_estado
+        lista_maestra: estado
+        general: false
+    asesor_id: 
+        tipo: relacionado_mul
+        tabla_db: usuario
+        lbl: lbl_asesor_asignado
+        select_consulta: CONCAT(nombres," ",apellidos)
+        condicional_consulta: ''    
+    clasificacion_id:
+        tipo: lm_mul
+        lbl: lbl_clasificacion
+        lista_maestra: clasificacion
+        general: true
+    nombres: 
+        tipo: txt
+        lbl: lbl_nombres
+    nombre_empresa: 
+        tipo: txt
+        lbl: lbl_nombre_empresa

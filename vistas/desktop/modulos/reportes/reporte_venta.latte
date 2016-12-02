@@ -1,0 +1,71 @@
+<div class="panel panel-primary col-sm-12">
+   <div class="panel-heading panelRutaTablero" ><p class="rutaNombre">{$L_MOD.lbl_ruta_general}<a class="rutaLink" id="redir_reporte_general">TABLERO GENERAL</a> / <a class="rutaLink" id="redir_reporte_comercial">TABLERO COMERCIAL</a> / <a class="rutaLink">TABLERO VENTAS</a></p></div>
+
+   <div class="col-sm-12"> 
+      <div class="col-sm-12 no-padding fondoBlanco"><div class="col-sm-11 no-padding"><p class="nombreReporte">{$reporte_name}</p></div><div class="col-sm-1 no-padding alingRight"><i class="fa fa-filter filtro" id="filtro_general_3" aria-hidden="true"></i></div></div>
+      <div class="col-sm-6">
+         <div class="panel col-sm-12 fondoGris">
+            <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_venta_mensual}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_ventas_mensuales" aria-hidden="true"></i></p></div>
+            <div class="panel-body col-sm-12 no-padding paddingBottom">
+               <div class="col-sm-12 grafica4" id="grafica12"></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-6">
+         <div class="panel col-sm-12 fondoGris">
+            <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_linea_negocio}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_ventas_negocio" aria-hidden="true"></i></p></div>
+            <div class="panel-body col-sm-12 no-padding paddingBottom">
+               <div class="col-sm-12 grafica4 fondoBlanco" id="grafica13"></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-6">
+         <div class="panel col-sm-12 fondoGris">
+            <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_vendedores}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_ventas_asesor" aria-hidden="true"></i></p></div>
+            <div class="panel-body col-sm-12 no-padding paddingBottom">
+               <div class="col-sm-12 grafica4" id="grafica14"></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-6">
+         <div class="panel col-sm-12 fondoGris">
+            <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_top_clientes}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_ventas_cliente" aria-hidden="true"></i></p></div>
+            <div class="panel-body col-sm-12 no-padding paddingBottom tamanoTabla" id="cuerpo_venta_top">
+               {loop name="$ventasTop"}
+               <div class="col-sm-12 no-padding fondoGris marginTopCliente">
+                  <div class="col-sm-12 no-padding fondoBlanco filaTopCliente">
+                     <div class="col-sm-2 no-padding fondoAzul"><p class="posicionTopCliente">{$key+1}</p></div>
+                     <div class="col-sm-3 no-padding"><p class="cuentaTopCliente">{$value.nombre}</p></div>
+                     <div class="col-sm-5 no-padding"><p class="valorTopCliente">${$value.total}</p></div>
+                     {if condition="!empty($value.imagen)"}
+                        <div class="col-sm-2 no-padding"><img class="col-sm-12 no-padding img-rounded" src="uploads/img_cuenta/{$value.imagen}" style="position: absolute;"></div>
+                        {else}
+                        <div class="col-sm-2 no-padding"><img class="col-sm-12 no-padding img-rounded" src="uploads/img_cuenta/sin_avatar.jpg" style="position: absolute;"></div>
+                        {/if}
+                  </div>
+               </div>
+               {/loop}                    
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-6">
+         <div class="panel col-sm-12 fondoGris">
+            <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_sector}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_ventas_sector" aria-hidden="true"></i></p></div>
+            <div class="panel-body col-sm-12 no-padding paddingBottom">
+               <div class="col-sm-12 grafica4 fondoBlanco" id="grafica16"></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-6">
+         <div class="panel col-sm-12 fondoGris">
+            <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_operativo}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_ventas_producto" aria-hidden="true"></i></p></div>
+            <div class="panel-body col-sm-12 no-padding paddingBottom">
+               <div class="col-sm-12 grafica4" id="grafica29"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{include="modulos/$modulo/modal_filtro_venta"}
+
+<!--<div class="popover fade right in" role="tooltip" id="popover53063" style="top: 155.5px; left: 532px; display: block;"><div class="arrow" style="top: 34.8214%;"></div><h3 class="popover-title" style="display: none;"></h3><div class="popover-content">Some content</div></div>-->

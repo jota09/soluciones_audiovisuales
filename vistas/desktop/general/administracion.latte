@@ -1,0 +1,91 @@
+<div class="text-justify">
+   <span class="tituloHome">Bienvenid@ {$usuario->getNombreCompleto()} </span>
+
+</div>
+
+<div id="recuadros" class="col-sm-12 ">
+   <section id="recuadro" class="col-sm-3" style="background-color: #00b299;width: 300px;"> 
+      <div class="col-sm-6 dibujo" >
+         <img src="assets/img/general/oportunidad_trans.png" class="img-responsive" >
+      </div>
+      <div class="texto col-sm-6 text-center">
+         <h3> {$mis_oportunidades|count} </h3>    
+      </div>
+      <h6 class="col-sm-12 text-center"> &nbsp; </h6>
+      <h6 class="col-sm-12 text-center" style="font-size: 19px;"> Oportunidades Abiertas </h6>
+   </section>
+   <section id="recuadro" class="col-sm-6"  style="background-color: #ff5722; width: 530px; "> 
+
+      <div class="col-sm-3 dibujo" >
+         <img src="assets/img/general/oportunidad_trans.png" class="img-responsive" >
+      </div>
+      <div class="texto col-sm-9 text-center no-padding">
+         <h3 style="font-size:45px; margin-top: 17px;"> $ {function="number_format($mis_oportunidades[0]['valor_total'], 0,".",",")"} </h3>   
+      </div>
+      <h6 class="col-sm-12 text-center"> &nbsp; </h6>
+      <h6 class="col-sm-12 text-center"> Oportunidades Abiertas </h6>
+   </section>
+   <section id="recuadro" class="col-sm-3"  style="background-color: #2eb4e9;width: 300px;"> 
+      <div class="col-sm-6 dibujo" >
+         <i class="fa fa-tasks"></i>
+      </div>
+      <div class="texto col-sm-6 text-center">
+         <h3> {$mis_actividades|count} </h3>   
+      </div>
+      <h6 class="col-sm-12 text-center"> &nbsp; </h6>
+      <h6 class="col-sm-12 text-center"> Actividades Pendientes </h6>
+   </section>
+
+</div>
+
+
+<div id="record_home">
+
+   <div class="col-sm-6 " >
+      <div class="col-sm-12 no-padding">
+         <h4 class="text-bold text-rosado no-margin">{$L_APP.lbl_mis_actividades}</h4></div>
+      <table class="table table-striped display" id="mis_actividades"> 
+         <thead>  
+            <tr> 
+               <th>Nombre Actividad</th>
+               <th>Tipo</th> 
+               <th style="width: 120px;">Fecha Fin</th>
+               <th style="font-size: 22px; padding: 1px 7px;width: 20px; cursor: pointer;">
+                  <i class="fa fa-filter" aria-hidden="true" data-toggle="modal" data-target="#filtro_actividad"></i></th>
+            </tr> 
+         </thead> 
+         <tbody> 
+
+         </tbody>
+      </table> 
+   </div>
+
+   <div class="col-sm-6 ">
+      <div class="col-sm-12 no-padding">
+         <h4 class="text-bold text-rosado no-margin">{$L_APP.lbl_mis_negociaciones}</h4></div>
+
+      <table class="table table-striped " id="mis_oportunidades"> 
+         <thead> 
+            <tr> 
+               <th>Nombre Oportunidad</th>
+               <th class="text-center">Valor</th>
+               <th>Etapa</th>
+               <th>Asignado</th>
+               <th style="font-size: 22px; padding: 1px 7px;width: 20px; cursor: pointer;">
+                  <i class="fa fa-filter" aria-hidden="true" data-toggle="modal" data-target="#filtro_oportunidad"></i></th>
+            </tr> 
+         </thead> 
+         <tbody> 
+
+         </tbody>
+      </table> 
+
+   </div>
+
+</div>
+
+{include="modulos/actividades/modal_filtro"}
+{include="modulos/oportunidades/modal_filtro"}
+
+
+

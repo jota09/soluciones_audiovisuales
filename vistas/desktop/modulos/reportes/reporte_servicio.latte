@@ -1,0 +1,32 @@
+<div class="panel panel-primary col-sm-12">
+    <div class="panel-heading panelRutaTablero" ><p class="rutaNombre">{$L_MOD.lbl_ruta_general}<a class="rutaLink" id="redir_reporte_general">TABLERO GENERAL</a> / <a class="rutaLink" id="redir_reporte_comercial">TABLERO COMERCIAL</a> / <a class="rutaLink">TABLERO SERVICIOS</a></p></div>
+
+    <div class="col-sm-12"> 
+        <div class="col-sm-12 no-padding fondoBlanco"><div class="col-sm-11 no-padding"><p class="nombreReporte">{$reporte_name}</p></div><div class="col-sm-1 no-padding alingRight"><i class="fa fa-filter filtro" id="filtro_general_5" aria-hidden="true"></i></div></div>
+        <div class="col-sm-6">
+        <div class="panel col-sm-12 fondoGris">
+            <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_ingreso_servicio}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_servicio_ingreso" aria-hidden="true"></i></p></div>
+            <div class="panel-body col-sm-12 no-padding paddingBottom">
+                <div class="col-sm-12 grafica4" id="grafica25"></div>
+            </div>
+        </div>
+    </div>
+        <div class="col-sm-6">
+            <div class="panel col-sm-12 fondoGris">
+                <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_linea_negocio}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_servicio_linea" aria-hidden="true"></i></p></div>
+                <div class="panel-body col-sm-12 no-padding paddingBottom">
+                    <div class="col-sm-12 grafica4" id="grafica26"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel col-sm-12 fondoGris">
+                <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_servicio_estado}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_servicio_estado" aria-hidden="true"></i></p></div>
+                <div class="panel-body col-sm-12 no-padding paddingBottom">
+                    <div class="col-sm-12 grafica4" id="grafica27"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include="modulos/$modulo/modal_filtro_servicio"}

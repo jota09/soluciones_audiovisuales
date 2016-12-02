@@ -1,0 +1,236 @@
+<!-- Modal DOCUMENTOS-->
+<div class="modal fade" id="lista_documentos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Documentos</h4>
+      </div>
+      <div class="modal-body">
+        <div class="clearfix"></div>
+        <table id="tabla_listar_documentos" data-modulo="documentos" class="display cell-border">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Adjunto</th>
+              <th>Nombre</th>
+              <th>¿eliminar?</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>       
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal ACTIVIDADES-->
+<div class="modal fade" id="lista_actividades" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel_actividades">Actividades</h4>
+      </div>
+      <div class="modal-body">
+        <table id="tabla_listar_tareas" data-modulo="actividades" class="display cell-border">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Referencia</th>
+              <th>Fecha Inicio</th>
+              <th>Hora Inicio</th>
+              <th>Meridiano Inicio</th>
+              <th>Fecha Fin</th>
+              <th>Hora Fin</th>
+              <th>Meridiano Fin</th>
+              <th>Tipo</th>
+              <th>¿eliminar?</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>       
+        </table>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal OPORTUNIDADES -->
+<div class="modal fade" id="lista_oportunidades" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel_oportunidades">Oportunidades</h4>
+      </div>
+      <div class="modal-body">
+        <table id="tabla_listar_oportunidades" data-modulo="oportunidades" class="display cell-border">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Referencia</th>
+              <th>Valor</th>
+              <th>Fecha Cierre</th>
+              {if condition="  $modulo === 'contactos' "}<th>Rol</th>{/if}
+              <th>¿eliminar?</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>       
+        </table>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal COTIZACIONES-->
+<div class="modal fade" id="lista_cotizaciones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cotizaciones</h4>
+      </div>
+      <div class="modal-body">
+        <div class="clearfix"></div>
+        <table id="tabla_listar_cotizaciones" data-modulo="cotizaciones" class="display cell-border">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Número Factura</th>
+              {if condition="  $modulo !== 'cuentas' && $modulo !== 'oportunidades'"}
+                <th>Cuenta</th>
+              {/if}
+              <th>Etapa</th>
+              <th>¿Eliminar?</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>       
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal CONTACTOS-->
+<div class="modal fade" id="lista_contactos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Contactos</h4>
+      </div>
+      <div class="modal-body">
+        <table id="tabla_listar_contactos" data-modulo="contactos" class="display cell-border">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Nombre</th>
+              <th>Cargo</th>
+              {if condition="  $modulo === 'oportunidades' "}<th>Rol</th>{/if}
+              <th>¿eliminar?</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>       
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal LISTAR CASOS -->
+<div class="modal fade" id="listar_casos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Casos</h4>
+      </div>
+      <div class="modal-body">
+        <div class="clearfix"></div>
+        <table id="tabla_listar_casos" data-modulo="casos" class="display cell-border">
+          <thead>
+            <tr>
+              <th>Número</th>
+              <th>Tipo</th>
+              <th>Asunto</th>
+              <th>Estado</th>
+              <th>¿Eliminar?</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>       
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal LISTAR CONVENIOS -->
+<div class="modal fade" id="listar_convenios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Convenios</h4>
+      </div>
+      <div class="modal-body">
+        <div class="clearfix"></div>
+        <table id="tabla_listar_convenios" data-modulo="convenios" class="display cell-border">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Tipo Servicio</th>
+              <th>Vigencia Desde</th>
+              <th>Vigencia Hasta</th>
+              <th>¿Eliminar?</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>       
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal LISTAR SERVICIOS -->
+<div class="modal fade" id="listar_servicios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Servicios</h4>
+      </div>
+      <div class="modal-body">
+        <div class="clearfix"></div>
+        <table id="tabla_listar_servicios" data-modulo="servicios" class="display cell-border">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Tipo Servicio</th>
+              <th>Vigencia Desde</th>
+              <th>Vigencia Hasta</th>
+              <th>Valor</th>
+              <th>¿Eliminar?</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>       
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

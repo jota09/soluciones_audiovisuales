@@ -1,0 +1,11 @@
+modulo: "Categoría Producto "
+lbl_tit_crear: Crear
+lbl_tit_actualizar: Actualizar
+
+lbl_referencia: 'Referencia: <span class="text-danger">*</span>'
+phl_txt_referenci: "Escriba una referencia"
+lbl_estado: 'Estado: <span class="text-danger">*</span>'
+lbl_descripcion: "Descripción:"
+lbl_categoria: Categoria Padre
+lbl_cantidad_productos: Cantidad Productos
+

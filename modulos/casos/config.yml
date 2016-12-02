@@ -1,0 +1,31 @@
+global: 
+    objetoBD: caso
+    nombre_general: 
+        numero  
+filtros: 
+    tipo_id:
+        tipo: lm_mul
+        lbl: lbl_tipo
+        lista_maestra: tipo
+        general: false
+    origen_id:
+        tipo: lm_mul
+        lbl: lbl_origen
+        lista_maestra: origen
+        general: false
+    prioridad_id:
+        tipo: lm_mul
+        lbl: lbl_prioridad
+        lista_maestra: prioridad
+        general: false
+    estado_id:
+        tipo: lm_mul
+        lbl: lbl_estado
+        lista_maestra: estado
+        general: false
+    asesor_asignado_id: 
+        tipo: relacionado_mul
+        tabla_db: usuario
+        lbl: lbl_asesor_asignado
+        select_consulta: CONCAT(nombres," ",apellidos)
+        condicional_consulta: ''

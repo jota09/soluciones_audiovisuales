@@ -1,0 +1,26 @@
+global: 
+    objetoBD: cuenta
+    nombre_general: 
+        nombres 
+        apellidos
+filtros:
+    naturaleza_id:
+        tipo: lm_mul
+        lbl: lbl_naturaleza_id
+        lista_maestra: naturaleza
+        general: false     
+    tipo_cuenta_id:
+        tipo: lm_mul
+        lbl: lbl_tipo_cliente
+        lista_maestra: tipo_cuenta
+        general: false     
+    estado_id:
+        tipo: lm_mul
+        lbl: lbl_estado
+        lista_maestra: estado
+        general: false     
+    segmento_id:
+        tipo: lm_mul
+        lbl: lbl_segmento
+        lista_maestra: segmento
+        general: false     

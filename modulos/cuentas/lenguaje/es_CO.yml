@@ -1,0 +1,193 @@
+lbl_tit_crear: Crear
+lbl_tit_actualizar: Actualizar
+modulo: Cuenta
+
+id: ID
+razon_social: Razon social
+tipo_cliente: Tipo Cuenta
+tipo_documento: Tipo Documento
+nombres: Nombres y Apellidos
+naturaleza: Naturaleza
+num_documento: Numero Documento
+razon_comercial: Razon comercial
+nit: Nit
+ciudad_id: Ciudad
+direccion: Direccion
+activo: Activo
+competencias: '&iquest;Competencias&quest;'
+lbl_segmento: 'Segmento: '
+lbl_ubicacion: 'Ubicación:'
+
+
+phl_txt_ubicacion_nombre: 'Escriba Su ubicación (ej: Colombia - Bogotá - Chapinero)'
+lbl_editar_razon_social: Razon social
+
+lbl_tipo_cliente: Tipo Cuenta
+phl_txt_tipo_cliente: Escribe el tipo Cuenta
+
+lbl_naturaleza_id: 'Naturaleza:<span class="text-danger">*</span>'
+
+lbl_nombres: 'Nombres:<span class="text-danger">*</span>'
+lbl_nombre_comercial: 'Nombre Comercial:<span class="text-danger">*</span>'
+phl_txt_nombres: Escribe tus Nombres
+phl_txt_nombre_comercial: Escribe tu Nombre Comercial
+
+
+
+lbl_apellidos: 'Apellidos:<span class="text-danger">*</span>'
+phl_txt_apellidos: Escribe tus Apellidos
+lbl_razon_social: Razón Social
+phl_txt_razon_social: Escribe tu Razon Social 
+
+lbl_num_documento: 'Núm. Documento:<span class="text-danger">*</span>'
+phl_txt_num_documento: Escribe tu numero de Documento
+phl_txt_segmento: Escribe el Segmento al que pertenece
+
+lbl_tipo_documento_id: 'Tipo de Documento:<span class="text-danger">*</span>'
+lbl_tel: 'Teléfono:<span class="text-danger">*</span>'
+lbl_numero_tel: Número
+lbl_tipo_tel: Tipo Teléfono
+lbl_telefono: Teléfono
+
+lbl_direccion: 'Agregar Dirección:'
+lbl_dir: Dirección
+lbl_barrio: Barrio
+lbl_tipo_direccion: Tipo Dirección
+
+lbl_correo: 'Correo Electrónico:<span class="text-danger">*</span>'
+lbl_e_mail: E-mail
+lbl_principal: Principal
+
+lbl_asesor_asignado: 'Asesor Asignado:<span class="text-danger">*</span>'
+lbl_descripcion: 'Descripción:'
+lbl_editar_competencias: '&iquest;Competencias&quest;'
+phl_txt_competencias: 'Seleccionar'
+
+lbl_direccion_web: 'Direccion Web:'
+phl_txt_direccion_web: 'http://www.misitio.com'
+sel_competencia_si: Si
+sel_competencia_no: 'No'
+
+lbl_sector_empresa_id: 'Sector Empresa:'
+lbl_editar_configuracion: 'Configuraci&oacute;n'
+
+lbl_estado: 'Estado:<span class="text-danger">*</span>'
+lbl_contactos: Contactos
+lbl_contacto: 'Contacto<span class="text-danger">*</span>'
+
+lbl_contacto_nombre: Nombre
+lbl_contacto_apellido: Apellido
+lbl_contacto_cargo: Cargo
+phl_txt_cargo: 'Cargo'
+
+lbl_toma_contacto_id: Toma de Contacto
+lb_toma_contacto_id: 'Toma de Contacto:<span class="text-danger">*</span>'
+lbl_descripcion_estado: Descripci&oacute;n Estado
+lbl_descripcion_toma_contacto: Descripci&oacute;n toma de Contacto
+lbl_clasificacion: 'Clasificaci&oacute;n:<span class="text-danger">*</span>'
+lbl_referido: 'Referido por:'
+
+lbl_calificacion_cliente: 'Calificación Cliente:'
+
+
+# modal oportunidad #
+phl_txt_nombre: Nombre Oportunidad
+lbl_nombre: Nombre Negociacón:<span class="text-danger">*</span>
+lbl_relacionado: Relacionado a:<span class="text-danger">*</span>
+lbl_valor: Monto Oportunidad:<span class="text-danger">*</span>
+lbl_etapa: Etapa:<span class="text-danger">*</span>
+lbl_fecha_cierre: Fecha de Cierre:<span class="text-danger">*</span>
+lbl_toma_contacto: Toma de Contacto:<span class="text-danger">*</span>
+lbl_descripcion: "Descripción:"
+
+#Actividad
+lbl_nombre_actividad: Actividad
+lbl_fecha_inicio: Fecha Inicio
+lbl_fecha_fin: Fecha Fin
+
+lbl_referencia: 'Referencia: <span class="text-danger">*</span>'
+lbl_cliente: 'Cliente:<span class="text-danger">*</span>'
+lbl_campanna: 'Campaña: '
+
+lbl_oportunidades_ganadas: 'Cotizaciones ganadas'
+
+lbl_cupo_credito: Cupo Credito
+lbl_fecha_cartera: 'Fecha Actualización'
+lbl_valor_cartera: Valor Cartera
+
+lbl_pnl_cartera: Información Cartera
+
+lbl_tit_crear: 'Crear'
+lbl_tit_actualizar: 'Actualizar'
+phl_txt_nombre: 'Nombre Oportunidad'
+lbl_nombre: 'Nombre Negociacón:<span class="text-danger">*</span>'
+lbl_relacionado: 'Relacionado a:<span class="text-danger">*</span>'
+lbl_valor: 'Monto Oportunidad:<span class="text-danger">*</span>'
+lbl_etapa: 'Etapa:<span class="text-danger">*</span>'
+lbl_fecha_cierre: 'Fecha de Cierre:<span class="text-danger">*</span>'
+lbl_toma_contacto_id: 'Toma de Contacto:<span class="text-danger">*</span>'
+lbl_descripcion: "Descripción:"
+lbl_asesor_asignado: 'Asesor Asignado:<span class="text-danger">*</span>'
+lbl_linea: Linea
+lbl_convenio: Convenio
+lbl_convenios: Convenios
+
+#Actividad
+lbl_nombre_actividad: Actividad
+lbl_fecha_inicio: Fecha Inicio
+lbl_fecha_fin: Fecha Fin
+
+lbl_datos_neg: Datos Negociación
+lbl_referencia: 'Referencia: <span class="text-danger">*</span>'
+lbl_cuenta: 'Cuenta:<span class="text-danger">*</span>'
+lbl_campanna: 'Campaña: '
+
+lbl_nombres: 'Nombres:<span class="text-danger">*</span>'
+lbl_apellidos: 'Apellidos:<span class="text-danger">*</span>'
+lbl_num_documento: 'Núm. Documento:<span class="text-danger">*</span>'
+lbl_cuenta: 'Cuenta:<span class="text-danger">*</span>'
+lbl_informa_a: 'Informa a:'
+lbl_cargo: 'Cargo:'
+lbl_departamento: 'Departamento: '
+lbl_fecha_nacimiento: 'Fecha Nacimiento: '
+lbl_edad: 'Edad: '
+lbl_descripcion: 'Descripción:'
+lbl_asesor_asignado: 'Asesor Asignado:<span class="text-danger">*</span>'
+lbl_estado: 'Estado:<span class="text-danger">*</span>'
+
+lbl_panel_detalle: Detalle
+lbl_agregar_referencia: 'Agregar Referencia'
+lbl_cantidad: 'Cantidad'
+lbl_categoria: 'Categoria'
+lbl_valor_unitario: 'Valor Unitario'
+lbl_total: 'Total'
+lbl_subtotal: 'Subtotal:'
+lbl_descuento: 'Descuento: '
+lbl_subtotal_descuento: 'Subtotal con Descuento: '
+lbl_iva: 'Iva:'
+lbl_casos: Casos
+lbl_numero: 'Número'
+lbl_tipo: 'Tipo:<span class="text-danger">*</span>'
+lbl_origen: 'Origen:<span class="text-danger">*</span>'
+lbl_prioridad: 'Prioridad:<span class="text-danger">*</span>'
+lbl_servicio: Servicio
+lbl_asunto: 'Asunto:<span class="text-danger">*</span>'
+lbl_resolucion: Resolución
+lbl_servicios: Servicios
+lbl_tipo_convenio: 'Tipo Convenio:<span class="text-danger">*</span>'
+lbl_fecha_vigencia_desde: 'Vigencia Desde:<span class="text-danger">*</span>'
+lbl_fecha_vigencia_hasta: 'Vigencia Hasta:<span class="text-danger">*</span>'
+lbl_forma_pago: 'Forma de Pago:<span class="text-danger">*</span>'
+lbl_estado_servicio: 'Estado:<span class="text-danger">*</span> '
+lbl_responsable: 'Responsable:<span class="text-danger">*</span>'
+lbl_condiciones_comerciales: 'Condiciones Comerciales:'
+lbl_tipo_servicio: 'Tipo Servicio:<span class="text-danger">*</span>'
+lbl_periodo_cobro: 'Periodo cobro:<span class="text-danger">*</span>'
+lbl_modalidad_cobro: 'Modalidad cobro:<span class="text-danger">*</span>'
+lbl_valor_servicio: 'Valor Servicio:<span class="text-danger">*</span>'
+lbl_tarifa: 'Tarifa:<span class="text-danger">*</span>'
+lbl_tarifa_obs: 'Tarifa OBS:<span class="text-danger">*</span>'
+lbl_numero_documento: Número Documento
+lbl_avatar: 'Foto de cuenta:'
+
+

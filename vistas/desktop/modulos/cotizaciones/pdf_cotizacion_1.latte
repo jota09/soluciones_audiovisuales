@@ -1,0 +1,210 @@
+<!-- <link type="text/css" href="base/librerias/css/bootstrap/bootstrap.min.css" rel="stylesheet"> -->
+<link type="text/css" href="assets/css/general/global.css" rel="stylesheet">
+<style>
+   @page{ margin: 220px 25px 25px 25px;padding:  25px;}
+   /*#header {  top: -180px; right: 0px; height: 150px; background-color: orange;margin: 0px;padding:  0px; position: fixed; height: 200px;left: 0px; right: 0px;}*/
+   #header { position: fixed; left: 0px; top: -180px; right: 0px; height: 130px;  text-align: center; }
+   #footer { position: fixed; left: 0px; bottom: 0px; right: 0px; height: 100px; }
+   /*#footer { margin: 0px;padding:  0px;height: 200px;left: 0px; right: 0px;}*/  
+   
+   .right{
+      text-align: right;
+   }
+   .left{
+      text-align: left;
+   }
+   .center{
+      text-align: center;
+   }
+   th, td { 
+      border-top: transparent;
+      padding: 8px 10px;
+   }
+   body{
+      background-color: #ffffff;     
+   }
+   ul{
+      list-style: none;
+   }
+   .tabla_productos{
+   border: 1px solid black;
+   border-collapse: collapse;
+   }
+
+
+</style>
+<div id="header">
+
+   <table class="table" width="100%" >
+      <tr>
+         <td width="90%" class="text-centerPdf"><p class="negrita text-rosado">{$L_MOD.lbl_header1}</p>{$L_MOD.lbl_header2}<br><p class="negrita cursiva text-rosado">{$L_MOD.lbl_header3}</p></td>
+         <th width="10%"></th>
+      </tr>
+   </table>
+
+</div>
+<div id="footer">
+   <table class="table" width="100%">
+      <tr>
+         <td class="centrado text-rosado negrita" colspan="4">{$L_MOD.lbl_footer}</td>
+      </tr>
+   </table>
+</div>
+<div id="content" class="col-sm-12 ">
+   <table class="marginPdf" >
+      <tr>
+         <td colspan="4">{$L_MOD.lbl_ciudad}, {$hoy.month} {$hoy.mday} de {$hoy.year}</td> 
+      </tr>
+
+      <tr>
+         <td colspan="4">{$L_MOD.lbl_presentacion_2}
+         {loop name="$registro.cuenta"}
+         {if condition="$registro.cuenta_id == $value.id"}
+          <label>{$value.nombres}</label>
+         {/if}
+         {/loop}
+         {$L_MOD.lbl_presentacion_2_ciudad}</td>
+      </tr>
+     
+      <tr>
+         <td colspan="4">{$L_MOD.lbl_presentacion2}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_presentacion3}</td>
+      </tr>
+      <tr>
+         <td colspan="4">{$L_MOD.lbl_presentacion4}</td>
+      </tr>
+      <tr>
+         <td colspan="4">
+            <ul>
+               <li class="negrita" ><img src="assets/img/modulos/cotizacion/check.png" width="20px">{$L_MOD.lbl_producto1}</li>
+               <li class="negrita"><img src="assets/img/modulos/cotizacion/check.png" width="20px">{$L_MOD.lbl_producto2}</li>
+               <li class="negrita"><img src="assets/img/modulos/cotizacion/check.png" width="20px">{$L_MOD.lbl_producto3}</li>
+               <li class="negrita"><img src="assets/img/modulos/cotizacion/check.png" width="20px">{$L_MOD.lbl_producto4}</li>
+               <li class="negrita"><img src="assets/img/modulos/cotizacion/check.png" width="20px">{$L_MOD.lbl_producto5}</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_presentacion5}</td>
+      </tr>
+      <tr>
+         <td colspan="4">{$L_MOD.lbl_presentacion6}<br></td>
+      </tr>
+      <tr>
+         <td colspan="4">
+         {loop name="$registro.asesores"}
+         {if condition="$registro.asesor_id == $value.id"}
+          <label>{$value.nombres} {$value.apellidos}<br>Móvil {$value.celular_contacto}</label>
+         {/if}
+         {/loop}
+         </td>
+      </tr>
+      </table>
+      <div style="page-break-before: always;"></div>
+      <table class="marginPdf" style="page-break-before: auto;">
+      <tr>
+         <td class="centrado negrita " colspan="4">{$L_MOD.lbl_alcance_2}<br><br></td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_administracion_2}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_administracion2_2}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_administracion3_2}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_administracion4_2}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_administracion5_2}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_administracion6_2}</td>
+      </tr>
+      </table>
+      <div style="page-break-before: always;"></div>
+      <table class="marginPdf" style="page-break-before: auto;">
+      <tr>
+         <td class="centrado negrita " colspan="4">{$L_MOD.lbl_mesa}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4"></td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4"><img src="assets/img/modulos/cotizacion/mesa_ayuda.png" width="700px" height="600px"></td>
+      </tr>
+      
+      
+
+   </table>
+      </table>
+      <div style="page-break-before: always;"></div>
+      <table class="marginPdf" style="page-break-before: auto;">
+      <tr>
+         <td class="centrado negrita " colspan="4">{$L_MOD.lbl_alcance}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_alcance2}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_alcance3}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_alcance4}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_alcance5}</td>
+      </tr>
+      <tr>
+         <td class="centrado negrita" colspan="4"><br>{$L_MOD.lbl_alcance6}<br></td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_alcance14_3}</td>
+      </tr>
+      <tr class="centrado">
+         <td>&nbsp;</td>
+         <td colspan="2">
+            <table class="tabla_productos">
+               <thead><tr class="tabla_productos"><th class="tabla_productos">EQUIPOS</th><th class="tabla_productos">CANT.</th><th class="tabla_productos">Descripcion</th><th class="tabla_productos">Valor Unitario</th></tr></thead>
+            <tbody>
+               {loop name="$registro.detalles"}
+               <tr class="tabla_productos">
+                  <td class="tabla_productos">{$value.referencia}</td>
+                  <td class="tabla_productos centrado">{$value.cantidad}</td>
+                  <td class="tabla_productos centrado">{$value.descripcion}</td>
+                  <td class="tabla_productos centrado">{$value.valor_unitario}</td>
+                  
+               </tr>
+               {/loop}
+               <tr class="tabla_productos"><th  colspan="2" class="tabla_productos">TOTAL + IVA</th>
+                                           <td  colspan="2" class="tabla_productos negrita">{$registro.total}</td></tr>
+               <tr class="tabla_productos"><td  colspan="4" class="tabla_productos negrita">EL CLIENTE SUMINISTRARA LAS IMÁGENES PARA EL DESARROLLO</td></tr>
+            </tbody>
+            </table>
+         </td>
+         <td>&nbsp;</td>
+      </tr>
+      
+
+   </table>
+   <div style="page-break-before: always;"></div>
+   <table class="marginPdf" style="page-break-before: auto;">
+      
+      <tr>
+         <td class="negrita" colspan="4">{$L_MOD.lbl_culminacion}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4"><p class="negrita">{$L_MOD.lbl_culminacion2}</p>{$L_MOD.lbl_culminacion3}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_culminacion4}</td>
+      </tr>
+      <tr>
+         <td class="justificado" colspan="4">{$L_MOD.lbl_presentacion7}</td>
+      </tr>
+      </table>
+</div>

@@ -1,0 +1,63 @@
+<script type="text/javascript" src="vistas/desktop/general/agregar_agregar/telefonos/telefonos_modal.js"></script>
+
+<div class="col-sm-12 no-padding" style="margin-top: 25px;">  
+   <div class="form-group">
+      <label class="control-label col-sm-2">{$L_APP.lbl_tel2}</label>
+      <div class="col-sm-9 no-padding-left"> 
+         <button type="button" id="btn_agregar_telefono2"  class="btn btn-default btn-sm ">
+            <i class="fa fa-plus"></i></button>
+      </div>
+   </div>  
+</div> 
+
+<div id="div_agregar_telefono">
+   <div class="col-sm-12">
+      <!--<div class="form-group col-sm-2"></div>-->
+      <!--<div class="form-group col-sm-3"><label>{*$L_MOD.lbl_numero_tel*}</label></div>-->
+      <!--<div class="form-group col-sm-1"></div>-->
+      <!--<div class="form-group col-sm-3"><label>{*$L_MOD.lbl_tipo_tel*}</label></div>-->
+      <!--<div class="form-group col-sm-1"></div>-->
+   </div>
+
+   <div class="form-group col-sm-12 "> 
+      <div class="col-sm-1"></div> 
+      <div class="col-sm-3"> 
+         <label>{$L_APP.lbl_numero_tel}:</label>
+
+      </div> 
+      <div class="col-sm-3"> 
+         <label>{$L_APP.lbl_tipo_tel}:</label>
+
+      </div> 
+      <div class="col-sm-1"> 
+         <label></label>
+
+      </div> 
+   </div>
+   <input type="hidden" value="{$bndr = 0}">
+   
+              <div class="form-group col-sm-12"> 
+         <input type="hidden" class="id" name="telefono_id[]" value="{$value.id}">
+         <input type="hidden" class="eliminado" name="telefono_eliminado[]" value="0">
+         <div class="col-sm-1"></div> 
+         <div class="col-sm-3"> 
+
+            <input type="text" class="form-control validate[required]" value=""  id="num_telefono" name="num_telefono[]"  onkeypress="return soloNumeros(event);" > 
+         </div> 
+         <div class="col-sm-3"> 
+
+            <select class="form-control validate[required]"  name="tipo_telefono[]"> 
+               <option value="">{$L_APP.lbl_select}</option> 
+               <option value="celular">Celular</option> 
+               <option value="fijo">Fijo</option> 
+            </select> 
+         </div> 
+         <div class="col-sm-1"> 
+
+            <button type="button"  class="btn btn_eliminar_reg_telefono btn-default center-block btn-sm"><i class="fa fa-minus"></i></button> 
+         </div> 
+      </div>
+ 
+
+</div>
+

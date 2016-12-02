@@ -1,0 +1,44 @@
+lbl_tit_crear: Crear
+lbl_tit_actualizar: Actualizar
+modulo: Servicio
+
+lbl_numero: 'Número'
+lbl_tipo_acuerdo: 'Tipo Acuerdo:<span class="text-danger">*</span>'
+lbl_cuenta: 'Cuenta:<span class="text-danger">*</span>'
+
+lbl_tipo_convenio: 'Tipo Convenio:<span class="text-danger">*</span>'
+lbl_tipo_servicio: 'Tipo Servicio:<span class="text-danger">*</span>'
+lbl_fecha_vigencia_desde: 'Vigencia Desde:<span class="text-danger">*</span>'
+lbl_fecha_vigencia_hasta: 'Vigencia Hasta:<span class="text-danger">*</span>'
+lbl_forma_pago: 'Forma de Pago:<span class="text-danger">*</span>'
+lbl_condiciones_comerciales: 'Condiciones Comerciales:'
+lbl_linea: 'Línea:<span class="text-danger">*</span>'
+lbl_estado_servicio: 'Estado:<span class="text-danger">*</span> '
+lbl_responsable: 'Responsable:<span class="text-danger">*</span>'
+lbl_descripcion: 'Descripción:'
+lbl_periodo_cobro: 'Periodo cobro:<span class="text-danger">*</span>'
+lbl_modalidad_cobro: 'Modalidad cobro:<span class="text-danger">*</span>'
+lbl_valor_servicio: 'Valor Servicio:<span class="text-danger">*</span>'
+lbl_tarifa: 'Tarifa:<span class="text-danger">*</span>'
+lbl_tarifa_obs: 'Tarifa OBS:<span class="text-danger">*</span>'
+
+lbl_actividades_casos: Actividades + Casos
+lbl_casos: Casos
+lbl_estado: Estado
+
+lbl_prioridad: 'Prioridad:<span class="text-danger">*</span>'
+lbl_estado: 'Estado:<span class="text-danger">*</span>'
+lbl_tipo: 'Tipo:<span class="text-danger">*</span>'
+lbl_asunto: 'Asunto:<span class="text-danger">*</span>'
+lbl_descripcion: Descripción
+lbl_origen: 'Origen:<span class="text-danger">*</span>'
+lbl_resolucion: Resolución
+lbl_asesor_asignado: Asesor Asignado<span class="text-danger">*</span>
+lbl_servicio: 'Servicio:'
+
+lbl_asesor_asignado: "Responsable:"
+lbl_pago: "Pagos"
+lbl_mes: "Fecha de pago"
+lbl_valor: "Valor"
+lbl_pagado: "Pagado"
+

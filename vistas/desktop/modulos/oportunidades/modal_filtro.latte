@@ -1,0 +1,61 @@
+<div class="modal fade" id="filtro_oportunidad" tabindex="" role="dialog" aria-labelledby="myModalLabel">    
+   <div class="modal-dialog modal-md form-horizontal" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">{$L_MOD.lbl_filtro_oportunidades}</h4>
+         </div>
+         <div class="modal-body">
+
+            <div class="col-sm-12 no-padding">
+               <div class="form-group">
+                  <label class="control-label col-sm-3" for="filtro_referencia">{$L_MOD.lbl_f_referencia}</label>                        
+                  <div class="col-sm-9 "> 
+                     <input type="text" class="form-control" value="" id="filtro_referencia" name="filtro_referencia" placeholder="Nombre Oportunidad" >
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-sm-12 no-padding">
+               <div class="form-group">
+                  <label class="control-label col-sm-3" for="filtro_etapa">
+                     {$L_MOD.lbl_etapa}</label>
+                  <div class="col-sm-9 "> 
+
+                     <select class="form-control " id="filtro_etapa" name="filtro_etapa" multiple >
+                        {loop name="$listasM.etapa"}
+                        <option value="{$value.id}">{$value.nombre}</option>
+                        {/loop}
+                     </select>
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-sm-12 no-padding">
+               <div class="form-group">
+                  <label class="control-label col-sm-3" for="filtro_asignado">
+                     {$L_MOD.lbl_asignado}</label>
+                  <div class="col-sm-9 "> 
+
+                     <select class="form-control " id="filtro_asignado" name="filtro_asignado" multiple >
+                        {loop name="$asesores"}
+                        <option value="{$value.id}" >{$value.nombres} {$value.apellidos}</option>
+                        {/loop} 
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+         </div>  
+         <div class="modal-footer">
+            <button type="button" class="btn btn-info" id="limpiar_oportunidad"><b>Limpiar</b></button>
+            <button type="button" class="btn btn-default d_sitio" data-dismiss="modal">
+               {$L_APP.lbl_cancelar}</button>
+            <button type="button" onclick="filtrarOportunidades();" class="btn btn-primary p_sitio" >
+               <i id="filtrar_oportunidad_esperar" class="fa fa-refresh fa-spin hidden"></i>
+               {$L_APP.lbl_boton_filtrar}</button>
+         </div>
+      </div>
+   </div>    
+</div>

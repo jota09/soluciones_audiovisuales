@@ -1,0 +1,21 @@
+<div class="panel panel-primary col-sm-12">
+       <div class="panel-heading panelRutaTablero"><p class="rutaNombre">{$L_MOD.lbl_ruta_general}<a class="rutaLink">TABLERO GENERAL</a></p></div>
+
+<div class="col-sm-12"> 
+<div class="col-sm-12 no-padding fondoBlanco"><div class="col-sm-11 no-padding"><p class="nombreReporte">{$reporte_name}</p></div><div class="col-sm-1 no-padding alingRight"><i class="fa fa-filter filtro" id="filtro_general_1" aria-hidden="true"></i></div></div>
+<div class="panel col-sm-6 fondoGris">
+    <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_comercial}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}</p></div>
+    <div class="panel-body">
+        <div class="grafica" id="grafica"></div>
+        <div><p class="mesGrafica">Mes {$ventasMes['mes']}</p></div>
+        <div class="col-sm-4 no-padding-right grafica3" id="grafica3">
+        <p class="letraBlanca">Num Ventas</p><p class="numVentas">{$ventasMes['cantidad']}</p></div>
+        <div class="col-sm-7 col-sm-offset-1 no-padding grafica2" id="grafica2">
+           <p class="letraRosa">Valor en Ventas</p><p class="valorVentas">${$ventasMes['total']}</p><p class="diferenciaVentas">${$ventasMes['diferencia']} {if condition="$ventasMes['indicador'] == 'true'"} <i class="fa fa-caret-up indicadorVentasPositivo" aria-hidden="true"></i>{else}<i class="fa fa-caret-down indicadorVentasNegativo" aria-hidden="true"></i>{/if}</p>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{include="modulos/$modulo/modal_filtro_general"}

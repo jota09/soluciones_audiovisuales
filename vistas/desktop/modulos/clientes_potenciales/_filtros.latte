@@ -1,0 +1,52 @@
+<seccion class="content filtros hide filtro">
+   <div class="panel panel-primary">
+      <div class="panel-heading">            
+         filtros
+      </div>
+      <div class="panel-body ">
+         {loop name="$_filtros"}
+         <div class="col-lg-4 marginx5-bottom">
+            <div class="form-group ">
+               <label class="control-label col-lg-3 no-padding" for="f_{$key}">{$value.lbl}</label>
+               <div class="col-lg-9">    
+                  {if condition="$value.tipo == 'txt'"}
+                     <input type="text" class="form-control"  id="f_{$key}">
+                  {/if}
+                  {if condition="$value.tipo == 'fecha'"}
+                     <input type="text" class="form-control fecha"  id="f_{$key}">                            
+                  {/if}
+                  {if condition="$value.tipo == 'sel' || $value.tipo == 'sel_mul' || $value.tipo == 'lm' || $value.tipo == 'lm_mul'"}
+                     <select id="f_{$key}" class="select form-control" {if condition="$value.tipo == 'sel_mul' || $value.tipo == 'lm_mul'"}multiple{/if} >
+                        {if condition="$value.tipo != 'lm_mul' && $value.tipo != 'sel_mul'"}
+                           <option value=""> Todos </option>
+                        {/if}
+                        {loop name="$value.opciones"}
+                        <option value="{$key}" >{$value}</option>                                
+                        {/loop}
+                     </select>                            
+                  {/if}
+                  {if condition="$value.tipo == 'relacionado_mul' || $value.tipo == 'relacionado'"}
+                     <select id="f_{$key}" class="select form-control" {if condition="$value.tipo == 'relacionado_mul'"}multiple{/if} >
+                        {if condition="$value.tipo != 'relacionado_mul'"}
+                           <option value=""> Todos </option>
+                        {/if}
+                        {loop name="$value.opciones"}
+                        <option value="{$value.id}" >{$value.label}</option>                                
+                        {/loop}
+                     </select>                            
+                  {/if}
+               </div>                    
+            </div>
+         </div>
+         {/loop}
+         <div class="col-lg-4 marginx5-bottom">
+            <div class="form-group ">
+               <label class="control-label col-lg-3 no-padding" for="f_15">{$L_MOD.lbl_e_mail}</label>
+               <div class="col-lg-9">
+                  <input type="text" class="form-control"  id="f_15">
+               </div> 
+            </div> 
+         </div> 
+      </div>  
+   </div>
+</seccion>       

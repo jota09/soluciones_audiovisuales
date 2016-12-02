@@ -1,0 +1,30 @@
+global: 
+    objetoBD: convenio
+filtros: 
+    estado_servicio_id:
+        tipo: lm_mul
+        lbl: lbl_estado_servicio_filtro
+        lista_maestra: estado_servicio
+        general: true
+    linea_id:
+        tipo: lm_mul
+        lbl: lbl_linea_filtro
+        lista_maestra: linea
+        general: true
+    tipo_servicio_id:
+        tipo: lm_mul
+        lbl: lbl_tipo_servicio_filtro
+        lista_maestra: tipo_servicio
+        general: true
+    responsable_id: 
+        tipo: relacionado_mul
+        tabla_db: usuario
+        lbl: lbl_responsable_filtro
+        select_consulta: CONCAT(nombres," ",apellidos)
+        condicional_consulta: ''
+    cuenta_id: 
+        tipo: relacionado_mul
+        tabla_db: cuenta
+        lbl: lbl_cuenta_filtro
+        select_consulta: IFNULL(nombres,nombre_comercial)
+        condicional_consulta: ''

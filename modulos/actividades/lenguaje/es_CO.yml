@@ -1,0 +1,34 @@
+modulo: 'Actividades '
+#Actividad
+lbl_nombre: Referencia
+lbl_nombre2: Nombre
+lbl_fecha_inicio: Fecha Inicio
+lbl_fecha_fin: Fecha Fin
+lbl_tipo: Tipo
+lbl_tipo_actividad: Tipo Actividad
+lbl_tipo_act: Tipo Actividad
+lbl_prioridad: Prioridad
+lbl_estado: Estado
+lbl_duracion: Duraci&oacute;n
+lbl_lugar: Lugar
+lbl_descripcion: Descripci&oacute;n
+lbl_tipo_llamada: Tipo Llamada
+lbl_relacionado: Modulo Relacionado
+lbl_relacionado_con: Registro Relacionado
+lbl_aviso: Aviso?
+lbl_invitados: Invitados
+lbl_invitado: Nombre Invitado
+lbl_contacto: Contacto
+lbl_Tarea: Detalles de la Tarea
+lbl_Llamada: Detalles de la Llamada
+lbl_Reunion: Detalles de la Visita
+lbl_descripcion_comercial: Comercial
+lbl_modulo_actividad: Modulo Invitado
+lbl_nombre_actividad: Nombre Invitado
+lbl_email_actividad: Email Invitado
+lbl_agregar_invitado: Agregar Invitado
+lbl_si: 'Sí'
+lbl_no: 'No'
+lbl_usuario: Usuario
+lbl_estado_tarea: Estado Tarea
+lbl_fecha_creacion: Fecha Creación

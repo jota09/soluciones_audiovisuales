@@ -1,0 +1,22 @@
+global:
+  objetoBD: lista_maestra
+filtros:
+    nombre: 
+        tipo: txt
+        lbl: lbl_nombre   
+    etiqueta: 
+        tipo: txt
+        lbl: lbl_etiqueta    
+    modulo_id: 
+        tipo: relacionado_mul
+        tabla_db: modulo
+        lbl: lbl_sel_modulo
+        select_consulta: nombre
+        condicional_consulta: ''
+    general:
+        tipo: sel
+        lbl: lbl_general
+        opciones:
+            0:  lbl_general_no
+            1:  lbl_general_si
+            

@@ -1,0 +1,14 @@
+id: ID
+nombre: Ciudad
+departamento_id: Departamento
+pais_nombre: Pais
+activo: Activo
+
+lbl_editar_pais_id: Pais
+sel_pais_id: Selecciona el pais
+
+lbl_editar_departamento_id: Departamento
+sel_departamento_id: Selecciona el departamento
+
+lbl_editar_nombre: Nombre
+phl_txt_nombre: Escribe el nombre de la ciudad

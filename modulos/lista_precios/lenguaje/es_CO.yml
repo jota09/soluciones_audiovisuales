@@ -1,0 +1,21 @@
+modulo: "Lista de Precios "
+lbl_tit_crear: 'Crear'
+lbl_tit_actualizar: 'Actualizar'
+
+lbl_tipo: 'Tipo:<span class="text-danger">*</span>'
+lbl_cuenta: 'Cuenta:<span class="text-danger">*</span>'
+lbl_clasificacion_cliente: 'Clasificación Cliente:<span class="text-danger">*</span>'
+lbl_referencia: 'Referencia:<span class="text-danger">*</span>'
+lbl_fecha_inicio: 'Fecha Inicio:<span class="text-danger">*</span>'
+lbl_fecha_fin: 'Fecha Fin:<span class="text-danger">*</span>'
+lbl_estado: 'Estado:'
+lbl_descripcion: "Descripción:"
+
+# PRECIO
+lbl_panel_precio: 'Precios'
+lbl_agregar_producto: 'Agregar Producto'
+lbl_codigo: 'Código'
+lbl_categoria: 'Categoria'
+lbl_referencia_pnl: 'Referencia'
+lbl_precio: 'Precio'
+

@@ -1,0 +1,94 @@
+aplicacion:
+    titulo: Soluciones Audiovisuales
+    lenguaje: es_CO
+    debug: ''
+    tpl_ext: 'latte'
+    salthash: '[*]n1c3crm%&_'
+    modulo_predeterminado: home
+    accion_predeterminado: inicio
+    listado_ajax: 1
+    bd:
+        driver: 'mysql'
+        servidor: 'localhost'
+        usuario: 'root'
+        contrasenia: 'toor'
+        base_datos: 'nicecrm_soluciones_audiovisiales'
+        puerto: '3306'
+        charset: 'utf8'
+        collation: 'utf8_general_ci'
+        prefix: ''
+    upload:
+        size: 15728640
+        directorio: uploads/
+        ruta_directorio_upload: cache/upload/
+    smtp:
+        host: 'host220.hostmonster.com'
+        puerto: 26
+        usuario: 'pruebas@soluciones360grados.com'
+        contrasenia: 'VUhKMU0ySTBjek0yTUE9PQ=='
+        from: 'pruebas@soluciones360grados.com'
+        fromName: 'Soluciones Audiovisuales'
+        timeout: 300
+        seguridad: ''
+    acceso_libre:
+        usuarios:
+            autenticar
+            logout
+        home:
+            default
+    captacion:
+        ganada: 168
+    responsive:
+        activado: '1'
+        autodetectar: '1'
+        url: 'm.fripet.com'
+        dir_tablet: 'desktop'
+        dir_celular: 'desktop'
+        dir_desktop: 'desktop'
+    relaciones:
+        lm_documentos_id: 19
+        lm_actividades_id: 1
+        documentos:
+            Clientes:
+                id: 12
+                tabla: cliente
+            Contactos:
+                id: 22
+                tabla: contacto
+            Oportunidades:
+                id: 5
+                tabla: oportunidad
+            Cotización:
+                id: 23
+                tabla: cotizacion
+        actividades:
+            Convevios:
+                id: 29
+                tabla: convenio
+                select: " id as ref_id, concat(id, ' - ', tipo_servicio_str) as ref "
+            Casos:
+                id: 14
+                tabla: caso
+                select: " id as ref_id, asunto as ref "
+            Cuentas:
+                id: 12
+                tabla: cuenta
+                select: " id as ref_id, TRIM(CONCAT(IFNULL(cuenta.nombres,cuenta.nombre_comercial),' ',IFNULL(cuenta.apellidos,' '))) as ref "
+            Contactos:
+                id: 22
+                tabla: contacto
+                select: " id as ref_id, CONCAT(contacto.nombres,' ', contacto.apellidos) as ref "
+            Clientes Potenciales:
+                id: 7
+                tabla: cliente_potencial
+                select: " id as ref_id, TRIM(CONCAT(cliente_potencial.nombres,' ',cliente_potencial.apellidos)) as ref "
+            Oportunidades:
+                id: 5
+                tabla: oportunidad
+                select: " id as ref_id, referencia as ref "
+            Servicios:
+                id: 30
+                tabla: servicio
+                select: " id as ref_id, concat(id, ' - ', tipo_servicio_str) as ref "
+
+

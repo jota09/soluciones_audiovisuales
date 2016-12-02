@@ -1,0 +1,221 @@
+<!-- Modal Comercial filtro_general_2-->
+<form id="form_filtro_general_2" enctype="multipart/form-data" method="POST" onsubmit="return false">
+<div class="modal fade" id="modal_filtro_general_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Filtro Tablero Comercial</h4>
+         </div>
+         <div class="modal-body col-sm-12">
+
+            <div class="col-sm-6 marginBottom15">
+               <div class="form-group">
+                  <label class="control-label col-sm-4" for="fecha_desde">{$L_MOD.lbl_fecha_desde}</label>
+                  <div class="col-sm-7 ">                    
+
+                     <div class="input-group">
+                        <input type="text" class="form-control fecha validate[required]" value="" id="fecha_desde" name="fecha_desde" placeholder="{$L_MOD.phl_txt_fecha_desde}">
+                        <span class="input-group-addon">
+                           <span class="fa fa-calendar"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-6 marginBottom15">
+               <div class="form-group">
+                  <label class="control-label col-sm-4" for="fecha_hasta">{$L_MOD.lbl_fecha_hasta}</label>
+                  <div class="col-sm-7">     
+                     <div class="input-group">
+                        <input type="text" class="form-control fecha validate[required,funcCall[compararFechas[#fecha_desde]]]" value="" id="fecha_hasta" name="fecha_hasta" placeholder="{$L_MOD.phl_txt_fecha_hasta}">
+                        <span class="input-group-addon">
+                           <span class="fa fa-calendar"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-12" id="sliderBootstrap">
+               
+            </div>
+         </div>
+        <div class="clearfix"></div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+            <button type="submit" class="btn btn-primary botonRosado" onclick="filtro_general_2();"><i class="fa fa-filter" aria-hidden="true"></i>
+{$L_MOD.lbl_boton_filtro}</button>
+            <button type="submit" class="btn btn-primary fondoAzul2" onclick="limpiar_filtro_general_2();"><i class="fa fa-eraser" aria-hidden="true"></i>
+{$L_MOD.lbl_limpiar}</button>
+         </div>
+      </div>
+   </div>
+</div>
+</form>
+<!-- Modal Comercial filtro_comercial_venta-->
+<form id="form_filtro_comercial_venta" enctype="multipart/form-data" method="POST" onsubmit="return false">
+<div class="modal fade" id="modal_filtro_comercial_venta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Filtro Ventas</h4>
+         </div>
+         <div class="modal-body col-sm-12">
+
+            <div class="col-sm-6 marginBottom15">
+               <div class="form-group">
+                  <label class="control-label col-sm-4" for="fecha_desde">{$L_MOD.lbl_fecha_desde}</label>
+                  <div class="col-sm-7 ">                    
+
+                     <div class="input-group">
+                        <input type="text" class="form-control fecha validate[required]" value="" id="fecha_desde2" name="fecha_desde" placeholder="{$L_MOD.phl_txt_fecha_desde}">
+                        <span class="input-group-addon">
+                           <span class="fa fa-calendar"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-6 marginBottom15">
+               <div class="form-group">
+                  <label class="control-label col-sm-4" for="fecha_hasta">{$L_MOD.lbl_fecha_hasta}</label>
+                  <div class="col-sm-7">     
+                     <div class="input-group">
+                        <input type="text" class="form-control fecha validate[required,funcCall[compararFechas[#fecha_desde2]]]" value="" id="fecha_hasta2" name="fecha_hasta" placeholder="{$L_MOD.phl_txt_fecha_hasta}">
+                        <span class="input-group-addon">
+                           <span class="fa fa-calendar"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-12" id="sliderBootstrap2">
+               
+            </div>
+         </div>
+        <div class="clearfix"></div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+            <button type="submit" class="btn btn-primary botonRosado" onclick="filtro_comercial_venta();"><i class="fa fa-filter" aria-hidden="true"></i>
+{$L_MOD.lbl_boton_filtro}</button>
+            <button type="submit" class="btn btn-primary fondoAzul2" onclick="limpiar_filtro_comercial_venta();"><i class="fa fa-eraser" aria-hidden="true"></i>
+{$L_MOD.lbl_limpiar}</button>
+         </div>
+      </div>
+   </div>
+</div>
+</form>
+<!-- Modal Comercial filtro_comercial_cotizacion-->
+<form id="form_filtro_comercial_cotizacion" enctype="multipart/form-data" method="POST" onsubmit="return false">
+<div class="modal fade" id="modal_filtro_comercial_cotizacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Filtro Cotizaciones</h4>
+         </div>
+         <div class="modal-body col-sm-12">
+
+            <div class="col-sm-6 marginBottom15">
+               <div class="form-group">
+                  <label class="control-label col-sm-4" for="fecha_desde">{$L_MOD.lbl_fecha_desde}</label>
+                  <div class="col-sm-7 ">                    
+
+                     <div class="input-group">
+                        <input type="text" class="form-control fecha validate[required]" value="" id="fecha_desde3" name="fecha_desde" placeholder="{$L_MOD.phl_txt_fecha_desde}">
+                        <span class="input-group-addon">
+                           <span class="fa fa-calendar"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-6 marginBottom15">
+               <div class="form-group">
+                  <label class="control-label col-sm-4" for="fecha_hasta">{$L_MOD.lbl_fecha_hasta}</label>
+                  <div class="col-sm-7">     
+                     <div class="input-group">
+                        <input type="text" class="form-control fecha validate[required,funcCall[compararFechas[#fecha_desde3]]]" value="" id="fecha_hasta3" name="fecha_hasta" placeholder="{$L_MOD.phl_txt_fecha_hasta}">
+                        <span class="input-group-addon">
+                           <span class="fa fa-calendar"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-12" id="sliderBootstrap3">
+               
+            </div>
+         </div>
+        <div class="clearfix"></div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+            <button type="submit" class="btn btn-primary botonRosado" onclick="filtro_comercial_cotizacion();"><i class="fa fa-filter" aria-hidden="true"></i>
+{$L_MOD.lbl_boton_filtro}</button>
+            <button type="submit" class="btn btn-primary fondoAzul2" onclick="limpiar_filtro_comercial_cotizacion();"><i class="fa fa-eraser" aria-hidden="true"></i>
+{$L_MOD.lbl_limpiar}</button>
+         </div>
+      </div>
+   </div>
+</div>
+</form>
+<!-- Modal Comercial filtro_comercial_servicio-->
+<form id="form_filtro_comercial_servicio" enctype="multipart/form-data" method="POST" onsubmit="return false">
+<div class="modal fade" id="modal_filtro_comercial_servicio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Filtro Servicios</h4>
+         </div>
+         <div class="modal-body col-sm-12">
+
+            <div class="col-sm-6 marginBottom15">
+               <div class="form-group">
+                  <label class="control-label col-sm-4" for="fecha_desde">{$L_MOD.lbl_fecha_desde}</label>
+                  <div class="col-sm-7 ">                    
+
+                     <div class="input-group">
+                        <input type="text" class="form-control fecha validate[required]" value="" id="fecha_desde4" name="fecha_desde" placeholder="{$L_MOD.phl_txt_fecha_desde}">
+                        <span class="input-group-addon">
+                           <span class="fa fa-calendar"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-6 marginBottom15">
+               <div class="form-group">
+                  <label class="control-label col-sm-4" for="fecha_hasta">{$L_MOD.lbl_fecha_hasta}</label>
+                  <div class="col-sm-7">     
+                     <div class="input-group">
+                        <input type="text" class="form-control fecha validate[required,funcCall[compararFechas[#fecha_desde4]]]" value="" id="fecha_hasta4" name="fecha_hasta" placeholder="{$L_MOD.phl_txt_fecha_hasta}">
+                        <span class="input-group-addon">
+                           <span class="fa fa-calendar"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-12" id="sliderBootstrap4">
+               
+            </div>
+         </div>
+        <div class="clearfix"></div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+            <button type="submit" class="btn btn-primary botonRosado" onclick="filtro_comercial_servicio();"><i class="fa fa-filter" aria-hidden="true"></i>
+{$L_MOD.lbl_boton_filtro}</button>
+            <button type="submit" class="btn btn-primary fondoAzul2" onclick="limpiar_filtro_comercial_servicio();"><i class="fa fa-eraser" aria-hidden="true"></i>
+{$L_MOD.lbl_limpiar}</button>
+         </div>
+      </div>
+   </div>
+</div>
+</form>
+<!-- Modal ends Here -->

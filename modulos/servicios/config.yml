@@ -1,0 +1,25 @@
+global: 
+    objetoBD: servicio
+filtros: 
+    estado_servicio_id:
+        tipo: lm_mul
+        lbl: lbl_estado
+        lista_maestra: estado_servicio
+        general: true
+    modalidad_cobro_id:
+        tipo: lm_mul
+        lbl: lbl_modalidad_cobro
+        lista_maestra: modalidad_cobro
+        general: true
+    periodo_cobro_id:
+        tipo: lm_mul
+        lbl: lbl_periodo_cobro
+        lista_maestra: periodo_cobro
+        general: true
+    responsable_id: 
+        tipo: relacionado_mul
+        tabla_db: usuario
+        lbl: lbl_responsable
+        select_consulta: CONCAT(nombres," ",apellidos)
+        condicional_consulta: ''
+    

@@ -1,0 +1,12 @@
+modulo: calendario
+
+lbl_nueva_actividad: Nueva Actividad
+lbl_editar_actividad: Editar Actividad
+lbl_nombre_actividad: 'Nombre:<span class="text-danger">*</span> '
+lbl_fecha_inicio: 'Fecha Inicio:<span class="text-danger">*</span>'
+lbl_fecha_fin: 'Fecha Fin:<span class="text-danger">*</span>'
+
+lbl_confirmacion: "¿Esta Seguro de Mover la Actividad?"
+lbl_confirmacion_hora: "¿Esta Seguro de cambiar la Hora de la Actividad?"
+
+lbl_usuario: Usuario

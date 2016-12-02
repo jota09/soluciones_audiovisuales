@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>{$title}</title> 
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <link type="text/css" href="base/librerias/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+      <link type="text/css" href="base/librerias/css/font-awesome/font-awesome.min.css" rel="stylesheet">
+      <link type="text/css" href="base/librerias/css/datepicker/datepicker.css" rel="stylesheet">
+      <link type="text/css" href="librerias/css/bootstrap-slider.css" rel="stylesheet">
+      <link type="text/css" href="assets/css/general/global.css" rel="stylesheet">
+      <link type="image/png" href="assets/img/general/shorcut.png" rel="shortcut icon"/>
+      <link type="text/css" href="librerias/css/validation_engine/validationEngine.jquery.css" rel="stylesheet">
+      <link type="text/css" href="librerias/js/jqueryui/jquery-ui.min.css" rel="stylesheet">
+
+      {if condition="isset($estilos) && count($estilos) > 0"}
+         {loop name="$estilos"}
+         <link type="text/css" href="{$value}" rel="stylesheet">
+         {/loop}
+      {/if}
+
+      {noparse}
+      <script type="text/javascript">
+       s3vars = {/noparse}{$S3VARS}{noparse};
+      </script>
+      {/noparse}
+
+      <script type="text/javascript" src="base/librerias/js/jquery/jquery.min.js"></script>
+      <script type="text/javascript" src="base/librerias/js/bootstrap/bootstrap.min.js"></script>
+      <script type="text/javascript" src="assets/js/general/jquery-ui/jquery-ui.min.js"></script> 
+      <script type="text/javascript" src="base/librerias/js/datepicker/bootstrap-datepicker.js"></script>
+      <script type="text/javascript" src="librerias/js/jquery.number.js"></script>
+
+      <script type="text/javascript" src="assets/js/general/global.js"></script>
+      <script type="text/javascript" src="assets/js/general/formActvidad.js"></script>
+      <script type="text/javascript" src="librerias/js/bootbox.js"></script>
+      <script type="text/javascript" src="librerias/js/bootstrap-slider.js"></script>
+      <script type="text/javascript" src="librerias/js/validation_engine/js/jquery.validationEngine.js"></script>
+      <script type="text/javascript" src="librerias/js/validation_engine/js/languages/jquery.validationEngine-es.js"></script>
+      {if condition="isset($scripts) && count($scripts) > 0"}
+         {loop name="$scripts"}
+         <script type="text/javascript" src="{$value}"></script>
+         {/loop}
+      {/if}
+   </head>
+   <body>
+
+      <section class="content-header" style="margin-top: 8px;">
+         <div class="col-sm-12 no-padding">
+            <div class="col-sm-9 no-padding">
+               <a href="index.php">
+                  <img  id="logo-inicial" src="assets/img/general/logo.png" class="img-responsive" alt="{$title}">
+               </a>
+            </div>
+
+            <div class="col-sm-3 no-padding " style="padding-top: 5px;">
+          <ul class="list-unstyled user-info "> <!-- Profile Info --> 
+            <li class="profile-info dropdown "><!-- add class "pull-right" if you want to place this from right -->
+              <a data-toggle="dropdown" class="dropdown-toggle " href="#"> 
+                 <input type="hidden" id="usuarioIdSession" value="{$usuario->getId()}" />
+                <img width="60" class="img-rounded" alt="{$usuario->getNombreCompleto()}" src="uploads/img_usuario/{$usuario->getAvatar()}">
+                <small>{$L_APP.lbl_bienvendio}</small> <br />{$usuario->getNombreCompleto()}
+              </a> 
+              <ul class="dropdown-menu pull-left"> <!-- Reverse Caret --> 
+                <!-- Profile sub-links --> 
+                <li><a href="index.php?modulo=usuarios&accion=editar&registro={$usuario->getId()}"><i class="fa fa-user"> </i> {$L_APP.lbl_perfil}</a></li>
+                <li><a href="index.php?modulo=usuarios&accion=logout"><i class="fa fa-sign-out"> </i>{$L_APP.lbl_salir}</a><li>
+              </ul> 
+            </li> 
+          </ul>
+        </div>
+         </div>
+         <div class='clearfix'></div>
+         <!-- MENU -->
+         <div class="navbar navbar-inverse">
+            <div class="container no-padding">
+               <div class="navbar-header">
+                  <a href="index.php" class="navbar-brand">Inicio</a>
+                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                  </button>
+               </div>
+               <div class="navbar-collapse collapse" id="navbar-main">
+                  <ul class="nav navbar-nav">
+                     {if condition="!empty($menu)"}
+                        {include="$menu"}
+                     {/if}
+                  </ul>
+               </div>
+            </div>
+         </div>
+
+         <div class="clearfix"></div>
+         <!-- END MENU -->
+
+
+      </section>  
+      {if condition="$accion == 'editar' "}
+         <div class="container no-padding">
+            <!-- breadcrumb -->
+            <ol class="breadcrumb">
+               {if condition="$modulo!='home'"}<li><a href="index.php"> Inicio</a></li>{/if}
+               <li class="active">{if condition="empty($L_MOD.modulo)"}{$modulo}{else}{$L_MOD.modulo}{/if}&nbsp; </li>
+            </ol>
+            <!-- END breadcrumb -->
+         </div>
+      {/if}
+      <div class="container {if condition="$accion == 'editar' "}well{/if}">
+
+         {if condition="!empty($contenidoModulo)"}
+            {include="$contenidoModulo"}
+         {/if}
+      </div>
+
+      <footer class="col-sm-12 text-center" style="padding: 20px;">
+         <small>
+            <p>
+               <span class="nCRM_blue"></span><strong >Sistema de Gestión</strong> <br />
+               <span >&copy;</span> <span>Soluciones Audiovisuales - </span> {function="date('Y');"}
+            </p>
+         </small>
+      </footer>
+
+
+
+      <!-- Modal Esperar-->
+      <div class="modal fade bs-example-modal-md" id="Esperar" tabindex="-1"
+           role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+         <div class="modal-dialog modal-dm">
+            <div class="modal-content">
+               <div class="modal-body">
+                  <p>Un momento, por favor.</p>
+                  <span id="add_msg"></span>
+                  <div class="progress">
+                     <div class="progress-bar progress-bar-info
+                          progress-bar-striped active"
+                          style="width: 100%">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Modal ends Here -->
+
+
+
+   </body>
+</html>

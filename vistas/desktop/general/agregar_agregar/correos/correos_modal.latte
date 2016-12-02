@@ -1,0 +1,47 @@
+<script type="text/javascript" src="vistas/desktop/general/agregar_agregar/correos/correos_modal.js"></script>
+
+<div class="col-sm-12 no-padding">  
+   <div class="form-group">
+      <label class="control-label col-sm-2" for="">{$L_APP.lbl_correo}</label>
+      <div class="col-sm-9 no-padding-left"> 
+         <button type="button" id="btn_agregar_correo2"  class="btn btn-default btn-sm "><i class="fa fa-plus"></i></button>
+      </div>
+   </div>  
+</div>  
+
+<div  id='div_agregar_correo'>
+   <div class="col-sm-12">
+      <!--        <div class=" col-sm-1"></div>
+              <div class="col-sm-6 "><label>{*$L_APP.lbl_e_mail*}</label></div>
+              <div class="col-sm-2 text-center"><label>{*$L_APP.lbl_principal*}</label></div>
+              <div class=" col-sm-1"></div>-->
+   </div>
+
+   <div  class="col-sm-9 form-group ">
+      <div class=" col-sm-5"></div>
+      <div class="col-sm-4">        <label>{$L_APP.lbl_e_mail}:</label>   </div>
+      <div class=" col-sm-2 text-center">       <label>{$L_APP.lbl_principal}:</label>    </div>
+      <div class="col-sm-1">        <label></label>      </div>
+   </div>
+
+   <input type="hidden" value="{$bndr = 0}">
+           <div  class="col-sm-12 form-group">
+         <input type="hidden" class="id" name="correo_id[]" value="">
+         <input type="hidden" class="eliminado" name="correo_eliminado[]" value="0">
+         <input type="hidden" class="correo_principal" name="correo_principal[]" value="1">
+         <div class=" col-sm-1"></div>
+         <div class="col-sm-6">
+
+            <input type="email" class="form-control validate[custom[email]]"  id="e_mail" name="e_mail[]" >
+         </div>
+         <div class=" col-sm-1 text-center">
+
+            <input type="radio" class=" chk_correo_principal" checked="checked" name="principal">
+         </div>
+         <div class="col-sm-1">
+
+            <button type="button"  class="btn btn_eliminar_reg_correo btn-default btn-sm center-block"><i class="fa fa-minus"></i></button> 
+         </div>
+      </div>        
+</div>
+

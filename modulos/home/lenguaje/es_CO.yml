@@ -1,0 +1,18 @@
+# MODAL FILTROS
+lbl_filtro_oportunidades: Filtros Oportunidad
+lbl_filtro_actividades: Filtros Actividad
+lbl_desde: Desde
+lbl_hasta: Hasta
+lbl_f_referencia: Nombre
+lbl_f_categoria: Tipo
+lbl_fecha_f_fin: Fecha Fin
+
+lbl_usuario_informar: Informar a
+lbl_tipificacion: Razón
+
+lbl_creacion_exi: Se Ha Creado La Actividad Satisfactoriamente!
+
+lbl_fecha_plazo: Fecha Plazo<span class="text-danger">*</span>
+lbl_filtro_tipo: Tipo
+lbl_etapa: Etapa
+lbl_asignado: Asignado

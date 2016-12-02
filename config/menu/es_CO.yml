@@ -1,0 +1,117 @@
+admin:
+    CLIENTES:
+        submenu:
+            Cuentas:
+                modulo: cuentas
+                accion: listar
+            Contactos:
+                modulo: contactos
+                accion: listar
+            Clientes Potenciales:
+                modulo: clientes_potenciales
+                accion: listar
+    NEGOCIOS:
+        submenu:
+            Productos:
+                modulo: productos
+                accion: listar
+            Lista de Precios:
+                modulo: lista_precios
+                accion: listar
+            Oportunidades:
+                modulo: oportunidades
+                accion: listar
+            Cotizaciones:
+                modulo: cotizaciones
+                accion: listar
+            Convenios:
+                modulo: convenios
+                accion: listar
+            Servicios:
+                modulo: servicios
+                accion: listar
+    ATENCIÓN CLIENTE:
+        submenu:            
+            Casos:
+                modulo: casos
+                accion: listar
+    ACTIVIDADES:
+        submenu:            
+            Calendario:
+                modulo: calendario
+                accion: editar
+            Actividades:
+                modulo: actividades
+                accion: listar
+    REPORTES:
+        submenu:
+            Tablero General:
+                modulo: reportes
+                accion: reporteGeneral
+
+    ADMINISTRACIÓN:
+        submenu:
+            Gestión de Usuarios:
+                modulo: usuarios
+                accion: listar
+            Gestión de Perfiles:
+                modulo: perfiles
+                accion: listar
+            Listas Maestras:
+                modulo: listasmaestras
+                accion: listar        
+            Categorias:
+                modulo: categorias
+                accion: listar
+            Ubicaciones:
+                modulo: ubicaciones
+                accion: listar
+
+default:
+    CLIENTES:
+        submenu:
+            Cuentas:
+                modulo: cuentas
+                accion: listar
+            Contactos:
+                modulo: contactos
+                accion: listar
+            Clientes Potenciales:
+                modulo: clientes_potenciales
+                accion: listar
+    NEGOCIOS:
+        submenu:
+            Productos:
+                modulo: productos
+                accion: listar
+            Lista de Precios:
+                modulo: lista_precios
+                accion: listar
+            Oportunidades:
+                modulo: oportunidades
+                accion: listar
+            Cotizaciones:
+                modulo: cotizaciones
+                accion: listar
+            Convenios:
+                modulo: convenios
+                accion: listar
+            Servicios:
+                modulo: servicios
+                accion: listar
+    ATENCIÓN CLIENTE:
+        submenu:            
+            Casos:
+                modulo: casos
+                accion: listar
+    ACTIVIDADES:
+        submenu:            
+            Calendario:
+                modulo: calendario
+                accion: editar
+    REPORTES:
+        submenu:
+            Tablero General:
+                modulo: reportes
+                accion: listar
+

@@ -1,0 +1,31 @@
+modulo: "Oportunidades "
+lbl_tit_crear: Crear
+lbl_tit_actualizar: Actualizar
+phl_txt_nombre: Nombre Oportunidad
+lbl_nombre: Nombre Negociacón:<span class="text-danger">*</span>
+lbl_relacionado: Relacionado a:<span class="text-danger">*</span>
+lbl_valor: Monto Oportunidad:<span class="text-danger">*</span>
+lbl_etapa: Etapa:<span class="text-danger">*</span>
+lbl_fecha_cierre: Fecha de Cierre:<span class="text-danger">*</span>
+lbl_toma_contacto_id: Toma de Contacto:<span class="text-danger">*</span>
+lbl_descripcion: "Descripción:"
+lbl_asesor_asignado: Asesor Asignado:<span class="text-danger">*</span>
+lbl_linea: Linea:<span class="text-danger">*</span>
+lbl_convenio: Convenio
+lbl_creacion_opp: 'la creación de la oportunidad'
+
+#Actividad
+lbl_nombre_actividad: Actividad
+lbl_fecha_inicio: Fecha Inicio
+lbl_fecha_fin: Fecha Fin
+
+lbl_datos_neg: Datos Negociación
+lbl_referencia: 'Referencia: <span class="text-danger">*</span>'
+lbl_cuenta: 'Cuenta:<span class="text-danger">*</span>'
+lbl_campanna: 'Campaña: '
+lbl_cargo: Cargo 
+lbl_numero_documento: Número Documento
+lbl_dir: Dirección
+lbl_contradictor: 'Contradictor'
+
+

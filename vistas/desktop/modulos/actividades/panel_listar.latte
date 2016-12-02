@@ -1,0 +1,24 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">Actividades</div>
+  <div class="panel-body">
+    <table class="table table-striped" id="tablaActividades" name="tablaActividades">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha Inicial</th><th>Hora Inicial</th>
+          <th>Fecha Fin</th><th>Hora Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        {loop name="$listarActividad"}
+        <tr>
+          <td>{$value.nombre}</td>
+          <td>{$value.fecha_inicio}</td><td>{$value.hora_inicio} {$value.meridiano_inicio}</td>
+          
+          <td>{$value.fecha_fin}</td>          <td>{$value.hora_fin} {$value.meridiano_fin}</td>
+        </tr>
+        {/loop}
+      </tbody>
+    </table>    
+  </div>
+</div>

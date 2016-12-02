@@ -1,0 +1,40 @@
+global:
+  objetoBD: usuario
+# Implementación de filtros 
+#       se debe tener en cuanta que los nombres
+#       de cada una de las llaves de array son los name de BD del modulo)
+# 
+# Tipos de filtro
+#      txt: Campo abierto
+#      sel: Lista de seleccion
+#      fecha: Si es campo es fecha
+#      sel_mul: Lista de seleccion multiple
+#      lm: Lista de Maestra  #nombre etiqueta de  la lista maestra
+#      lm_mul: Lista de Maestra multiple
+#
+# Los lbl del filtro se obtienen del archivo de lenguaje de modulo
+filtros:
+    numero_documento: 
+        tipo: txt
+        lbl: documento
+    nombres: 
+        tipo: txt
+        lbl: nombre
+    apellidos: 
+        tipo: txt
+        lbl: apellido
+    fecha_creacion: 
+        tipo: fecha
+        lbl: fecha_creacion
+    administrador:
+        tipo: sel
+        lbl: administrador
+        opciones:        
+            1:  lbl_si
+            0:  lbl_no
+    activo:
+        tipo: sel
+        lbl: activo
+        opciones:        
+            1:  lbl_si
+            0:  lbl_no

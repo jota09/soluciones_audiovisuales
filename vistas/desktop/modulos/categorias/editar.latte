@@ -1,0 +1,64 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">{$L_APP.lbl_datos_basicos}</div>
+  <div class="panel-body">
+    <div class="col-sm-6 ">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="referencia">{$L_MOD.lbl_referencia}</label>
+        <div class="col-sm-8 editar_js">                    
+          <input type="text" class="form-control validate[required]" value="{$registro.referencia}" id="referencia" name="referencia" placeholder="{$L_MOD.phl_txt_referencia}">
+        </div>
+         <label class="control-label col-sm-8 ver_js" >{$registro.referencia}</label>
+      </div>
+    </div>
+    <div class="col-sm-6 ">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="estado_id">{$L_MOD.lbl_estado}</label>
+        <div class="col-sm-8 editar_js">                    
+          <select class="form-control validate[required]" id="estado_id" name="estado_id">
+            {loop name="$listasG.estado"}
+            <option value="{$value.id}" {if condition=" $registro.estado_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+        {loop name="$listasG.estado"}
+        {if condition="$registro.estado_id == $value.id"}
+          <label class="control-label col-sm-8 ver_js" >{$value.nombre}</label>
+        {/if}
+        {/loop}
+      </div>
+    </div>
+    <div class="clearfix"></div>  
+
+    <div class="col-sm-6 ">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="categoria_padre_id">{$L_MOD.lbl_categoria}</label>
+        <div class="col-sm-8 editar_js">                    
+          <select class="form-control" id="categoria_padre_id" name="categoria_padre_id">
+            <option value="">{$L_APP.lbl_select}</option>
+            {loop name="$categoria"}
+            <option value="{$value.id}" {if condition=" $registro.categoria_padre_id == $value.id"}selected="selected"{/if}>{$value.categoria_padre}</option>
+            {/loop}
+          </select>
+        </div>
+        {loop name="$categoria"}
+        {if condition="$registro.categoria_padre_id == $value.id"}
+          <label class="control-label col-sm-8 ver_js" >{$value.categoria_padre}</label>
+        {/if}
+        {/loop}
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="col-sm-6 ">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="descripcion">{$L_MOD.lbl_descripcion}</label>
+        <div class="col-sm-8 editar_js">      
+          <textarea class="form-control" id="descripcion" name="descripcion" rows="6">{$registro.descripcion}</textarea>
+        </div>
+         <label class="control-label col-sm-8 ver_js" >{$registro.descripcion}</label>
+      </div>
+    </div>
+    <div class="col-sm-6 "></div>
+    <div class="clearfix"></div>
+  </div>
+</div>

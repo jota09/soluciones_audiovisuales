@@ -1,0 +1,66 @@
+lbl_tit_crear: Crear
+lbl_tit_actualizar: Actualizar
+modulo: Contacto 
+
+id: ID
+
+nombres: Nombres y Apellidos
+num_documento: 'Número Documento:'
+ciudad_id: Ciudad
+direccion: Direccion
+activo: Activo
+competencias: '&iquest;Competencias&quest;'
+
+phl_txt_ubicacion_nombre: 'Escriba Su ubicación (ej: Colombia - Bogotá - Chapinero)'
+
+lbl_nombres: 'Nombres:<span class="text-danger">*</span>'
+phl_txt_nombres: Escribe tus Nombres
+
+
+
+lbl_apellidos: 'Apellidos:<span class="text-danger">*</span>'
+phl_txt_apellidos: Escribe tus Apellidos
+
+lbl_tel: 'Teléfono:<span class="text-danger">*</span>'
+lbl_numero_tel: Número
+lbl_tipo_tel: Tipo Teléfono
+
+lbl_direccion: 'Dirección:'
+lbl_dir: Dirección
+
+lbl_correo: 'Correo Electrónico:<span class="text-danger">*</span>'
+lbl_e_mail: E-mail
+lbl_principal: Principal
+
+lbl_asesor_asignado: 'Asesor Asignado:<span class="text-danger">*</span>'
+lbl_descripcion: 'Descripción:'
+lbl_editar_competencias: '&iquest;Competencias&quest;'
+phl_txt_competencias: 'Seleccionar'
+
+lbl_direccion_web: 'Direccion Web:'
+phl_txt_direccion_web: 'http://www.misitio.com'
+sel_competencia_si: Si
+sel_competencia_no: 'No'
+
+lbl_editar_configuracion: 'Configuraci&oacute;n'
+
+lbl_estado: 'Estado:<span class="text-danger">*</span>'
+
+lbl_cargo: Cargo
+
+lbl_toma_contacto_id: Toma de Contacto
+lb_toma_contacto_id: 'Toma de Contacto: <span class="text-danger">*</span>'
+lbl_descripcion_estado: Descripci&oacute;n Estado
+lbl_descripcion_toma_contacto: Descripci&oacute;n toma de Contacto
+lbl_clasificacion: 'Clasificaci&oacute;n:<span class="text-danger">*</span>'
+lbl_referido: 'Referido por:'
+
+lbl_cuenta: 'Cuenta:<span class="text-danger">*</span>'
+lbl_informa_a: 'Informa a:'
+lbl_departamento: 'Departamento: '
+lbl_fecha_nacimiento: 'Fecha de Cumpleaños: '
+lbl_edad: 'Edad: '
+lbl_numero_documento: 'Número Documento:<span class="text-danger">*</span>'
+lbl_telefono: Teléfono
+lbl_tiempo_transcurrido_contac: 'la última actividad con este contacto'
+lbl_fecha_cierre: 'Fecha de Cierre:<span class="text-danger">*</span>'

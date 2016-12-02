@@ -1,0 +1,103 @@
+<!-- Datos Basicos-->
+<div class="panel panel-primary" id="datos_basicos">
+    <div class="panel-heading">{$L_MOD.lbl_buscador}</div>
+    <div class="panel-body">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-3" >{$L_MOD.lbl_titulo}</label>
+                <div   class="col-md-9">
+                    <input type="text" class="form-control" id="titulo" name="titulo" value="" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-3" >{$L_APP.lbl_ubicacion}</label>
+                <div   class="col-md-9">
+                    <input type="text" class="form-control" id="ubicacion" name="ubicacion" value="" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-3" >{$L_MOD.lbl_tab_direccion}</label>
+                <div   class="col-md-9">
+                    <input type="text" class="form-control" id="direccion" name="direccion" value="" />
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-3" >{$L_MOD.lbl_valor}</label>
+                <div   class="col-md-9">
+                    <input type="text" class="form-control number" id="valor" name="valor" value="" />
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="control-label col-lg-3" for="bano_servicio_id">{$L_MOD.lbl_bano_servicio}</label>
+                <div class="col-lg-9">                    
+                    <select class="form-control" id="bano_servicio_id" name="bano_servicio_id">
+                        {loop name="$listasG.si_no_o"}
+                        <option value="{$value.id}" {if condition="$registro.bano_servicio_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                        {/loop}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label class="control-label col-lg-3" for="terraza_patio_id">{$L_MOD.lbl_terraza_patio}</label>
+                <div class="col-lg-9">                    
+                    <select class="form-control" id="terraza_patio_id" name="terraza_patio_id">
+                        {loop name="$listasG.si_no_o"}
+                        <option value="{$value.id}" {if condition="$registro.terraza_patio_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                        {/loop}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-4 ">
+            <div class="form-group">
+                <label class="control-label col-md-3" >{$L_MOD.lbl_area}</label>
+                <div   class="col-md-9">
+                    <input type="text" class="form-control range-slider" id="area" name="area" value="" data-slider-min="10" data-slider-max="1500" data-slider-step="10" data-slider-value="[50,950]"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="form-group">
+                <label class="control-label col-md-3" >{$L_MOD.lbl_banos}</label>
+                <div   class="col-md-9">
+                    <input type="text" class="form-control range-slider" id="banios" name=banios" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="[0,5]"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="form-group">
+                <label class="control-label col-md-3" >{$L_MOD.lbl_alcobas2}</label>
+                <div   class="col-md-9">
+                    <input type="text" class="form-control range-slider" id="habitaciones" name="habitaciones" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="[0,5]"/>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-4 ">
+            <div class="form-group">
+                <label class="control-label col-md-3" >{$L_MOD.lbl_parqueadero}</label>
+                <div   class="col-md-9">
+                    <input type="text" class="form-control range-slider" id="parqueaderos" name="parqueaderos" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="[0,5]"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="panel-footer text-right">
+        <button type="reset" id="btn_limpiar" class="btn btn-primary"><i class="fa fa-trash"> </i> {$L_APP.lbl_btn_limpiar}</button>
+        <button type="button" id="btn_consultar" class="btn btn-primary"><i class="fa fa-search"> </i> {$L_APP.lbl_btn_consultar}</button>
+    </div>
+</div>

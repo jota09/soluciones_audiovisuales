@@ -1,0 +1,26 @@
+modulo: 'Casos '
+lbl_info_general: Información General
+lbl_tit_crear: Crear
+lbl_tit_actualizar: Actualizar
+
+lbl_cuenta: Cuenta<span class="text-danger">*</span>
+lbl_prioridad: Prioridad<span class="text-danger">*</span>
+lbl_numero: Número
+lbl_estado: 'Estado:<span class="text-danger">*</span>'
+lbl_tipo: 'Tipo:<span class="text-danger">*</span>'
+lbl_asunto: 'Asunto:<span class="text-danger">*</span>'
+lbl_invertido: 'Tiempo Invertido:'
+lbl_invertido_resp: '<i>Sin horas acumuladas</i>'
+lbl_descripcion: Descripción
+lbl_origen: 'Origen:<span class="text-danger">*</span>'
+lbl_resolucion: Resolución
+lbl_asesor_asignado: Asesor Asignado<span class="text-danger">*</span>
+lbl_servicio: Servicio
+lbl_tiempo_transcurrido: 'Tiempo transcurrido desde la creación del caso' 
+
+#Actividad
+lbl_nombre_actividad: Actividad
+lbl_fecha_inicio: Fecha Inicio
+lbl_fecha_fin: Fecha Fin
+
+lbl_comercial: Responsable

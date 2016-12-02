@@ -1,0 +1,51 @@
+#TABLERO GENERAL
+lbl_ruta_general: "INICIO / REPORTES / "
+lbl_comercial: "Comercial"
+lbl_cifra_miles: "*Cifra expresada en miles"
+
+#TABLERO COMERCIAL
+lbl_venta: "Ventas"
+lbl_venta_linea: "Ventas por Línea de Negocio"
+lbl_cotizacion_linea: "Cotizaciones por Línea de Negocio"
+lbl_servicio_linea: "Servicios por Línea de Negocio"
+lbl_linea: "Línea de Negocio"
+lbl_cotizacion: "Cotizaciones"
+lbl_servicio: "Servicios"
+lbl_cotizacion_linea: "Cotizaciones por Línea de Negocio"
+lbl_valor: "Valor"
+
+#TABLERO VENTA
+lbl_venta_mensual: "Ventas Mensuales"
+lbl_linea_negocio: "Líneas de Negocio"
+lbl_vendedores: "Vendedores"
+lbl_top_clientes: "Top Clientes"
+lbl_sector: "Sector"
+lbl_operativo: "Servicios Operativos"
+
+#TABLERO COTIZACION
+lbl_cotizacion_etapa: "Cotizaciones por Etapa"
+lbl_vendedores: "Vendedores"
+lbl_sector: "Sector"
+lbl_cotizacion_mes: "Cotizaciones por Etapa"
+
+#TABLERO SERVICIO
+lbl_ingreso_servicio: "Ingresos por Servicio"
+lbl_vendedores: "Vendedores"
+lbl_servicio_estado: "Servicios por Estado"
+
+#MODAL'S
+lbl_fecha_desde: "Fecha <br>Desde:"
+lbl_fecha_desde2: "Fecha <br>Desde:"
+phl_txt_fecha_desde: "Limite Inferior de Fecha"
+lbl_fecha_hasta: "Fecha <br>Hasta:"
+phl_txt_fecha_hasta: "Limite Superior de Fecha"
+lbl_rango_desde: "Rango de Valor Inicial:"
+phl_txt_rango_desde: "Valor Inferior en Miles"
+lbl_rango_hasta: "Rango de Valor Superior:"
+lbl_rango: "Rango de Valores <small>(en miles)</small>:"
+phl_txt_rango_hasta: "Valor Superior en Miles"
+lbl_boton_filtro: "Filtrar"
+lbl_limpiar: "Limpiar"
+
+
+

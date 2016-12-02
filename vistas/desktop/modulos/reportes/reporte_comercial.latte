@@ -1,0 +1,136 @@
+<div class="panel panel-primary col-sm-12">
+       <div class="panel-heading panelRutaTablero"><p class="rutaNombre">{$L_MOD.lbl_ruta_general}<a class="rutaLink" id="redir_reporte_general">TABLERO GENERAL</a> / <a class="rutaLink">TABLERO COMERCIAL</a></p></div>
+
+<div class="col-sm-12"> 
+<div class="col-sm-12 no-padding fondoBlanco"><div class="col-sm-11 no-padding"><p class="nombreReporte">{$reporte_name}</p></div><div class="col-sm-1 no-padding alingRight"><i class="fa fa-filter filtro" id="filtro_general_2" aria-hidden="true"></i></i></div></div>
+<div class="panel col-sm-12 fondoGris">
+    <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_venta} {$ventasMes['mes']}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_comercial_venta" aria-hidden="true"></i></p></div>
+    <div class="panel-body col-sm-7 no-padding">
+        <div class="col-sm-12 grafica4" id="grafica4"></div>
+        <div><p class="mesGraficaOculto">Mes </p></div>
+        <div class="col-sm-3 no-padding-right grafica5" id="grafica5">
+        <p class="letraBlanca">Num Ventas</p><p class="numVentas">{$ventasMes['cantidad']}</p></div>
+        <div class="col-sm-9 no-padding grafica2 marginBottom15" id="grafica6">
+           <p class="letraAzulOscuro">Valor en Ventas</p><p class="valorVentas">${$ventasMes['total']}</p><p class="diferenciaVentas">${$ventasMes['diferencia']} {if condition="$ventasMes['indicador'] == 'true'"} <i class="fa fa-caret-up indicadorVentasPositivo" aria-hidden="true"></i>{else}<i class="fa fa-caret-down indicadorVentasNegativo" aria-hidden="true"></i>{/if}</p>
+
+        </div>
+    </div>
+    <div class="panel-body col-sm-5">
+        <div class="lineaNegocio"><p class="ventaLetraAzulOscuro">{$L_MOD.lbl_venta_linea}</p>
+           <div class="table-responsive">
+           <table class="table tablaLinea">
+              <thead>
+                 <tr>
+                 <th><p class="text-center">{$L_MOD.lbl_linea}</p></th>
+                 <th><p class="text-center">{$L_MOD.lbl_venta}</p></th>
+                 <th><p class="text-center">{$L_MOD.lbl_valor}</p></th>
+                 </tr>
+              </thead>
+              <tbody id="cuerpo_venta_linea">
+              {loop name="$ventasLinea"}
+                 <tr>
+                    <td><p class="text-center">{$value.title}</p></td>
+                    <td><p class="text-center">{$value.cantidad}</p></td>
+                    <td><p class="text-center">${$value.value}</p></td>
+                 </tr>
+               {/loop}
+               </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="grafica2" id="grafica7"></div>
+        
+    </div>
+</div>
+</div>
+
+
+<div class="col-sm-12"> 
+<div class="panel col-sm-12 fondoGris">
+    <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_cotizacion} {$cotizacionesMes['mes']}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_comercial_cotizacion" aria-hidden="true"></i></p></div>
+    <div class="panel-body col-sm-7 no-padding">
+        <div class="col-sm-12 grafica4" id="grafica8"></div>
+        <div><p class="mesGraficaOculto">Mes </p></div>
+        <div class="col-sm-3 no-padding-right grafica9" id="grafica9">
+        <p class="letraBlanca">Num Cotizaciones</p><p class="numVentas">{$cotizacionesMes['cantidad']}</p></div>
+        <div class="col-sm-9 no-padding grafica2 marginBottom15" id="grafica10">
+           <p class="letraAzul">Valor en Ventas</p><p class="valorVentas">${$cotizacionesMes['total']}</p><p class="diferenciaVentas">${$cotizacionesMes['diferencia']} {if condition="$cotizacionesMes['indicador'] == 'true'"} <i class="fa fa-caret-up indicadorVentasPositivo" aria-hidden="true"></i>{else}<i class="fa fa-caret-down indicadorVentasNegativo" aria-hidden="true"></i>{/if}</p>
+        </div>
+    </div>
+    <div class="panel-body col-sm-5">
+        <div class="lineaNegocio"><p class="ventaLetraAzul">{$L_MOD.lbl_cotizacion_linea}</p>
+           <div class="table-responsive">
+           <table class="table tablaLinea">
+              <thead>
+                 <tr>
+                 <th><p class="text-center">{$L_MOD.lbl_linea}</p></th>
+                 <th><p class="text-center">{$L_MOD.lbl_venta}</p></th>
+                 <th><p class="text-center">{$L_MOD.lbl_valor}</p></th>
+                 </tr>
+              </thead>
+              <tbody id="cuerpo_cotizacion_linea">
+              {loop name="$cotizacionesLinea"}
+                 <tr>
+                    <td><p class="text-center">{$value.title}</p></td>
+                    <td><p class="text-center">{$value.cantidad}</p></td>
+                    <td><p class="text-center">${$value.value}</p></td>
+                 </tr>
+               {/loop}
+               </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="grafica2" id="grafica11"></div>
+        
+    </div>
+</div>
+</div>
+               
+<div class="col-sm-12"> 
+<div class="panel col-sm-12 fondoGris">
+    <div class="col-sm-6"><p class="mesGrafica">{$L_MOD.lbl_servicio} {$cotizacionesMes['mes']}</p></div><div class="col-sm-6"><p class="expresadaMiles">{$L_MOD.lbl_cifra_miles}<i class="fa fa-filter filtro" id="filtro_comercial_servicio" aria-hidden="true"></i></p></div>
+    <div class="panel-body col-sm-7 no-padding">
+        <div class="col-sm-12 grafica4" id="grafica21"></div>
+        <div><p class="mesGraficaOculto">Mes </p></div>
+        <div class="col-sm-3 no-padding-right grafica22" id="grafica22">
+        <p class="letraBlanca">Servicios Activos</p><p class="numVentas">{$serviciosMes['cantidad']}</p></div>
+        <div class="col-sm-9 no-padding grafica2 marginBottom15" id="grafica23">
+           <p class="letraAmarilla">Valor Servicios</p>
+           <p class="valorVentas">${$serviciosMes['total']}</p>
+           <p class="diferenciaVentas">${$serviciosMes['diferencia']} 
+              {if condition="$serviciosMes['indicador'] == 'true'"} 
+                 <i class="fa fa-caret-up indicadorVentasPositivo" aria-hidden="true"></i>
+              {else}
+                 <i class="fa fa-caret-down indicadorVentasNegativo" aria-hidden="true"></i>
+              {/if}</p>
+        </div>
+    </div>
+    <div class="panel-body col-sm-5">
+        <div class="lineaNegocio"><p class="ventaLetraAmarillo">{$L_MOD.lbl_servicio_linea}</p>
+           <div class="table-responsive">
+           <table class="table tablaLinea">
+              <thead>
+                 <tr>
+                 <th><p class="text-center">{$L_MOD.lbl_linea}</p></th>
+                 <th><p class="text-center">{$L_MOD.lbl_valor}</p></th>
+                 </tr>
+              </thead>
+              <tbody id="cuerpo_servicio_linea">
+              {loop name="$serviciosLinea"}
+                 <tr>
+                    <td><p class="text-center">{$value.linea}</p></td>
+                    <td><p class="text-center">${$value.value}</p></td>
+                 </tr>
+               {/loop}
+               </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="grafica2" id="grafica24"></div>
+        
+    </div>
+</div>
+</div>
+                 
+</div>
+{include="modulos/$modulo/modal_filtro_comercial"}

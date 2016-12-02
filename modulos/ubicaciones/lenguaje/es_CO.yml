@@ -1,0 +1,13 @@
+modulo: Ubicaciones
+
+lbl_editar_tipo_ubicacion_id: "Tipo de ubicaci&oacute;n: <span class="text-danger">*</span>"
+sel_editar_tipo_ubicacion_id: Seleccionar
+
+sel_editar_ubicacion_padre_id: Seleccionar
+lbl_editar_ubicacion_padre_id: "Ubicaci&oacute;n padre: <span class="text-danger">*</span>"
+
+lbl_info_general: Información General
+
+lbl_nombre: "Nombre: <span class="text-danger">*</span>"
+lbl_tipo_ubicacion_id: "Tipo Ubicación: <span class="text-danger">*</span>"
+lbl_ubicacion_padre_id: "Ubicación Padre: <span class="text-danger">*</span>"

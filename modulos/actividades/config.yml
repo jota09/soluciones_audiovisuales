@@ -1,0 +1,66 @@
+global: 
+	objetoBD: actividades
+# Implementación de filtros 
+#       se debe tener en cuanta que los nombres
+#       de cada una de las llaves  es el nombre del campo en BD del modulo)
+# 
+# Tipos de filtro
+#      txt: Campo abierto
+#      sel: Lista de seleccion
+#      fecha: Si es campo tipo fecha
+#      sel_mul: Lista de seleccion multiple
+#      lm: Lista de Maestra  #nombre etiqueta de  la lista maestra
+#      lm_mul: Lista de Maestra multiple
+#      relacionado: Cuando hay una relacion con otra en @tabla_db se coloca la tabla a la 
+#                   que va relacionada, dejandolo como lista, el @select_consulta se podra inyectar sql con el fin de obtener el label que se desee en el option
+#                   @condicional_consulta inserta sql para definir mejor las opciones
+#      relacionado_mul: Cuando hay una relacion con otra en @tabla_db se coloca la tabla a la que va relacionada, dejandolo como lista multiple
+#
+# los @lbl del filtro se obtienen del archivo de lenguaje de modulo en caso de que no exista deja el nombre del campo        
+filtros:
+    nombre: 
+        tipo: txt
+        lbl: lbl_nombre2    
+    duracion: 
+        tipo: txt
+        lbl: lbl_duracion    
+    fecha_creacion: 
+        tipo: fecha
+        lbl: lbl_fecha_creacion
+    fecha_inicio: 
+        tipo: fecha
+        lbl: lbl_fecha_inicio
+    fecha_fin: 
+        tipo: fecha
+        lbl: lbl_fecha_fin
+#    activo:
+#        tipo: sel
+#        lbl: activo
+#        opciones:        
+#            1:  Si
+#            0:  No
+#    usuario_id: 
+#        tipo: relacionado_mul
+#        tabla_db: usuario
+#        lbl: lbl_usuario
+#        select_consulta: CONCAT(nombres," ",apellidos)
+#        condicional_consulta: ''
+#    relacionado: 
+#        tipo: relacionado_mul
+#        tabla_db: modulo
+#        lbl: lbl_relacionado
+#        select_consulta: nombre
+#        condicional_consulta: ''
+    estado:
+        tipo: lm_mul
+        lbl: lbl_estado_tarea
+        lista_maestra: estado_tarea
+        general: false
+    tipo:
+        tipo: lm_mul
+        lbl: lbl_tipo_actividad
+        lista_maestra: tipo
+        general: false
+    lugar: 
+        tipo: txt
+        lbl: lbl_lugar

@@ -1,0 +1,42 @@
+<!-- Info General-->
+<div class="panel panel-primary">
+  <div class="panel-heading">{$L_MOD.lbl_info_general}</div>
+  <div class="panel-body">
+    <div class="col-lg-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-lg-3" for="nombre">{$L_MOD.lbl_nombre}</label>
+        <div class="col-lg-7">                    
+          <input type="text" class="form-control" value="{$registro.nombre}" id="nombre" name="nombre">
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+    <div class="col-lg-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-lg-3" for="tipo_ubicacion_id">{$L_MOD.lbl_tipo_ubicacion_id}</label>
+        <div class="col-lg-7">                    
+          <select class="form-control required" id="tipo_ubicacion_id" name="tipo_ubicacion_id">
+            <option value="-1">{$L_APP.lbl_select}</option>
+            {loop name="$tipo_ubicaciones"}
+            <option value="{$value.id}" {if condition="$registro.tipo_ubicacion_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-lg-3" for="ubicacion_padre_id">{$L_MOD.lbl_ubicacion_padre_id}</label>
+        <div class="col-lg-7">                    
+          <select class="form-control required" id="ubicacion_padre_id" name="ubicacion_padre_id">
+            <option value="-1">{$L_APP.lbl_select}</option>
+            {loop name="$ubicaciones"}
+            <option value="{$value.id}" {if condition="$registro.ubicacion_padre_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

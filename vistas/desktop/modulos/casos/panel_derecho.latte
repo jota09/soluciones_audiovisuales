@@ -1,0 +1,54 @@
+<script type="text/javascript" src="librerias/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="assets/js/general/panel_derecho.js"></script>
+<script type="text/javascript" src="assets/js/modulos/{$modulo}/panel_derecho.js"></script>
+
+<!--  ANALITICA --> 
+<div class="panel panel-primary">
+  <div class="panel-heading">{$L_APP.lbl_analitica}</div>               
+  <div class="panel-body">
+
+    <div class="col-sm-12 no-padding">
+      <div class="text-rosado " style="font-size: 20px; font-weight: bolder; ">
+        {$L_MOD.lbl_tiempo_transcurrido} </div></div>
+    
+    <div class="col-sm-12 ">
+
+      <div id="dias"  class=" col-sm-9 text-right text-rosado " style="font-size: 80px; font-weight: bolder; "> 
+        {if condition="$t_transcurrido->m > 0"}
+          {$t_transcurrido->d + ($t_transcurrido->m * 30)} 
+        {else}
+          {$t_transcurrido->d} 
+        {/if}
+      </div>
+      <div class="col-sm-3 text-left texto_transcurrido no-padding" > Días </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!--  RELACIONES --> 
+<div class="panel panel-primary" >
+  <div class="panel-heading">{$L_APP.lbl_relaciones}</div>
+  <div class="panel-body" style="padding: 5px;">
+    {include="general/panel_derecho/menu_actividades"}
+
+    <div class="col-sm-12 no-padding documentos">
+      <label class="control-label col-sm-9 no-padding-right" for="Documentos" data-toggle="modal" data-target="#lista_documentos">
+        <i class="fa fa-file-o text-rosado"></i> 
+        <a>{$L_APP.lbl_documentos}</a> ( <span id="docs">{$docs}</span> )</label>
+
+      <label class="control-label col-sm-3 no-padding-right" for="Documentos">
+        <i class="fa fa-plus "  data-toggle="modal" data-target="#nuevo_documento" id="3"></i></label>
+    </div>
+
+
+  </div>
+</div>   
+
+<!-- <img  id="logo_opp" src="assets/img/general/Oportunidad.png" class="img-responsive" > -->
+
+{include="general/panel_derecho/modal_listar"}
+{include="general/panel_derecho/modal_crear"}
+
+

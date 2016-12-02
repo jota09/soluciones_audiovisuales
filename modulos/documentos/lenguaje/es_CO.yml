@@ -1,0 +1,24 @@
+modulo: 'Documentos '
+lbl_tit_crear: Crear
+lbl_tit_actualizar: Actualizar
+
+lbl_nombre: Nombre Documento<span class="text-danger">*</span>
+lbl_tipo_documento: Tipo Documento<span class="text-danger">*</span>
+lbl_modulo: Modulo relacionado<span class="text-danger">*</span>
+lbl_modulo_id: registro<span class="text-danger">*</span>
+lbl_adjunto: Adjunto<span class="text-danger">*</span>
+lbl_version: Version<span class="text-danger">*</span>
+lbl_categoria: Categoria
+lbl_estado: Estado
+lbl_fecha_publicacion: Fecha Publicaci&oacute;n
+lbl_creado_por: Creado por
+lbl_descripcion: Descripci&oacute;n
+
+lbl_revision: Version
+lbl_fecha_creacion: Fecha Creaci&oacute;n
+lbl_registro_cambio: Cambios
+lbl_revisiones: Revisiones
+
+
+
+    

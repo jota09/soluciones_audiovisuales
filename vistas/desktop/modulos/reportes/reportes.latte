@@ -1,0 +1,19 @@
+<form method="post" class="form-horizontal" role="form" action="index.php" id="frm_editar" enctype='multipart/form-data'>
+    <input type="hidden" name="modulo" id="modulo" value="{$modulo}"/>
+    <input type="hidden" name="accion" id='accion' value="{$accion}"/>
+</form>
+{if condition="$reporte_name == 'Tablero General'"}
+   {include="modulos/$modulo/reporte_general"}
+{/if}
+{if condition="$reporte_name == 'Tablero Comercial'"}
+   {include="modulos/$modulo/reporte_comercial"}
+{/if}
+{if condition="$reporte_name == 'Tablero Ventas'"}
+   {include="modulos/$modulo/reporte_venta"}
+{/if}
+{if condition="$reporte_name == 'Tablero Cotizaciones'"}
+   {include="modulos/$modulo/reporte_cotizacion"}
+{/if}
+{if condition="$reporte_name == 'Tablero Servicios'"}
+   {include="modulos/$modulo/reporte_servicio"}
+{/if}

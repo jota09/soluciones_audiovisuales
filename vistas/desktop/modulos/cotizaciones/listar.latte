@@ -1,0 +1,179 @@
+<section class="content-header">
+    <h3>
+{if condition="empty($L_MOD.modulo)"}{$modulo|ucfirst}{else}{$L_MOD.modulo}{/if}
+<small>{$L_APP.lbl_lista_modulo}&nbsp;&nbsp;{if condition="empty($L_MOD.modulo)"}{$modulo}{else}{$L_MOD.modulo|strtolower}{/if}</small>
+</h3>
+</section>
+
+<form action="index.php" id="form_listar" method="post" class="form-horizontal">
+    <input type="hidden" name="modulo" value="{$modulo}">
+    <seccion class="content filtros hide filtro">
+       <table class="table table-bordered">
+          <thead >
+             <tr ><th class="text-center">Asesor</th><th class="text-center">Linea</th><th class="text-center">Etapa</th><th class="text-center">Fecha de cierre</th></tr>
+             </thead>
+          <tbody>
+          <tr>
+        <td class="with25"><div  id="div_filtro_general1" class="col-lg-12 no-padding">
+            <select name="filtroCotizacionesAsignado" id="filtroAsignado" class="select form-control" multiple >
+                <option value="General"> Todos </option>
+                {loop name="$usuarios"}
+                <option value="{$value.id}" >{$value.nombres}</option>
+                {/loop}
+            </select>
+        </div></td>
+        <td class="with25">
+           <div  id="div_filtro_general2" class="col-lg-12 no-padding ">
+            <select name="filtroCotizacionesLinea" id="filtroLinea" class="select form-control" multiple >
+                <option value="General"> Todos </option>
+                {loop name="$listasG.linea"}
+                <option value="{$value.id}" >{$value.nombre}</option>
+                {/loop}
+            </select>
+        </div></td>
+        <td class="with25"><div  id="div_filtro_general3" class="col-lg-12 no-padding">
+            <select name="filtroCotizacionesEtapa" id="filtroEtapa" class="select form-control" multiple >
+                <option value="General"> Todos </option>
+                {loop name="$listasM.estado"}
+                <option value="{$value.id}" >{$value.nombre}</option>
+                {/loop}
+            </select>
+        </div>
+            </td>
+            <td class="with25"><div  id="div_filtro_general4" class="col-lg-12 no-padding">
+          <div class="input-group">
+            <input name="filtroCotizacionesCierre" id="filtroFechaCierre21" type="text" class="form-control fecha">
+            <span class="input-group-addon">
+              <span class="fa fa-calendar"></span>
+            </span>
+          </div>
+            
+            
+        </div>
+            </td>
+         </tr></tbody></table>   
+           <table class="table table-bordered">
+          <thead >
+             <tr><th class="text-center">Numera Factura</th><th class="text-center">Oportunidad</th><th class="text-center">Cuentas</th><th class="text-center">Fecha de factura</th></tr>
+             </thead>
+          <tbody>
+          <tr>
+        
+        <td class="with25"><div  id="div_filtro_general5" class="col-lg-12 no-padding">
+            <select name="filtroCotizacionesNumFact" id="filtroNumeroFactura" class="select form-control" multiple >
+                <option value="General"> Todos </option>
+                {loop name="$cotizaciones"}
+                {if condition="$value.Numero_factura != ''"}
+                <option value="{$value.id}" >{$value.Numero_factura}</option>
+                {/if}
+                {/loop}
+            </select>
+        </div>
+            </td>
+        <td class="with25"><div  id="div_filtro_general6" class="col-lg-12 no-padding">
+            <select name="filtroCotizacionesOpp" id="filtroOportunidad" class="select form-control" multiple >
+                <option value="General"> Todos </option>
+                {loop name="$oportunidades"}
+                <option value="{$value.id}" >{$value.referencia}</option>
+                {/loop}
+            </select>
+        </div>
+            </td>
+        <td class="with25"><div  id="div_filtro_general7" class="col-lg-12 no-padding">
+            <select name="filtroCotizacionesCuenta" id="filtroCuenta" class="select form-control" multiple >
+                <option value="General"> Todos </option>
+                {loop name="$cuentas"}
+                <option value="{$value.id}" >{$value.nombres}</option>
+                {/loop}
+            </select>
+        </div>
+            </td>
+        <td class="with25"><div  id="div_filtro_general8" class="col-lg-12 no-padding">
+          <div class="input-group">
+            <input name="filtroCotizacionesFactura" id="filtroFechaFactura22" type="text" class="form-control fecha">
+            <span class="input-group-addon">
+              <span class="fa fa-calendar"></span>
+            </span>
+            </div>
+          </div>
+        </td>
+          
+          
+          </tr></tbody></table>
+            
+    </seccion> 
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">{$L_APP.lbl_editar_en_listar}</h3>
+                    </div>
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <button id="btn_crear_nuevo" type="button" class="btn btn-primary" data-modulo="{$modulo}"><i class="fa fa-edit"> </i> {$L_APP.btn_listar_nuevo}</button>
+                            {if condition="$listaRegistros|count > 0  && (!isset($controls) || $controls == 1)"}
+                                <button id="btn_listar_eliminar" name="accion" value="eliminar" type="submit" class="btn btn-danger"><i class="fa fa-trash-o"> </i> {$L_APP.btn_listar_eliminar}</button>
+                                <button id="btn_listar_activar" name="accion" value="toggleactivar" type="submit" class="btn btn-warning"><i class="ion-loop"> </i> {$L_APP.btn_listar_activar}</button>
+                            {/if}
+                            <a id="btn_filtros" class="btn btn-success"><i class="fa fa-filter"> </i> {$L_APP.btn_filtros}</a>
+                            <a id="btn_clear_filtros" class="btn btn-success filtro hide "><i class="fa fa-undo"> </i> {$L_APP.btn_limpiar_filtros}</a>
+                        </h3>
+                    </div>
+
+                    <div class="box-body table-responsive"> 
+                        {if condition="$listaRegistros|count > 0"}
+                            <table id="tabla_listar" data-modulo="{$modulo}" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="th_listar_cb"></th>
+                                            {loop name="$campos"}
+                                            {if condition="$value != 'eliminado'"}
+                                            <th>{function="strtoupper(key2val($value, $L_MOD))"}</th>
+                                            {/if}
+                                            {/loop}
+                                    </tr>                                    
+
+                                </thead>
+                                <tbody>
+                                    {if condition="$listadoAjax != 1"}
+                                        {loop name="$listaRegistros"}
+                                        {if condition="$value.id != ''"}
+                                            <tr data-id="{$value.id}">
+                                                <td>
+                                                    <label>
+                                                        <input type="checkbox" name="id[]" value="{$value.id}" class="minimal-red">
+                                                    </label>
+                                                </td>
+                                                {loop name="$value"}
+                                                {if condition="$key == 'activo'"}
+                                                    <td class="text-center {if condition="!isset($edit) || $edit == '1'"}td_clic_editar{/if}">
+                                                        {if condition="$value == '1' || $value == 1"}
+                                                            <i class="fa fa-check-square-o"></i>
+                                                        {else}
+                                                            <i class="fa fa-square-o"></i> 
+                                                        {/if}
+                                                    </td>
+                                                {elseif condition="$key == 'eliminado'"}
+                                                {else}
+                                                    <td class="{if condition="!isset($edit) || $edit == '1'"}td_clic_editar{/if}">{$value}</td>
+                                                {/if}
+                                                {/loop}
+                                            </tr>
+                                        {/if}
+                                        {/loop}
+                                    {/if}
+                                </tbody>
+                            </table>
+                        {else}
+                            <div class="alert alert-info">
+                                {$L_APP.label_lista_registros_vacios}
+                            </div>
+                        {/if}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+                    

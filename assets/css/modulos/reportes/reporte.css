@@ -1,0 +1,294 @@
+.grafica {
+   width:100%; 
+   height:350px;
+   background: white;
+}
+.grafica2 {
+   padding-top: 12px;
+   height:200px;
+   background: white;
+   padding-left: 15px;
+}
+.grafica3 {
+   padding-top: 12px;
+   height:200px;
+   background: #DB597B;
+}
+.grafica5 {
+   padding-top: 12px;
+   height:200px;
+   background: #022d5b;
+}
+.grafica4 {
+   width:100%; 
+   height:350px;
+}
+.grafica9 {
+   padding-top: 12px;
+   height:200px;
+   background: #53d4d6;
+}
+.grafica22 {
+   padding-top: 12px;
+   height:200px;
+   background: #edde10;
+}
+.tamanoTabla{
+   height: 365px;
+}
+.letraBlanca{
+   color: white;
+}
+.letraRosa{
+   color: #fc5d95;
+}
+.letraAzul{
+   color:#53d4d6;
+}
+.letraAzulOscuro{
+   color: #022d5b;
+}
+.letraAmarilla{
+   color: #edde10;
+}
+.letraGris{
+   color: #c1c1c1;
+}
+.expresadaMiles{
+   color: #7f7f7f;
+   text-align: right;
+   margin-top: 10px;
+}
+
+.mesGrafica{
+   margin: 7px 0px 0px 0px;
+   color: #7f7f7f;
+   font-size: 20px;
+   font-weight: bold;
+}
+.mesGraficaOculto{
+   margin: 7px 0px 0px 0px;
+   color: #E5E5E5;
+   font-size: 20px;
+   font-weight: bold;
+}
+.fondoGris{
+   background: #e5e5e5;
+}
+.valorVentas{
+   color: #7f7f7f;
+   font-size: 350%;
+   text-align: center;
+   margin-top: 25px;
+}
+.fondoGris{
+   background: #e5e5e5;
+}
+.fondoBlanco{
+      background-color: white;
+}
+.fondoAzul{
+   background: #3cb6b6;
+}
+.fondoAzul2{
+   background: #3cb6b6;
+   border-color: #3cb6b6;
+}
+.numVentas{
+   color: white;
+   font-size: 95px;
+   text-align: center;
+   margin-top: -10px;
+}
+.diferenciaVentas{
+   text-align: right;
+   margin-right: 30px;
+   font-size: 1.4em;
+}
+.indicadorVentasPositivo{
+   font-size: 35px;
+   color: #409987;
+}
+.indicadorVentasNegativo{
+   font-size: 35px;
+   color: #ed1e1e;
+}
+.nombreReporte{
+   font-size: 25px;
+   font-weight: bold;
+}
+.rutaNombre{
+   margin-left: 30px;
+}
+.panelRutaTablero{
+   padding: 0px;
+   background: #b7b7b7 !important;
+   border: 0px;
+   font-weight: initial;
+   margin: 0px -15px 0px -15px;
+}
+.amcharts-main-div{
+   background: white;
+}
+.tablaLinea{
+   width: 90%;
+   margin: 0px 0px 44px 20px;
+   font-size: 14px;
+}
+.tablaLinea tbody{
+   color: darkgrey;
+   font-weight: bold;
+   font-size: 14px;
+}
+.lineaNegocio{
+   background: #ffffff;
+   padding: 7px;
+   height: 363px;
+}
+.ventaLetraRosa{
+   color: #fc5d95;
+   font-weight: bold;
+   margin: 0px 25px 0px;
+   font-size: 18px;
+}
+.ventaLetraAzul{
+   color: #53d4d6;
+   font-weight: bold;
+   margin: 0px 25px 0px;
+   font-size: 18px;
+}
+.ventaLetraAzulOscuro{
+   color: #022d5b;
+   font-weight: bold;
+   margin: 0px 25px 0px;
+   font-size: 18px;
+}
+.ventaLetraAmarillo{
+   color: #edde10;
+   font-weight: bold;
+   margin: 0px 25px 0px;
+   font-size: 18px;
+}
+.cotizacionLetraAzul{
+   color: #53d4d6;
+   font-weight: bold;
+   margin: 0px 25px 0px;
+   font-size: 18px;
+}
+.sinPaddingTop{
+   padding-top: 0px;
+}
+.marginBottom15{
+   margin-bottom: 15px;
+}
+.filtro{
+   font-size: 25px;
+   margin-left: 20px;
+   cursor: pointer;
+}
+.paddingBottom{
+    padding-bottom: 15px !important;
+}
+.filaTopCliente{
+   height: 67px;
+}
+.marginTopCliente{
+   margin-top: 3px;
+}
+.posicionTopCliente{
+   color: white;
+   font-size: 40px;
+   text-align: center;
+}
+.cuentaTopCliente{
+   text-align: center;
+   color: #7f7f7f;
+}
+.valorTopCliente{
+   color: #7f7f7f;
+   font-size: 2.0em;
+   text-align: center;
+}
+.logoTopCliente{
+   color: #7f7f7f;
+   font-size: 1.0em;
+   text-align: center;
+   margin-top: 20px;
+}
+.alingRight{
+   text-align: right;
+}
+.rutaLink{
+   color: white;
+   cursor: pointer;
+   text-decoration:none;
+}
+.negrita{
+   font-weight: bold;
+}
+
+/* .modal-transparent */
+.modal-transparent {
+    background: transparent;
+}
+.modal-backdrop.modal-backdrop-transparent {
+    background: transparent;
+}
+.modal-backdrop.modal-backdrop-transparent.in {
+    opacity: .9;
+    filter: alpha(opacity=90);
+}
+.btn-primary:active {
+    background-color: #3cb6b6 !important;
+    border-color: #3cb6b6 !important;
+}
+.btn-primary:hover {
+    background-color: #3cb6b6 !important;
+    border-color: #3cb6b6 !important;
+}
+.btn-primary:focus {
+    background-color: #3cb6b6 !important;
+    border-color: #3cb6b6 !important;
+}
+.botonRosado:active {
+   background-color: #db597b !important;
+   border-color: #db597b !important;
+}
+.botonRosado:hover {
+   background-color: #db597b !important;
+   border-color: #db597b !important;
+}
+.botonRosado:focus {
+   background-color: #db597b !important;
+   border-color: #db597b !important;
+}
+
+.slider.slider-horizontal{
+   width: 310px;
+   height: 20px;
+   margin-left: 20px;
+   margin-right: 20px;
+}
+.slider-selection{
+   background-color: #db597b;
+}
+
+#powerTip {
+   width: 350px !important;
+   z-index: 2147483647;
+   position: absolute;
+   display: none;
+   background-color: #e5e5e5 !important;
+   color: black !important;
+}
+.expresadaMilesPowerTip{
+   color: #7f7f7f;
+   text-align: right;
+   margin-top: 10px;
+   font-size: 12px;
+}
+.tablaLineaPowerTip{
+   width: 200px;
+   margin: 0px 0px 44px 20px;
+   font-size: 14px;
+}

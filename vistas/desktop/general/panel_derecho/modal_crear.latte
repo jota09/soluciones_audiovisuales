@@ -1,0 +1,1929 @@
+{if condition="  $modulo !== 'cotizaciones' "}
+   <form></form>
+{/if}
+{if condition=" $modulo !== 'acuerdos' && $modulo !== 'oportunidades' && $modulo !== 'cotizaciones' && $modulo !== 'convenios' && $modulo !== 'clientes_potenciales'"}
+   <!-- MODAL OPORTUNIDAD -->
+   <form id="form_opp" enctype="multipart/form-data" method="POST" onsubmit="return false">
+      <div class="modal fade" id="nueva_oportunidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+         <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Nueva Oportunidad</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" >{$L_APP.lbl_referencia}</label>
+                        <div class="col-sm-7">                    
+                           <input type="text" class="form-control validate[required]" value="" id="referencia" name="referencia" placeholder="{$L_APP.phl_txt_referencia}">
+                           <input type="hidden" class="form-control " value="{$registro.id}" id="contacto_id" name="contacto_id" >
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="convenio_id">{$L_APP.lbl_convenio}</label>
+
+                        <div class="col-sm-7">                    
+                           <select class="form-control" id="convenio_id" name="convenio_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$convenio"}
+                              <option value="{$value.id}" {if condition="$registro.convenio_id == $value.id"}selected="selected"{/if}>{$value.id} - {$value.convenios}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+                 {if condition=" $modulo != 'cuentas' "}
+                   <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="cuenta_id">{$L_APP.lbl_cuenta}</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="cuenta_id" name="cuenta_id">
+                                  {loop name="$cuenta"}
+                                 <option value="{$value.id}" {if condition=" $registro.cuenta_id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+                                 {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                 {else}
+                  <input type="hidden" class="form-control " value="{$registro.id}" id="cuenta_id" name="cuenta_id" >
+                  {/if}
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="linea_id">{$L_APP.lbl_linea}</label>
+
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required] " id="linea" name="linea[]">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.linea"}
+                              <option value="{$value.id}-{$value.nombre}" {if condition="strpos($registro.linea_id, $value.id)>-1"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="">{$L_APP.lbl_valor}</label>
+                        <div class="col-sm-7">                    
+                           <input type="text" class="form-control validate[required] number" value="{$registro.valor}" id="valor" name="valor" placeholder="{$L_MOD.phl_txt_valor}">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="etapa_opp_id">{$L_APP.lbl_etapa}</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="etapa_opp_id" name="etapa_opp_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasM2.etapa"}
+                              <option value="{$value.id}" {if condition=" $registro.etapa_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4">{$L_MOD.lbl_fecha_cierre}</label>
+                        <div class="col-sm-7 ">   
+                           <div class="input-group">
+                              <input type="text" class="form-control fecha validate[required,custom[date]{if condition=" $registro.id == ''"},funcCall[comparaConFechaActual[#fecha_cierre]]{/if}]" value="{$registro.fecha_cierre}" id="fecha_cierre" name="fecha_cierre" placeholder="{$L_MOD.phl_txt_fecha_cierre}">
+                              <span class="input-group-addon">
+                                 <span class="fa fa-calendar"></span>
+                              </span>
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="col-sm-6">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="toma_contacto_id">{$L_MOD.lb_toma_contacto_id}</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="toma_contacto_id" name="toma_contacto_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.toma_de_contacto"}
+                              <option value="{$value.id}" {if condition=" $registro.toma_contacto_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+    {if condition=" $modulo === 'contactos'"}
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="convenio_id">{$L_APP.lbl_rol}:</label>
+
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="rol_id" name="rol_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.rol"}
+                              <option value="{$value.id}">{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div> {/if}                
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="descripcion">{$L_APP.lbl_descripcion}</label>
+                        <div class="col-sm-8">      
+                           <textarea class="form-control" id="descripcion" name="descripcion" rows="6"></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="asesor_asignado_id">{$L_MOD.lbl_asesor_asignado}</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="asesor_asignado_id" name="asesor_asignado_id">
+                              {loop name="$asesores"}
+                              {if condition="!empty($registro.id)"} 
+                                 <option value="{$value.id}" {if condition="$registro.asesor_asignado_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+                              {else}
+                                 <option value="{$value.id}" {if condition="$usuario->getId() == $value.id"} selected="selected" {/if}>{$value.nombres} {$value.apellidos}</option>
+                              {/if}
+                              {/loop}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 hidden">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="campanna_id">{$L_APP.lbl_campanna}</label>
+                        <div class="col-sm-8">                    
+                           <select class="form-control" readonly="readonly" id="campanna_id" name="campanna_id">
+                              {loop name="$campanna"}
+
+                              <option value="{$value.id}" {if condition="$registro.campanna_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+                  <button type="submit" class="btn btn-primary" onclick="crear_oportunidad();">{$L_APP.lbl_boton_guardar}</button>
+               </div>
+            </div>
+         </div>    
+      </div>   
+   </form>
+{/if}   
+{if condition=" $modulo === 'convenios'"}
+   <!-- MODAL OPORTUNIDAD -->
+   <form id="form_opp" enctype="multipart/form-data" method="POST" onsubmit="return false">
+      <div class="modal fade" id="nueva_oportunidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+         <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Nueva Oportunidad</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" >{$L_APP.lbl_referencia}</label>
+                        <div class="col-sm-7">                    
+                           <input type="text" class="form-control validate[required]" value="" id="referencia" name="referencia" placeholder="{$L_APP.phl_txt_referencia}">
+                           <input type="hidden" class="form-control" value="{$registro.id}" id="contacto_id" name="contacto_id" >
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="convenio_id">{$L_APP.lbl_convenio}</label>
+
+                        <div class="col-sm-7">                    
+                           <select class="form-control" id="convenio_id" name="convenio_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$convenio"}
+                              <option value="{$value.id}" {if condition="$registro.id == $value.id"}selected="selected"{/if}>{$value.id} - {$value.convenios}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="cuenta_id">{$L_APP.lbl_cuenta}</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="cuenta_id" name="cuenta_id">
+                              {if condition=" $modulo == 'cuentas' "}
+                                 {loop name="$cuenta"}
+                                 <option value="{$value.id}" {if condition=" $registro.id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+                                 {/loop}
+                              {else}
+                                 <option value="">{$L_APP.lbl_select}</option>
+                                 {loop name="$cuenta"}
+                                 <option value="{$value.id}" {if condition=" $registro.cuenta_id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+                                 {/loop}
+                              {/if}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="linea_id">{$L_APP.lbl_linea}</label>
+
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required] " id="linea" name="linea[]">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.linea"}
+                              <option value="{$value.id}-{$value.nombre}" {if condition="strpos($registro.linea_id, $value.id)>-1"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="">{$L_APP.lbl_valor}</label>
+                        <div class="col-sm-7">                    
+                           <input type="text" class="form-control validate[required] number" value="{$registro.valor}" id="valor" name="valor" placeholder="{$L_MOD.phl_txt_valor}">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="etapa_opp_id">{$L_APP.lbl_etapa}</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="etapa_opp_id" name="etapa_opp_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasM2.etapa"}
+                              <option value="{$value.id}" {if condition=" $registro.etapa_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4">{$L_MOD.lbl_fecha_cierre}</label>
+                        <div class="col-sm-7 ">   
+                           <div class="input-group">
+                              <input type="text" class="form-control fecha validate[required,custom[date]{if condition=" $registro.id == ''"},funcCall[comparaConFechaActual[#fecha_cierre]]{/if}]" value="{$registro.fecha_cierre}" id="fecha_cierre" name="fecha_cierre" placeholder="{$L_MOD.phl_txt_fecha_cierre}">
+                              <span class="input-group-addon">
+                                 <span class="fa fa-calendar"></span>
+                              </span>
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="col-sm-6">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="toma_contacto_id">{$L_MOD.lb_toma_contacto_id}</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="toma_contacto_id" name="toma_contacto_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.toma_de_contacto"}
+                              <option value="{$value.id}" {if condition=" $registro.toma_contacto_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="descripcion">{$L_APP.lbl_descripcion}</label>
+                        <div class="col-sm-8">      
+                           <textarea class="form-control" id="descripcion" name="descripcion" rows="6"></textarea>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="asesor_asignado_id">{$L_MOD.lbl_asesor_asignado}</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="asesor_asignado_id" name="asesor_asignado_id">
+                              {loop name="$asesores"}
+                              {if condition="!empty($registro.id)"} 
+                                 <option value="{$value.id}" {if condition="$registro.asesor_asignado_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+                              {else}
+                                 <option value="{$value.id}" {if condition="$usuario->getId() == $value.id"} selected="selected" {/if}>{$value.nombres} {$value.apellidos}</option>
+                              {/if}
+                              {/loop}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 hidden">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="campanna_id">{$L_APP.lbl_campanna}</label>
+                        <div class="col-sm-8">                    
+                           <select class="form-control" readonly="readonly" id="campanna_id" name="campanna_id">
+                              {loop name="$campanna"}
+
+                              <option value="{$value.id}" {if condition="$registro.campanna_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+                  <button type="submit" class="btn btn-primary" onclick="crear_oportunidad();">{$L_APP.lbl_boton_guardar}</button>
+               </div>
+            </div>
+         </div>    
+      </div>   
+   </form>
+{/if}   
+{if condition=" $modulo === 'oportunidades' "}
+   <!-- MODAL OPORTUNIDAD -->
+   <form id="form_asig_contac" enctype="multipart/form-data" method="POST" onsubmit="return false">
+      <div class="modal fade" id="nueva_asignado_contacto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+         <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Asignar Contacto</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <input type="hidden" name="oportunidad_id" value="{$registro.id}">
+                        <label class="control-label col-sm-4" >{$L_APP.lbl_actividad_contacto}:</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="contacto_id" name="contacto_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$contactos_todos"}
+                              <option value="{$value.id}">{$value.nombres}</option>
+                              {/loop}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="convenio_id">{$L_APP.lbl_rol}:</label>
+
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="rol_id" name="rol_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.rol"}
+                              <option value="{$value.id}">{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+                  <button type="submit" class="btn btn-primary" onclick="crear_opp_contact();">{$L_APP.lbl_boton_guardar}</button>
+               </div>
+            </div>
+         </div>    
+      </div>   
+   </form>
+{/if}   
+{if condition=" $modulo === 'contactos' "}
+   <!-- MODAL OPORTUNIDAD -->
+   <form id="form_asig_oportu" enctype="multipart/form-data" method="POST" onsubmit="return false">
+      <div class="modal fade" id="nueva_asignado_oportu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+         <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Asignar Oportunidad</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <input type="hidden" name="contacto_id" value="{$registro.id}">
+                        <label class="control-label col-sm-4" >{$L_APP.lbl_oportunidad}:</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="oportunidad_id" name="oportunidad_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$oportunidades"}
+                              <option value="{$value.id}">{$value.referencia}</option>
+                              {/loop}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="convenio_id">{$L_APP.lbl_rol}:</label>
+
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="rol_id" name="rol_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.rol"}
+                              <option value="{$value.id}">{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>  
+
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+                  <button type="submit" class="btn btn-primary" onclick="crear_contact_opp();">{$L_APP.lbl_boton_guardar}</button>
+               </div>
+            </div>
+         </div>    
+      </div>   
+   </form>
+{/if}   
+
+{if condition=" $modulo !== 'acuerdos' && $modulo !== 'cotizaciones'  && $modulo !== 'clientes_potenciales'"}
+
+   <!-- MODAL COTIZACION -->
+   <form id="form_cot" enctype="multipart/form-data" method="POST" onsubmit="return false">
+      <div class="modal fade" id="nueva_cotizacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+         <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Nueva Cotización</h4>
+               </div>
+               <div class="modal-body">
+                  <div class="col-sm-6 " style="border-top: solid white">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="version_id">{$L_APP.lbl_version}</label>
+                        <div class="col-sm-7 ">
+                           {if condition=" $modulo == 'cuentas' "}
+                              <select class="form-control validate[required] " id="version_id" name="version_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasM3.version"}
+                              <option value="{$value.id}" >{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                              {else}
+                           <select class="form-control validate[required] " id="version_id" name="version_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasM2.version"}
+                              <option value="{$value.id}" >{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                           {/if}
+                        </div>
+
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 " style="border-top: solid white">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="linea_id">{$L_MOD.lbl_linea}</label>
+                        <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required] "  id="linea" name="linea[]">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.linea"}
+                              <option value="{$value.id}-{$value.nombre}" {if condition="strpos($registro.linea_id, $value.id)>-1"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="etapa_id">{$L_MOD.lbl_etapa}</label>
+                        <div class="col-sm-7 ">   
+                           {if condition=" $modulo == 'cuentas' "}
+                           <select class="form-control validate[required]" id="etapa_id" name="etapa_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasM3.estado"}
+                              <option value="{$value.id}">{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                           {else}
+                              <select class="form-control validate[required]" id="etapa_id" name="etapa_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasM2.estado"}
+                              <option value="{$value.id}">{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                              {/if}
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="cuenta_id">{$L_MOD.lbl_cuenta}</label>
+                        <div class="col-sm-7 ">  
+                           {if condition=" $modulo != 'cuentas' "}
+                           <select class="form-control validate[required] cuentaRO" id="cuenta_id" name="cuenta_id" readonly="readonly">
+                              {loop name="$cuentas"}
+                              <option value="{$value.id}" {if condition=" $registro.cuenta_id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+                              {/loop}
+                           </select>
+                           {else}
+                              <select class="form-control validate[required] cuentaRO" id="cuenta_id" name="cuenta_id" readonly="readonly">
+                              {loop name="$cuentas"}
+                              <option value="{$value.id}" {if condition=" $registro.id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+                              {/loop}
+                           </select>
+                           {/if}
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="oportunidad_id">{$L_APP.lbl_oportunidad}</label>
+                        <div class="col-sm-7 "> 
+                           {if condition=" $modulo == 'oportunidades' "}
+                              <select class="form-control" id="oportunidad_id" name="oportunidad_id">
+                                 <option value="">{$L_APP.lbl_select}</option>
+                                 {loop name="$oportunidad"}
+                                 <option value="{$value.id}" {if condition=" $registro.id == $value.id"}selected="selected"{/if}>{$value.referencia}</option>
+                                 {/loop}
+                              </select>
+                           {else}
+                              <select class="form-control" id="oportunidad_id" name="oportunidad_id">
+                                 <option value="">{$L_APP.lbl_select}</option>
+                                 {loop name="$oportunidad"}
+                                 <option value="{$value.id}" {if condition=" $registro.oportunidad_id == $value.id"}selected="selected"{/if}>{$value.referencia}</option>
+                                 {/loop}
+                              </select> 
+                           {/if}
+                        </div>
+                        <div class="col-sm-1 no-padding"> 
+                           <div id="load-buscar-general" class="hidden" >
+                              <i class="fa fa-circle-o-notch fa-spin " style="color: #002a80; "></i>
+                           </div> 
+                        </div> 
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="fecha_caducidad">{$L_APP.lbl_fecha_caducidad}</label>
+                        <div class="col-sm-7 ">                    
+
+                           <div class="input-group">
+                              <input type="text" class="form-control fecha validate[required,custom[date]{if condition=" $registro.id == ''"},funcCall[comparaConFechaActual[#fecha_caducidad]]{/if}]" value="{$registro.fecha_caducidad}" id="fecha_caducidad" name="fecha_caducidad" placeholder="{$L_MOD.phl_txt_fecha_caducidad}">
+                              <span class="input-group-addon">
+                                 <span class="fa fa-calendar"></span>
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="fecha_cierre">{$L_MOD.lbl_fecha_cierre}</label>
+                        <div class="col-sm-7 ">     
+                           <div class="input-group">
+                              <input type="text" class="form-control fecha validate[required,custom[date]{if condition=" $registro.id == ''"},funcCall[comparaConFechaActual[#fecha_cierre]]{/if}]" id="fecha_cierre" name="fecha_cierre" placeholder="{$L_MOD.phl_txt_fecha_cierre}">
+                              <span class="input-group-addon">
+                                 <span class="fa fa-calendar"></span>
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="numero_factura">{$L_APP.lbl_numero_factura}</label>
+                        <div class="col-sm-7 ">                    
+                           <input type="text" class="form-control validate[required]" id="numero_factura" name="numero_factura"  onkeypress="return soloNumeros(event);" >
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="fecha_factura">{$L_APP.lbl_fecha_factura}</label>
+                        <div class="col-sm-7 ">      
+                           <div class="input-group">
+                              <input type="text" class="form-control fecha validate[required,custom[date]{if condition=" $registro.id == ''"},funcCall[comparaConFechaActual[#fecha_factura]]{/if}]" id="fecha_factura" name="fecha_factura" placeholder="{$L_MOD.phl_txt_fecha_factura}">
+                              <span class="input-group-addon">
+                                 <span class="fa fa-calendar"></span>
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="descripcion">{$L_MOD.lbl_descripcion}</label>
+                        <div class="col-sm-8 ">      
+                           <textarea class="form-control" id="descripcion" name="descripcion" rows="6"></textarea>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 "> 
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="asesor_id">{$L_MOD.lbl_asesor_asignado}</label>
+                        <div class="col-sm-8 ">  
+                           {if condition=" $modulo != 'cuentas' "}
+                           <select class="form-control validate[required]" id="asesor_id" name="asesor_id">
+                              {loop name="$asesores"}
+                                 <option value="{$value.id}" {if condition="$registro.asesor_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+                              {/loop}
+                           </select>
+                           {else}
+                              <select class="form-control validate[required]" id="asesor_id" name="asesor_id">
+                              {loop name="$asesores"}
+                                 <option value="{$value.id}" {if condition="$registro.asesor_asignado_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+                              {/loop}
+                           </select>
+                              {/if}
+                        </div>
+                     </div>
+                  </div>
+         <!-- DETALLE -->
+                  <div class="col-sm-12 " style="margin-top: 10px;">  
+                     <div class="form-group">
+                        <label class="control-label col-sm-2">{$L_APP.lbl_agregar_referencia}</label>
+                        <div class="col-sm-8 no-padding-left" style="margin-top: 7px;"> 
+                           <button type="button" id="btn_agregar_detalle_cotizacion"  class="btn btn-default btn-sm "><i class="fa fa-plus"></i></button>
+                        </div>
+                     </div>  
+                  </div> 
+                  <div class="form-group col-sm-12 no-padding-right"> 
+                     <div class="col-sm-1">
+                        <label>{$L_MOD.lbl_cantidad}</label></div> 
+                     <div class="col-sm-2"> 
+                        <label>{$L_MOD.lbl_categoria}</label>      </div> 
+
+                     <div class="col-sm-2"> 
+                        <label>{$L_MOD.lbl_referencia}</label>      </div> 
+
+                     <div class="col-sm-2"> 
+                        <label>{$L_MOD.lbl_descripcion}</label>      </div> 
+
+                     <div class="col-sm-2"> 
+                        <label>{$L_MOD.lbl_valor_unitario}</label>      </div> 
+
+                     <div class="col-sm-2 text-center"> 
+                        <label>{$L_MOD.lbl_total}</label>      </div> 
+
+                     <div class="col-sm-1"> 
+                        <label></label>      </div> 
+                  </div>
+                  <div id="detalle_cotizacion" class="col-sm-12 no-padding">
+                     {if condition=" count($detalles) > 0"}
+
+                     {else}
+
+                        <div class="form-group col-sm-12 no-padding-right"> 
+                           <input type="hidden" class="id" name="detalle_cotizacion_id[]" value="{$value.id}">
+                           <input type="hidden" name="detalle_cotizacion_eliminado[]" value="0">
+                           <input type="hidden" name="detalle_producto_id[]" id="detalle_producto_id_1" value="{$value.producto_id}">
+                           <div class="col-sm-1 no-padding-right">
+                              <input type="text" class="form-control validate[required]" id="detalle_cantidad_1" value='{if condition="empty($value.cantidad)"}1{else}{$value.cantidad}{/if}' name="detalle_cantidad[]"  onkeyup="calcularTotal();
+                                    return soloNumeros(event);" > </div> 
+                           <div class="col-sm-2 no-padding-right"> 
+                              <input type="text" class="form-control " value="{$value.categoria}" name="detalle_categoria[]" readonly="readonly" id="detalle_categoria_1"></div> 
+
+                           <div class="col-sm-2 no-padding-right"> 
+                              <input type="text" class="form-control " value="{$value.referencia}" name="detalle_referencia[]" onkeyup="buscarProducto(this);" id="detalle_referencia_1" ></div> 
+
+                           <div class="col-sm-2 no-padding-right"> 
+                              <textarea class="form-control" name="detalle_descripcion[]" rows="2" readonly="readonly" id="detalle_descripcion_1">{$value.descripcion}</textarea></div> 
+
+                           <div class="col-sm-2 no-padding-right"> 
+                              <input type="text" class="form-control validate[required] text-right number" value="{$value.valor_unitario}" readonly="readonly" name="detalle_valor_unitario[]"  id="detalle_valor_unitario_1" ></div> 
+
+                           <div class="col-sm-2 no-padding-right"> 
+                              <input type="text" class="form-control validate[required] text-right number" value="{$value.total}" name="detalle_total[]" readonly="readonly" id="detalle_total_1" ></div> 
+
+                           <div class="col-sm-1 no-padding-right"> 
+                           </div> 
+                        </div>
+                     {/if}
+
+                  </div>
+
+                  <div class="form-group col-sm-12 no-padding"> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-3 no-padding-right"><label>{$L_MOD.lbl_subtotal}</label></div> 
+                     <div class="col-sm-2 no-padding-right"> 
+                        <input type="text" class="form-control text-right number" value="{$registro.subtotal}" id="subtotal" name="subtotal" readonly="readonly" ></div> 
+
+                     <div class="col-sm-1"><label> &nbsp;</label></div> 
+                  </div>
+
+                  <div class="form-group col-sm-12 no-padding"> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-3 no-padding-right"><label>{$L_MOD.lbl_descuento}</label></div> 
+                     <div class="col-sm-2 no-padding-right"> 
+                        <input type="text" class="form-control text-right number" value="0" id="descuento" name="descuento" onkeyup="calcularTotal();
+                              return soloNumeros(event);" ></div> 
+
+                     <div class="col-sm-1"><label> &nbsp;</label></div> 
+                  </div>
+
+                  <div class="form-group col-sm-12 no-padding"> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-3 no-padding-right"><label>{$L_MOD.lbl_subtotal_descuento}</label></div> 
+                     <div class="col-sm-2 no-padding-right"> 
+                        <input type="text" class="form-control text-right number" readonly="readonly" value="{$registro.subtotal_descuento}" name="subtotal_descuento" id="subtotal_descuento" ></div>
+
+
+                     <div class="col-sm-1"><label> &nbsp;</label></div> 
+                  </div>
+
+                  <div class="form-group col-sm-12 no-padding"> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right"><label>{$L_MOD.lbl_iva}</label></div> 
+                     <div class="col-sm-1 no-padding">
+                        {if condition=" $modulo != 'cuentas' "}
+                        <select class="form-control validate[required]" id="iva" name="iva">
+                           {loop name="$listasM2.iva"}
+                           <option value="{$value.id}" {if condition=" $registro.iva == $value.id"}selected="selected"{/if}>{$value.nombre} %</option>
+                           {/loop}
+                        </select>
+                        {else}
+                           <select class="form-control validate[required]" id="iva" name="iva">
+                           {loop name="$listasM3.iva"}
+                           <option value="{$value.id}">{$value.nombre}%</option>
+                           {/loop}
+                        </select>
+                        {/if}
+                     </div> 
+                     <div class="col-sm-2 no-padding-right"> 
+                        <input type="text" class="form-control text-right number" readonly="readonly" value="{$registro.valor_iva}" id="valor_iva"  ></div> 
+
+                     <div class="col-sm-1"><label> &nbsp;</label></div> 
+                  </div>
+
+                  <div class="form-group col-sm-12 no-padding"> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-2 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-1 no-padding-right">&nbsp;</div> 
+                     <div class="col-sm-3 no-padding-right"><label>{$L_MOD.lbl_total}</label></div> 
+                     <div class="col-sm-2 no-padding-right"> 
+                        <input type="text" class="form-control text-right number" readonly="readonly" value="{$registro.total}" id="total"></div> 
+
+                     <div class="col-sm-1"><label> &nbsp;</label></div> 
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+                     <button type="submit" class="btn btn-primary" onclick="crear_cotizacion();">{$L_APP.lbl_boton_guardar}</button>
+                  </div>
+               </div>
+            </div>    
+         </div>
+      </div>
+   </form>
+{/if}  
+
+{if condition=" $modulo == 'cuentas' || $modulo == 'oportunidades' "}
+   <!-- Modal nuevo CONTACTO-->
+   <form id="form_cont" enctype="multipart/form-data" method="POST" onsubmit="return false">
+      <div class="modal fade" id="nuevo_contacto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+         <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">{$L_APP.lbl_crear_contacto}</h4>
+               </div>
+               <div class="modal-body">
+
+                  <!-- Datos Basicos-->
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="nombres">{$L_APP.lbl_nombres}</label>
+                        <div class="col-sm-7 ">
+                            {if condition="$modulo == 'oportunidades'"}<input type="hidden" name="oportunidad_id" value="{$registro.id}">{/if}
+                           <input type="text" class="form-control validate[required]" value="{$registro.nombres}" id="nombres" name="nombres" placeholder="{$L_MOD.phl_txt_nombres}">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="apellidos">{$L_APP.lbl_apellidos}</label>
+                        <div class="col-sm-7 ">                    
+                           <input type="text" class="form-control validate[required]" value="{$registro.apellidos}" id="apellidos" name="apellidos" placeholder="{$L_MOD.phl_txt_apellidos}">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="numero_documento">{$L_MOD.lbl_numero_documento}</label>
+                        <div class="col-sm-7 ">                    
+                           <input type="text" class="form-control" value="{$registro.numero_documento}" id="numero_documento" name="numero_documento" placeholder="{$L_MOD.phl_txt_numero_documento}" onkeypress="return soloNumeros(event);" >
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  {if condition=" $modulo == 'oportunidades' "}
+                     <div class="col-sm-6 no-padding-left">
+                        <div class="form-group">
+                           <label class="control-label col-sm-3" for="cuenta_id">{$L_APP.lbl_cuenta}</label>
+                           <div class="col-sm-7 ">                    
+                              <select class="form-control validate[required]" id="cuenta_id" name="cuenta_id">
+                                 <option value="">{$L_APP.lbl_select}</option>
+                                 {loop name="$cuentas"}
+                                 <option value="{$value.id}" {if condition=" $registro.cuenta_id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+                                 {/loop}
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  {else}
+                     <div class="col-sm-6 no-padding-left">
+                        <div class="form-group">
+                           <label class="control-label col-sm-3" for="cuenta_id">{$L_APP.lbl_cuenta}</label>
+                           <div class="col-sm-7 ">                    
+                              <select class="form-control validate[required]" id="cuenta_id2" name="cuenta_id2">
+                                 {loop name="$cuentas"}
+                                 <option value="{$value.id}" {if condition=" $registro.id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+                                 {/loop}
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  {/if}
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="cargo">{$L_MOD.lbl_cargo}</label>
+                        <div class="col-sm-7">                    
+                           <input type="text" class="form-control " value="{$registro.cargo}" id="cargo" name="cargo" placeholder="{$L_MOD.phl_txt_cargo}" >
+                        </div>
+                     </div>
+                  </div>
+    {if condition=" $modulo === 'oportunidades'"}
+                  <div class="col-sm-6  no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3">{$L_APP.lbl_rol}:</label>
+
+                        <div class="col-sm-7">                    
+                           <select class="form-control validate[required]" id="rol_id" name="rol_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.rol"}
+                              <option value="{$value.id}">{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+            <div class="clearfix"></div>{/if} 
+
+                  <!-- Ubicacion-->
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="view_ubicacion_id">{$L_APP.lbl_ubicacion}</label>
+                        <div class="col-sm-9"> 
+                           <input type="text" class="form-control validate[required]" value="{$registro.view_ubicacion_id}" id="view_ubicacion_id" name="view_ubicacion_id"  placeholder="{$L_MOD.phl_txt_ubicacion_nombre}">
+                           <input type="hidden"  value="{$registro.view_ubicacion_nombre}" id="view_ubicacion_nombre">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 no-padding-left"></div>
+                  <div class="clearfix"></div>
+                  <!-- Contacto-->
+                  {include="general/agregar_agregar/telefonos/telefonos_modal"}
+                  {include="general/agregar_agregar/direcciones/direcciones_modal"}
+                  {include="general/agregar_agregar/correos/correos_modal"}
+                  <!-- Comercial-->
+                  <div class="col-sm-6 no-padding-left" style="margin-top: 20px;">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="asesor_id">{$L_APP.lbl_asesor_asignado}</label>
+                        <div class="col-sm-7"  style="padding-top: 9px"> 
+                                  <select class="form-control validate[required]" id="asesor_id" name="asesor_id">
+                              {loop name="$asesores"}
+                                 <option class="entro" value="{$value.id}" {if condition="$registro.asesor_asignado_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+                              
+                              {/loop}
+                           </select>
+                               
+                        </div>
+
+                     </div>
+                  </div>
+
+                  <div class="clearfix"></div>
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="estado_id">{$L_APP.lbl_estado}</label>
+                        <div class="col-sm-7 "  style="padding-top: 9px">                    
+                           <select class="form-control validate[required]" id="estado_id" name="estado_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listasG.estado"}
+                              <option value="{$value.id}" {if condition=" $registro.estado_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+                  <button type="button" class="btn btn-primary" onclick="crear_contacto();">{$L_APP.lbl_boton_guardar}</button>
+                  <div class="clearfix"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
+{/if}
+<!-- Modal nueva ACTIVIDAD -->
+{if condition=" $modulo !== 'cotizaciones'"}
+<form id="form_actividad" enctype="multipart/form-data" method="POST" onsubmit="return false">
+   <div class="modal fade" id="nuevo_actividad" tabindex="" role="dialog" aria-labelledby="myModalLabel">    
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title" id="myModalLabel">{$L_APP.lbl_actividad_crear} <span class="tipo_actividad"></span></h4>
+            </div>
+            <div class="modal-body">
+               {if condition="$modulo == 'cuentas' "}
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="tipo">{$L_APP.lbl_nombre_comercial}</label>
+                        <div class="col-sm-9"> 
+                           <label style="font-size: 15px; margin-top: 2px;">{$registro.nombre_comercial}</label>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="tipo">{$L_APP.lbl_descripcion_estado}</label>
+                        <div class="col-sm-9"> 
+                           {loop name="$listasM.estado"}
+                           {if condition="$registro.estado_id == $value.id"}
+                              <label style="font-size: 15px; margin-top: 2px;">{$value.nombre}</label>
+                           {/if}
+                           {/loop}
+                        </div>
+                     </div>
+                  </div>
+               {/if}
+
+               <div class="col-sm-6">
+                  <div class="form-group">
+                     <label class="control-label col-sm-3" for="nombre">{$L_APP.lbl_actividad_nombre}</label>
+                     <div class="col-sm-9">                    
+                        <input type="text" class="form-control" value="" id="referencia_actividad" name="referencia_actividad">
+
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 ">
+                  <div class="form-group">
+                     <label class="control-label col-sm-3">{$L_APP.lbl_actividad_tipo}</label>
+                     <div class="col-sm-9"> 
+                        <input class="sel_parent" type="hidden" id="tipo_actividad" name="tipo_actividad" data-child="sel_parent_estado" value="">
+                        <span class="tipo_actividad"></span>
+                     </div>
+                  </div>
+               </div>
+               <div class="clearfix"></div>
+               <div class="col-sm-6 ">
+                  <div class="form-group">
+                     <label class="control-label col-sm-3">{$L_APP.lbl_actividad_fecha_inicio}</label>
+                     <div class="col-sm-9"> 
+                        <input type="date" class="form-control validate[required] fecha" value="{$registro.fecha_inicio}" id="fecha_inicio_actividad" name="fecha_inicio_actividad" >
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="clearfix"></div>
+                     <label class="control-label col-sm-3"></label>
+
+                     <div class="col-sm-3">                    
+                        <select class="form-control validate[required]" id="fecha_incio_hora_actividad" name="fecha_inicio_hora_actividad">
+                           <option value=""></option>
+                           {loop name="$horas"}
+                           <option value="{$value.hora}">{$value.hora}</option>
+                           {/loop}
+                        </select>
+                     </div>
+                     <div class="col-sm-3">                    
+                        <select class="form-control validate[required]" id="fecha_incio_minutos_actividad" name="fecha_inicio_minutos_actividad">
+                           <option value=""></option>
+                           {loop name="$minutos"}
+                           <option value="{$value.minutos}" >{$value.minutos}</option>
+                           {/loop}
+                        </select>
+                     </div>
+                     <div class="col-sm-3">                    
+
+                        <select class="form-control validate[required]"id="fecha_inicio_am_actividad " name="fecha_inicio_am_actividad" >
+                           <option value=""></option>
+                           <option value="AM">AM</option>
+                           <option value="PM" >PM</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 ">
+                  <div class="form-group">
+                     <label class="control-label col-sm-3">{$L_APP.lbl_actividad_fecha_fin}</label>
+                     <div class="col-sm-9"> 
+                        <input type="date" class="form-control  fecha validate[required]" value="{$registro.fecha_fin}" id="fecha_fin_actividad" name="fecha_fin_actividad" >
+                     </div>
+                     <div class="clearfix"></div>
+                  </div>
+                  <div class="form-group">
+                     <label class="control-label col-sm-3"></label>
+
+                     <div class="col-sm-3">                    
+                        <select class="form-control validate[required]" id="fecha_fin_hora_actividad" name="fecha_fin_hora_actividad">
+                           <option value=""></option>
+                           {loop name="$horas"}
+                           <option value="{$value.hora}">{$value.hora}</option>
+                           {/loop}
+                        </select>
+                     </div>
+                     <div class="col-sm-3">                    
+                        <select class="form-control validate[required]" id="fecha_fin_minutos_actividad" name="fecha_fin_minutos_actividad">
+                           <option value=""></option>
+                           {loop name="$minutos"}
+                           <option value="{$value.minutos}">{$value.minutos}</option>
+                           {/loop}
+                        </select>
+                     </div>
+                     <div class="col-sm-3">                    
+
+                        <select class="form-control validate[required]" id="fecha_fin_am_actividad" name="fecha_fin_am_actividad" >
+                           <option value=""></option>
+                           <option value="AM">AM</option>
+                           <option value="PM" >PM</option>
+                        </select>
+                     </div>
+
+                  </div>
+               </div>
+               <div class="col-sm-6 hide">
+                  <div class="form-group">
+                     <label class="control-label col-sm-3" for="relacionado">{$L_APP.lbl_actividad_relacionado}</label>
+                     <div class="col-sm-9">   
+                        {$modulo}
+                        <input type='hidden' id="relacionado_acti_vidad" name="relacionado_acti_vidad" value="{$campos[$modulo][1]}">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 hide">
+                  <div class="form-group">
+                     <label class="control-label col-sm-3" for="relacionado">{$L_APP.lbl_actividad_relacionado_con}</label>
+                     <div class="col-sm-9">  
+                        {$count=(count($campos[$modulo][0]))}
+                        {if condition="$count < 2"}
+                           {loop name="$registro"}  
+                           {if condition="$key==$campos[$modulo][0][0]"}
+                              <input type="hidden" id="nombre_general" name="nombre_general" value="{$value}"> 
+                              <span class="modulo_relacionado_id_nuevo">{$value}</span>
+                           {/if}
+                           {/loop}
+                        {/if}
+                        {if condition="$count > 1"}
+                           {loop name="$registro"}  
+                           {if condition="$key==$campos[$modulo][0][0]"}
+                              {$c1=$value}
+                           {/if}
+                           {/loop}
+                           {loop name="$registro"}  
+                           {if condition="$key==$campos[$modulo][0][1]"}
+                              <span class="modulo_relacionado_id_nuevo">{$c1} {$value}</span>
+                              <input type="hidden" id="nombre_general" name="nombre_general" value="{$c1} {$value}"> 
+                           {/if}
+                           {/loop}
+                        {/if}
+                        <input type="hidden" id="relacionado_id_actividad" name="relacionado_id_actividad" value="{$registro.id}">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="clearfix"></div>
+               <div class="panel-tarea" >   
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3">{$L_APP.lbl_actividad_prioridad}</label>
+                        <div class="col-sm-9"> 
+                           <select class="form-control validate[required]" id="prioridad_actividad" name="prioridad_actividad" >
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listas_actividades.prioridad"}
+                              <option value="{$value.id}" {if condition="$registro.prioridad == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>        
+                     </div>
+                  </div> 
+                  <div class="col-sm-6 hidden">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="contacto">{$L_APP.lbl_actividad_contacto}</label>
+                        <div class="col-sm-9">   
+                           <select class="form-control validate[required]" id="cliente_actividad" name="cliente_actividad" >
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$clientes_actividades"}
+                              <option value="{$value.id}" {if condition="$registro.cliente == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop} 
+                           </select>                
+                        </div>
+                     </div>
+                  </div> 
+                  <div class="clearfix"></div>
+               </div>
+               <div class="panel-llamada" >    
+                  <div class="col-sm-6 " >
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="tipo">{$L_APP.lbl_actividad_tipo_llamada}</label>
+                        <div class="col-sm-9"> 
+                           <select class="form-control validate[required]" id="tipo_llamada_actividad" name="tipo_llamada_actividad" >
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$listas_actividades.tipo_llamada"}
+                              <option value="{$value.id}" {if condition=" $registro.tipo_llamada == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>        
+                     </div>
+                  </div> 
+                  <div class="clearfix"></div>
+               </div>
+               <div class="panel-reunion" >
+                  <div class="col-sm-6 ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="lugar">{$L_APP.lbl_actividad_lugar}</label>
+                        <div class="col-sm-9">   
+                           <input type="text" class="form-control validate[required]"  id="lugar_actividad" name="lugar_actividad" value="{$registro.lugar}">
+                        </div>
+                     </div>
+                  </div> 
+                  <div class="clearfix"></div>
+               </div>
+               <div class="col-sm-6 ">
+                  <div class="form-group">
+                     <label class="control-label col-sm-3" for="descripcion">{$L_APP.lbl_actividad_descripcion}</label>
+                     <div class="col-sm-9">     
+                        <textarea class="form-control"  id="descripcion_actividad" name="descripcion_actividad" >{$registro.descripcion}</textarea>
+                     </div>
+                  </div>
+               </div>
+               <div class="clearfix"></div>
+               <div class="panel-reunion">
+                  <div class="col-sm-12">
+                     <div class="form-group">
+                        <label class="control-label col-sm-2">Agregar Invitado</label>
+                        <div class="col-sm-9 no-padding-left">
+                           <button type="button" id="btn_agregar_invitado" onclick="agregarInvitado_act();" class="btn btn-primary "><i class="fa fa-plus"></i></button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-12">
+                     <label class="col-sm-2 control-label">Modulo Invitado</label>
+                     <label class="col-sm-5 control-label">Nombre Invitado</label>
+                     <label class="col-sm-4 control-label">Email Invitado</label>
+                  </div>
+                  <div  id="invitados">
+
+                  </div>    </div> 
+               <div class="clearfix"></div>
+
+
+            </div>  
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+               <button type="button" class="btn btn-primary" onclick="crear_actividad();">{$L_APP.lbl_boton_guardar}</button>
+               <div class="clearfix"></div>
+            </div>
+         </div>
+      </div>    
+   </div>
+</form>
+{/if}
+<!-- Modal nuevo DOCUMENTO-->
+
+<div class="modal fade" id="nuevo_documento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">{$L_APP.lbl_crear_documento}</h4>
+         </div>
+         <div class="modal-body">
+
+            <span class="limpiar_nuevo_documento">
+               <div class="col-sm-6 no-padding-left paddi_documet">
+                  <div class="form-group ">
+                     <label class="control-label col-sm-4" for="documentos">{$L_APP.lbl_nombre_documento}</label>
+                     <div class="col-sm-7" style="padding-top: 5px;">  
+                        <input type="text" class="form-control " id="nombre_nuevo" name="nombre_nuevo" value="">
+                     </div>
+                  </div>
+               </div>
+               
+            </span>
+            <div class="clearfix"></div>
+
+            <div class="col-sm-6 no-padding-left paddi_documet">
+               <div class="form-group ">
+                  <label class="control-label col-sm-4" for="documentos">{$L_APP.lbl_modulo_documento}</label>
+                  <div class="col-sm-7" style="padding-top: 5px;"> 
+                     {$modulo}
+                     <input type='hidden' id="modulo_relacionado_nuevo" name="modulo_relacionado_nuevo" value="{$campos[$modulo][1]}">
+                     <input type='hidden' id="modulo_relacionado_id_nuevo" name="modulo_relacionado_id_nuevo" value="{$registro.id}">
+                  </div>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <span class="limpiar_nuevo_documento">
+               <div class="col-sm-6 no-padding-left paddi_documet">
+                  <div class="form-group ">
+                     <label class="control-label col-sm-4" for="documentos">{$L_APP.lbl_adjunto_documento}</label>
+                     <div class="col-sm-7" style="overflow: hidden;padding-top: 4px;">   
+                        <input type="file" class="adjunto_documento " id="adjunto_nuevo" name="adjunto_nuevo" >
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 no-padding-left paddi_documet">
+                  <div class="form-group ">
+                     <label class="control-label col-sm-4" for="documentos">{$L_APP.lbl_version_documento}</label>
+                     <div class="col-sm-7" style="padding-top: 5px;">
+                        <input type="text" id="version_nuevo" name="version_nuevo" class="form-control  version" value="">             
+                     </div>
+                  </div>
+               </div>
+               <div class="clearfix"></div>
+               <div class="col-sm-6 no-padding-left hidden">
+                  <div class="form-group ">
+                     <label class="control-label col-sm-4" for="documentos">{$L_APP.lbl_categoria_documento}</label>
+                     <div class="col-sm-7" style="padding-top: 5px;">                    
+                        <select class="form-control" id="categoria_nuevo" name="categoria_nuevo">
+                           <option value="-1">{$L_APP.lbl_select}</option>
+                           {loop name="$listas_documentos.categoria"}
+                           <option value="{$value.id}">{$value.nombre}</option>
+                           {/loop}
+                        </select>               
+                     </div>
+                  </div>
+               </div>
+               <div class="clearfix hidden"></div>
+               <span id="depende_estado_nuevo" >
+                  <div class="col-sm-6 no-padding-left hidden">
+                     <div class="form-group ">
+                        <label class="control-label col-sm-4" for="documentos">{$L_APP.lbl_estado_documento}</label>
+                        <div class="col-sm-7">                    
+                           <select class="form-control " id="estado_nuevo" name="estado_nuevo">
+                              <option value="-1">{$L_APP.lbl_select}</option>
+                              {loop name="$listas_documentos.estado"}
+                              <option value="{$value.id}" >{$value.nombre}</option>
+                              {/loop}
+                           </select>               
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+               </span>
+               <div class="clearfix"></div>
+               <div class="col-sm-6 no-padding-left paddi_documet">
+                  <div class="form-group ">
+                     <label class="control-label col-sm-4" for="documentos">{$L_APP.lbl_descripcion_documento}</label>
+                     <div class="col-sm-7"> 
+                        <textarea class="form-control" id="descripcion_nuevo" name="descripcion_nuevo" ></textarea>
+                     </div>
+                  </div>
+               </div>
+               <div class="clearfix"></div>
+            </span>
+            <div class="clearfix"></div>
+
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+            <button type="button" class="btn btn-primary" onclick="crear_documento();">{$L_APP.lbl_boton_guardar}</button>
+         </div>
+      </div>
+   </div>    
+</div>
+
+
+
+{if condition="$modulo == 'servicios' || $modulo == 'cuentas'"}
+   <!-- MODAL CASOS  -->
+
+   <div class="modal fade" id="nuevo_caso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title" id="myModalLabel">Nuevo Caso</h4>
+            </div>
+
+            <form></form>
+
+            <div class="modal-body">
+
+               <form class="form-horizontal" id="form_caso" role="form">
+
+                  <div class="col-sm-6 no-padding-left ">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" >{$L_MOD.lbl_numero}</label>
+                        <label class="control-label col-sm-8"> {$registro.id}</label>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="tipo_id">{$L_MOD.lbl_tipo}</label>
+
+                        <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required]" id="tipo_id_c" name="tipo_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$caso_listasM.tipo"}
+                              <option value="{$value.id}" >{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="origen_id">{$L_MOD.lbl_origen}</label>
+
+                        <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required]" id="origen_id" name="origen_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$caso_listasM.origen"}
+                              <option value="{$value.id}" >{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="cuenta_id">{$L_MOD.lbl_cuenta}</label>
+
+{if condition="$modulo == 'servicios'"}
+
+                        <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required]" id="cuenta_id" name="cuenta_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$cuenta"}
+                              <option value="{$value.id}" {if condition="$registro.cuenta_id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+                              {/loop}
+                           </select>
+                        </div>
+{else}
+                      <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required]" id="cuenta_id" name="cuenta_id">
+                              <option value="{$registro.id}" >{$registro.nombres}</option>
+                           </select>
+                        </div>
+{/if}
+                     </div>
+                  </div>
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="prioridad_id">{$L_MOD.lbl_prioridad}</label>
+
+
+                        <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required]" id="prioridad_id" name="prioridad_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$caso_listasM.prioridad"}
+                              <option value="{$value.id}" >{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="servicio_id">{$L_MOD.lbl_servicio}:</label>
+{if condition="$modulo == 'servicios'"}
+
+                        <div class="control-label col-sm-7 ">   
+                           <input type="hidden" value="{$registro.id}" id="servicio_id" name="servicio_id" >
+                           {$registro.id} - {$registro.tipo_servicio_str}
+                        </div>
+{else}
+                        <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required]" id="servicio_id" name="servicio_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$servicios"}
+                              <option value="{$value.id}" >{$value.servicios}</option>
+                              {/loop}
+                           </select>
+                        </div>
+   {/if}
+                     </div>
+                  </div>
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="estado_id">{$L_MOD.lbl_estado}</label>
+
+                        <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required]" id="estado_id" name="estado_id">
+                              <option value="">{$L_APP.lbl_select}</option>
+                              {loop name="$caso_listasM.estado"}
+                              <option value="{$value.id}" >{$value.nombre}</option>
+                              {/loop}
+                           </select>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="asunto">{$L_MOD.lbl_asunto}</label>
+
+                        <div class="col-sm-8 ">      
+                           <input type="text" class="form-control validate[required]" value="" id="asunto" name="asunto" placeholder="{$L_MOD.phl_txt_asunto}">
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="descripcion">{$L_MOD.lbl_descripcion}</label>
+
+                        <div class="col-sm-8 ">      
+                           <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+                        </div>
+
+                     </div>
+                  </div>
+
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="resolucion">{$L_MOD.lbl_resolucion}:</label>
+
+
+                        <div class="col-sm-8 ">      
+                           <textarea class="form-control" id="resolucion" name="resolucion" rows="3"></textarea>
+                        </div>
+
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="col-sm-6 no-padding-left">
+                     <div class="form-group">
+                        <label class="control-label col-sm-4" for="asesor_asignado_id">
+                           {$L_MOD.lbl_asesor_asignado}</label>
+{if condition="$modulo == 'servicios'"}
+
+                        <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required]" id="asesor_asignado_id" name="asesor_asignado_id">
+                              {loop name="$asesores"}
+                                 <option value="{$value.id}" {if condition="$registro.responsable_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+
+                              {/loop}
+                           </select>
+                        </div>
+{else}                           
+                        <div class="col-sm-7 ">                    
+                           <select class="form-control validate[required]" id="asesor_asignado_id" name="asesor_asignado_id">
+                              {loop name="$asesores"}
+                                 <option value="{$value.id}" {if condition="$registro.asesor_asignado_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+
+                              {/loop}
+                           </select>
+                        </div>
+{/if}
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+               </form>
+
+
+
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+               <button type="button" class="btn btn-primary" onclick="crear_caso();">{$L_APP.lbl_boton_guardar}</button>
+            </div>
+         </div>
+      </div>    
+   </div>   
+{/if}
+{if condition="$modulo == 'cuentas'"}
+<!-- Modal Convenios-->
+<form id="form_convenio" enctype="multipart/form-data" method="POST" onsubmit="return false">
+<div class="modal fade" id="nuevo_convenio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title" id="myModalLabel">Nuevo Convenio</h4>
+            </div>
+            <div class="modal-body">  
+     
+     
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="cuenta_id">{$L_MOD.lbl_cuenta}</label>
+        <div class="col-sm-7">                    
+          <select class="form-control validate[required]" id="cuenta_id" name="cuenta_id">
+            <option value="">{$L_APP.lbl_select}</option>
+            {loop name="$cuenta"}
+            <option value="{$value.id}" {if condition="$registro.id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="linea_id">{$L_MOD.lbl_linea}</label>
+
+
+        <div class="col-sm-7">                    
+          <select class="form-control validate[required] cnvn" multiple id="linea" name="linea[]">
+            {loop name="$listasG.linea"}
+            <option value="{$value.id}-{$value.nombre}" {if condition="strpos($registro.linea_id, $value.id)"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="tipo_servicio">
+          <span class="lbl_cnvn">{$L_MOD.lbl_tipo_convenio}</span>
+        </label>
+
+        <div class="col-sm-7">                    
+          <select class="form-control validate[required]" multiple id="tipo_servicio" name="tipo_servicio[]">
+            {loop name="$listasM4.tipo_servicio"}
+            <option value="{$value.id}-{$value.nombre}" {if condition="strpos($registro.tipo_servicio_id, $value.id)>-1"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="fecha_vigencia_desde">{$L_MOD.lbl_fecha_vigencia_desde}</label>
+
+        <div class="col-sm-7"> 
+          <div class="input-group">
+            <input type="text" class="form-control fecha validate[required,custom[date]{if condition=" $registro.id == ''"},funcCall[comparaConFechaActual['', #fecha_vigencia_hasta]]{/if}]" value="{$registro.fecha_vigencia_desde}" id="fecha_vigencia_desde" name="fecha_vigencia_desde" placeholder="{$L_MOD.phl_txt_fecha_vigencia_desde}">
+            <span class="input-group-addon">
+              <span class="fa fa-calendar"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="fecha_vigencia_hasta">{$L_MOD.lbl_fecha_vigencia_hasta}</label>
+
+        <div class="col-sm-7"> 
+          <div class="input-group">
+            <input type="text" class="form-control fecha validate[required,custom[date]{if condition=" $registro.id == ''"},funcCall[comparaConFechaActual[#fecha_vigencia_desde, '']]{/if}]" value="{$registro.fecha_vigencia_hasta}" id="fecha_vigencia_hasta" name="fecha_vigencia_hasta" placeholder="{$L_MOD.phl_txt_fecha_vigencia_hasta}">
+            <span class="input-group-addon">
+              <span class="fa fa-calendar"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="forma_pago_id">{$L_MOD.lbl_forma_pago}</label>
+
+        <div class="col-sm-7">                    
+          <select class="form-control validate[required] cnvn" id="forma_pago_id" name="forma_pago_id">
+            <option value="">{$L_APP.lbl_select}</option>
+            {loop name="$listasM4.forma_pago"}
+            <option value="{$value.id}" {if condition="$registro.forma_pago_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="estado_servicio_id">{$L_MOD.lbl_estado_servicio}</label>
+
+        <div class="col-sm-7">                    
+          <select class="form-control validate[required]" id="estado_servicio_id" name="estado_servicio_id">
+            <option value="">{$L_APP.lbl_select}</option>
+            {loop name="$listasM4.estado_servicio"}
+            <option value="{$value.id}" {if condition="$registro.estado_servicio_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3 " for="condiciones_comerciales">{$L_MOD.lbl_condiciones_comerciales}</label>
+
+        <div class="col-sm-9">      
+          <textarea class="form-control cnvn" id="condiciones_comerciales" name="condiciones_comerciales" rows="6"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="descripcion">{$L_MOD.lbl_descripcion}</label>
+
+        <div class="col-sm-9">      
+          <textarea class="form-control" id="descripcion" name="descripcion" rows="6"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="responsable_id">{$L_MOD.lbl_responsable}</label>
+
+        <div class="col-sm-7">                    
+          <select class="form-control validate[required]" id="responsable_id" name="responsable_id">
+            {loop name="$asesores"}
+              <option value="{$value.id}" {if condition="$registro.asesor_asignado_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+  <button type="submit" class="btn btn-primary" onclick="crear_convenio();">{$L_APP.lbl_boton_guardar}</button> 
+  </div>
+</div>
+</div>
+</div>
+</form>
+{/if}
+{if condition="$modulo === 'cuentas'"}
+<!-- Modal de Servicios -->
+<form id="form_servicio" enctype="multipart/form-data" method="POST" onsubmit="return false">
+<div class="modal fade" id="nuevo_servicio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">    
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title" id="myModalLabel">Nuevo Servicio</h4>
+            </div>
+
+
+            <div class="modal-body">  
+     
+      <div class="panel-body">
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="cuenta_id">{$L_MOD.lbl_cuenta}</label>
+
+                        <div class="col-sm-7">                    
+                              <select class="form-control validate[required]" id="cuenta_id" name="cuenta_id">
+                                    {loop name="$cuenta"}
+                                    <option value="{$value.id}" {if condition="$registro.id == $value.id"}selected="selected"{/if}>{$value.nombres}</option>
+                                    {/loop}
+                              </select>
+                        </div>
+                  </div>
+            </div>
+
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="tipo_servicio">
+                              <span class="lbl_srvc">{$L_MOD.lbl_tipo_servicio}</span>
+                        </label>
+
+                        <div class="col-sm-7">                    
+                              <select class="form-control validate[required]" multiple id="tipo_servicio" name="tipo_servicio[]">
+                                    {loop name="$listasM4.tipo_servicio"}
+                                    <option value="{$value.id}-{$value.nombre}" {if condition="strpos($registro.tipo_servicio_id, $value.id)>-1"}selected="selected"{/if}>{$value.nombre}</option>
+                                    {/loop}
+                              </select>
+                        </div>
+                  </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="fecha_vigencia_desde">{$L_MOD.lbl_fecha_vigencia_desde}</label>
+
+                        <div class="col-sm-7"> 
+                              <div class="input-group">
+                                    <input type="text" class="form-control fecha validate[required,custom[date]{if condition=" $registro.id == ''"},funcCall[comparaConFechaActual['', #fecha_vigencia_hasta]]{/if}]" value="{$registro.fecha_vigencia_desde}" id="fecha_vigencia_desde" name="fecha_vigencia_desde" placeholder="{$L_MOD.phl_txt_fecha_vigencia_desde}">
+                                    <span class="input-group-addon">
+                                          <span class="fa fa-calendar"></span>
+                                    </span>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="fecha_vigencia_hasta">{$L_MOD.lbl_fecha_vigencia_hasta}</label>
+
+                        <div class="col-sm-7"> 
+                              <div class="input-group">
+                                    <input type="text" class="form-control fecha validate[required,custom[date]{if condition=" $registro.id == ''"},funcCall[comparaConFechaActual[#fecha_vigencia_desde, '']]{/if}]" value="{$registro.fecha_vigencia_hasta}" id="fecha_vigencia_hasta" name="fecha_vigencia_hasta" placeholder="{$L_MOD.phl_txt_fecha_vigencia_hasta}">
+                                    <span class="input-group-addon">
+                                          <span class="fa fa-calendar"></span>
+                                    </span>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="modalidad_id">{$L_MOD.lbl_modalidad_cobro}</label>
+
+                        <div class="col-sm-7">                    
+                              <select class="form-control validate[required] srvc" id="modalidad_cobro_id" name="modalidad_cobro_id">
+                                    <option value="">{$L_APP.lbl_select}</option>
+                                    {loop name="$listasM4.modalidad_cobro"}
+                                    <option value="{$value.id}" {if condition="$registro.modalidad_cobro_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                                    {/loop}
+                              </select>
+                        </div>
+                  </div>
+            </div>
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="periodo_cobro_id">{$L_MOD.lbl_periodo_cobro}</label>
+
+                        <div class="col-sm-7">                    
+                              <select class="form-control validate[required] srvc" id="periodo_cobro_id" name="periodo_cobro_id">
+                                    <option value="">{$L_APP.lbl_select}</option>
+                                    {loop name="$listasM4.periodo_cobro"}
+                                    <option value="{$value.id}" {if condition="$registro.periodo_cobro_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                                    {/loop}
+                              </select>
+                        </div>
+                  </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="valor_servicio">{$L_MOD.lbl_valor_servicio}</label>
+                        <div class="col-sm-7">                    
+                              <input type="text" class="form-control number validate[required] srvc" value="{$registro.valor_servicio}" id="valor_servicio" name="valor_servicio" placeholder="{$L_MOD.phl_txt_valor_servicio}">
+                        </div>
+                  </div>
+            </div>
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="estado_servicio_id">{$L_MOD.lbl_estado_servicio}</label>
+
+                        <div class="col-sm-7">                    
+                              <select class="form-control validate[required]" id="estado_servicio_id" name="estado_servicio_id">
+                                    <option value="">{$L_APP.lbl_select}</option>
+                                    {loop name="$listasM4.estado_servicio"}
+                                    <option value="{$value.id}" {if condition="$registro.estado_servicio_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                                    {/loop}
+                              </select>
+                        </div>
+                  </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="tarifa">{$L_MOD.lbl_tarifa}</label>
+
+                        <div class="col-sm-7">                    
+                              <input type="text" class="form-control number validate[required] srvc" value="{$registro.tarifa}" id="tarifa" name="tarifa" placeholder="{$L_MOD.phl_txt_tarifa}">
+                        </div>
+                  </div>
+            </div>
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="tarifa_obs">{$L_MOD.lbl_tarifa_obs}</label>
+
+                        <div class="col-sm-7">                    
+                              <input type="text" class="form-control number validate[required] srvc" value="{$registro.tarifa_obs}" id="tarifa_obs" name="tarifa_obs" placeholder="{$L_MOD.phl_txt_tarifa_obs}">
+                        </div>
+                  </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="descripcion">{$L_MOD.lbl_descripcion}</label>
+
+                        <div class="col-sm-9">      
+                              <textarea class="form-control" id="descripcion" name="descripcion" rows="6">{$registro.descripcion}</textarea>
+                        </div>
+                  </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-sm-6 no-padding-left">
+                  <div class="form-group">
+                        <label class="control-label col-sm-3" for="responsable_id">{$L_MOD.lbl_responsable}</label>
+
+                        <div class="col-sm-7">                    
+                              <select class="form-control validate[required]" id="responsable_id" name="responsable_id">
+                                    {loop name="$asesores"}
+                                          <option value="{$value.id}" {if condition="$registro.asesor_asignado_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+                                    {/loop}
+                              </select>
+                        </div>
+                  </div>
+            </div>
+            <div class="clearfix"></div>
+      </div>
+</div>
+<div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">{$L_APP.lbl_cancelar}</button>
+      <button type="submit" class="btn btn-primary" onclick="crear_servicio();">{$L_APP.lbl_boton_guardar}</button>
+</div>
+</div>
+</div>
+</div>
+</form>
+{/if}
+

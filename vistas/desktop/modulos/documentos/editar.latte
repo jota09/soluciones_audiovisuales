@@ -1,0 +1,306 @@
+<!-- Datos Basicos-->
+
+<div class="panel panel-primary" id="datos_basicos">
+    <div class="panel-heading">{$L_MOD.lbl_documentos}</div>
+    <div class="panel-body">
+        <div class="col-lg-6 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_nombre}</label>
+                <div class="col-lg-7">  
+                    {if condition="empty($registro.id)"} 
+                        <input type="text" class="form-control required" id="nombre" name="nombre" value="{$registro.nombre}">
+                    {else}                        <span class="nombre_documento">
+                            {$registro.nombre}</span>
+                        <input type="hidden" id="nombre" class="nombre_documento" name="nombre" value="{$registro.nombre}">
+                    {/if}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_tipo_documento}</label>
+                <div class="col-lg-7">                    
+
+                    {if condition="empty($registro.id)"} 
+                        <select class="form-control required " id="tipo_documento" name="tipo_documento">               
+                            <option value="-1">{$L_APP.lbl_select}</option>
+                            {loop name="$listas.tipo_documento"}
+                            <option value="{$value.id}" {if condition=" $registro.tipo_documento == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                            {/loop}
+                        </select>               
+                    {else}
+                        {loop name="$listas.tipo_documento"}
+                        {if condition="$value.id==$registro.tipo_documento"}
+                            {$value.nombre}
+                        {/if}
+
+                        {/loop}
+
+                        <input type="hidden" id="tipo_documento" name="tipo_documento" value="{$registro.tipo_documento}">
+                    {/if}
+
+
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-lg-6 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_modulo}</label>
+                <div class="col-lg-7"> 
+                    {if condition="empty($registro.id)"} 
+                        <select class="form-control required sel_parent" id="modulo_relacionado" name="modulo_relacionado" data-child="sel_parent_modulo">
+                            <option value="-1">{$L_APP.lbl_select}</option>
+                            {loop name="$modulos_documentos"}
+                            <option value="{$value.id}" {if condition=" $registro.modulo_relacionado == $value.id"}selected="selected"{/if}>{$key}</option>
+                            {/loop}
+                        </select>
+
+                    {else}
+                        <input type="hidden" id="modulo_relacionado" name="modulo_relacionado" value="{$registro.modulo_relacionado}">
+                        {loop name="$modulos_documentos"}
+                    {if condition=" $registro.modulo_relacionado == $value.id"}{$key}{/if}
+
+                    {/loop}
+                {/if}
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 no-padding-left">
+        <div class="form-group ">
+            <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_modulo_id}</label>
+            <div class="col-lg-7">
+                {if condition="empty($registro.id)"} 
+<!--<select  class="form-control required  sel_parent_agente reqc compania1" id="compania"  name="compania" data-selparent="sel_parent">-->
+                    <select class="form-control sel_parent_modulo" id="modulo_relacionado_id" name="modulo_relacionado_id" >
+                        <option value="-1">{$L_APP.lbl_select}</option>
+                        {loop name="$relacionado"}
+                        <option data-parent="{$value.modulo_id}"  value="{$value.id}" {if condition="$registro.modulo_relacionado_id == $modulo.id"}selected="selected"{/if}>{$value.nombre_general}</option>
+                        {/loop} 
+                    </select>
+                {else}
+                    {loop name="$relacionado"}  
+                    {*$value.modulo_id*}
+                    {if condition="$value.modulo_id == $registro.modulo_relacionado "}
+                        {if condition="$value.id==$registro.modulo_relacionado_id"}
+                        {$value.nombre_general}{/if}
+                    {/if}
+                    {/loop}
+                    <input type="hidden" id="modulo_relacionado_id" name="modulo_relacionado_id" value="{$registro.modulo_relacionado_id}">
+                {/if}         
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-lg-6 no-padding-left">
+        <div class="form-group ">
+            <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_adjunto}</label>
+            <div class="col-lg-7">   
+                <!--<input type="file" class="validate[funcCall[validarMIME[image/jpeg|image/png|image/jpg]]]" id="avatar" name="avatar">-->
+                                       <!--<a href="/uploads/adjuntos/"></a>-->
+
+                {if condition="empty($registro.adjunto)"} 
+                    <input type="file" class="form-control required adjunto_documento" id="adjunto" name="adjunto" >
+                {else}
+                    <a class="dir" href="uploads/adjuntos/{$registro.adjunto}" target="blank">{$registro.nombre_adjunto}</a>
+
+                {/if}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 no-padding-left">
+        <div class="form-group ">
+            <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_version}</label>
+            <div class="col-lg-7">       
+                {if condition="$registro.id!=''"}
+                    <span class="version"> {$registro.version}</span>  
+                    <input type="hidden" id="version" name="version" value="{$registro.version}">
+                {else}
+                    <input type="text" id="version" name="version" class="form-control required version" value="">             
+
+                {/if}
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-lg-6 no-padding-left">
+        <div class="form-group ">
+            <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_categoria}</label>
+            <div class="col-lg-7">                    
+                <select class="form-control" id="categoria" name="categoria">
+                    <option value="-1">{$L_APP.lbl_select}</option>
+                    {loop name="$listas.categoria"}
+                    <option value="{$value.id}" {if condition=" $registro.categoria == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                    {/loop}
+                </select>               
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!--   <span id="depende_estado" class="hide">-->
+    <span id="depende_estado" >
+        <div class="col-lg-6 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_estado}</label>
+                <div class="col-lg-7">                    
+                    <select class="form-control" id="estado" name="estado">
+                        <option value="-1">{$L_APP.lbl_select}</option>
+                        {loop name="$listas.estado"}
+                        <option value="{$value.id}" {if condition=" $registro.estado == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+                        {/loop}
+                    </select>               
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_fecha_publicacion}</label>
+                <div class="col-lg-7">                    
+                    <input type="date" class="form-control" id="fecha_publicacion" name="fecha_publicacion" value="{$registro.fecha_publicacion}">
+                </div>
+            </div>
+        </div>
+    </span>
+    <div class="clearfix"></div>
+    <div class="col-lg-6 no-padding-left">
+        <div class="form-group ">
+            <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_creado_por}</label>
+            <div class="col-lg-7">                    
+                {$registro.creado_por} 
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-lg-6 no-padding-left">
+        <div class="form-group ">
+            <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_descripcion}</label>
+            <div class="col-lg-7">                    
+                <textarea class="form-control" id="descripcion" name="descripcion" >{$registro.descripcion}</textarea>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--modulo documentos-->
+<div class="panel panel-primary" id="revisiones">
+    <div class="panel-heading">{$L_MOD.lbl_revisiones}</div>
+    <div class="panel-body">
+        <div class="col-md-12 no-padding-left">
+            <input type="button"  value="Nueva Versión" id="btn_nuevo_version" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#nuevo_revision"><i class="ion-loop"> </i> 
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-3 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-xs-12" for="documentos">{$L_MOD.lbl_nombre}</label>
+            </div>
+        </div>
+        <div class="col-md-2 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-xs-12" for="documentos">{$L_MOD.lbl_revision}</label>
+            </div>
+        </div>
+        <div class="col-md-2 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-xs-12" for="documentos">{$L_MOD.lbl_fecha_creacion}</label>
+            </div>
+        </div>
+        <div class="col-md-2 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-xs-12" for="documentos">{$L_MOD.lbl_creado_por}</label>
+            </div>
+        </div>
+        <div class="col-md-3 no-padding-left">
+            <div class="form-group ">
+                <label class="control-label col-xs-12" for="documentos">{$L_MOD.lbl_registro_cambio}</label>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="versiones">
+            {loop name="$revs"}
+            <div class="clearfix"></div>
+            <div class="col-md-3 no-padding-left">
+                <a href="uploads/adjuntos/{$value.adjunto}" target="blank"><i class="fa fa-paperclip"></i></a>
+                    {$value.nombre_adjunto}
+            </div>
+            <div class="col-md-2 no-padding-left">
+                {$value.version}
+            </div>
+            <div class="col-md-2 no-padding-left">
+                {$value.fecha_creacion}
+            </div>
+            <div class="col-md-2 no-padding-left">
+                {$value.nombre_usuario}
+            </div>
+            <div class="col-md-3 no-padding-left">
+                {$value.descripcion}
+            </div>
+            <div class="clearfix"></div>
+            {/loop}
+        </div>
+    </div>
+</div>
+
+<!-- Modal revision-->
+<div class="modal fade" id="nuevo_revision" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{$L_APP.lbl_revision}</h4>
+            </div>
+            <div class="modal-body">
+
+<!--                <div class="col-lg-6 no-padding-left">
+                    <div class="form-group ">
+                        <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_nombre}</label>
+                        <div class="col-lg-7">   
+                            <input type="text" class="form-control  " id="nombre_revision" name="nombre_revision" >
+                        </div>
+                    </div>
+                </div>-->
+                 <div class="col-lg-6 no-padding-left">
+                    <div class="form-group ">
+                        <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_adjunto}</label>
+                        <div class="col-lg-7">   
+
+                            <input type="file" class="form-control  adjunto_documento" id="adjunto_revision" name="adjunto_revision" >
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 no-padding-left">
+                    <div class="form-group ">
+                        <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_version}</label>
+                        <div class="col-lg-7">       
+
+                            <input type="text" id="version_revision" name="version_revision" class="form-control ">             
+
+                        </div>
+                    </div>
+                </div>
+             
+               
+   <div class="clearfix"></div>
+
+
+<!--                <div class="clearfix"></div>
+
+                <div class="clearfix"></div>-->
+                <div class="col-lg-6 no-padding-left">
+                    <div class="form-group ">
+                        <label class="control-label col-lg-3" for="documentos">{$L_MOD.lbl_descripcion}</label>
+                        <div class="col-lg-7">                    
+                            <textarea class="form-control" id="descripcion_revision" name="descripcion_revision" ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="Crear_revision();">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

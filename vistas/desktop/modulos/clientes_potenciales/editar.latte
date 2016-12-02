@@ -1,0 +1,256 @@
+<!-- Datos Basicos-->
+<div class="panel panel-primary">
+  <div class="panel-heading">{$L_APP.lbl_datos_basicos}</div>
+  <div class="panel-body">
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="nombres">{$L_MOD.lbl_nombres}</label>
+        <div class="col-sm-7 editar_js">                    
+          <input type="text" class="form-control validate[required]" value="{$registro.nombres}" id="nombres" name="nombres" placeholder="{$L_MOD.phl_txt_nombres}">
+        </div>
+        <label class="control-label col-sm-7 ver_js" >{$registro.nombres}</label>
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="apellidos">{$L_MOD.lbl_apellidos}</label>
+        <div class="col-sm-7 editar_js">                    
+          <input type="text" class="form-control validate[required]" value="{$registro.apellidos}" id="apellidos" name="apellidos" placeholder="{$L_MOD.phl_txt_apellidos}">
+        </div>
+        <label class="control-label col-sm-7 ver_js" >{$registro.apellidos}</label>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-sm-6 no-padding-left">
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="nombre_empresa">{$L_MOD.lbl_nombre_empresa}</label>
+        <div class="col-sm-7 editar_js">                    
+          <input type="text" class="form-control validate[required]" value="{$registro.nombre_empresa}" id="nombre_empresa" name="nombre_empresa" placeholder="{$L_MOD.phl_txt_nombre_empresa}">
+        </div>
+        <label class="control-label col-sm-7 ver_js" >{$registro.nombre_empresa}</label>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="cargo">{$L_MOD.lbl_cargo}</label>
+        <div class="col-sm-7 editar_js">                    
+          <input type="text" class="form-control " value="{$registro.cargo}" id="cargo" name="cargo" placeholder="{$L_MOD.phl_txt_cargo}" >
+        </div>
+        <label class="control-label col-sm-7 ver_js" >{$registro.cargo}</label>
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="departamento">{$L_MOD.lbl_departamento}</label>
+        <div class="col-sm-7 editar_js">                    
+          <input type="text" class="form-control" value="{$registro.departamento}" id="departamento" name="departamento" value='{$registro.departamento}'>
+        </div>
+        <label class="control-label col-sm-7 ver_js" >{$registro.departamento}</label>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="fecha_nacimiento">{$L_MOD.lbl_fecha_nacimiento}</label>
+        <div class="col-sm-7 editar_js">                    
+          <input type="text" class="form-control fecha" value="{$registro.fecha_nacimiento}" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="{$L_MOD.phl_txt_fecha_nacimiento}" >
+        </div>
+        <label class="control-label col-sm-7 ver_js" >{$registro.fecha_nacimiento}</label>
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group hide">
+        <label class="control-label col-sm-3" for="edad">{$L_MOD.lbl_edad}</label>
+        <div class="col-sm-7 control-label editar_js">                    
+          <input type="hidden" class="form-control" value="{$registro.edad}" id="edad" name="edad" value='{$registro.edad}'><span id="fecha_nacimiento_span" >{if condition="!empty($registro.id)"}{$registro.edad} Años{/if}</span>
+        </div>
+        <label class="control-label col-sm-7 ver_js" >{$registro.edad} Años</label>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="descripcion">{$L_MOD.lbl_descripcion}</label>
+        <div class="col-sm-9 editar_js">      
+          <textarea class="form-control" id="descripcion" name="descripcion" rows="6">{$registro.descripcion}</textarea>
+        </div>
+        <label class="control-label col-sm-9 ver_js" >{$registro.descripcion}</label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Ubicacion-->
+<div class="panel panel-primary">
+  <div class="panel-heading">{$L_APP.lbl_pnl_ubicacion}</div>
+  <div class="panel-body">
+
+    <div class="col-sm-8 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="view_ubicacion_id">{$L_APP.lbl_ubicacion}:</label>
+        <div class="col-sm-9 editar_js"> 
+          <input type="text" class="form-control validate[required]" value="{$registro.view_ubicacion_id}" id="view_ubicacion_id" name="view_ubicacion_id"  placeholder="{$L_MOD.phl_txt_ubicacion_nombre}">
+          <input type="hidden"  value="{$registro.view_ubicacion_nombre}" id="view_ubicacion_nombre">
+        </div>
+        <label class="control-label col-sm-9 ver_js" >{$registro.view_ubicacion_nombre}</label>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Contacto-->
+<div class="panel panel-primary">
+  <div class="panel-heading">{$L_APP.lbl_datos_contacto}</div>
+  <div class="panel-body">
+
+    <div class="col-sm-6 no-padding-left"></div>
+    {include="general/agregar_agregar/telefonos/telefonos"}
+    {include="general/agregar_agregar/direcciones/direcciones"}
+    {include="general/agregar_agregar/correos/correos"}
+ </div>
+</div>
+<!-- Comercial-->
+<div class="panel panel-primary">
+  <div class="panel-heading">{$L_APP.lbl_comercial}</div>
+  <div class="panel-body">
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="asesor_id">{$L_MOD.lbl_asesor_asignado}</label>
+        <div class="col-sm-7 editar_js">                    
+          <select class="form-control validate[required]" id="asesor_id" name="asesor_id">
+            {loop name="$asesores"}
+            {if condition="!empty($registro.id)"} 
+              <option value="{$value.id}" {if condition="$registro.asesor_id == $value.id"}selected="selected"{/if}>{$value.nombres} {$value.apellidos}</option>
+            {else}
+              <option value="{$value.id}" {if condition="$usuario->getId() == $value.id"} selected="selected" {/if}>{$value.nombres} {$value.apellidos}</option>
+            {/if}
+            {/loop}
+          </select>
+        </div>
+        {loop name="$asesores"}
+        {if condition="$registro.asesor_id == $value.id"}
+          <label class="control-label col-sm-7 ver_js" >{$value.nombres} {$value.apellidos}</label>
+        {/if}
+        {/loop}
+
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="estado_id">{$L_MOD.lbl_estado}</label>
+        <div class="col-sm-7 editar_js">                    
+          <select class="form-control validate[required]" id="estado_id" name="estado_id">
+            <option value="">{$L_APP.lbl_select}</option>
+            {loop name="$listasM.estado"}
+            <option value="{$value.id}" {if condition=" $registro.estado_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+        {loop name="$listasM.estado"}
+        {if condition="$registro.estado_id == $value.id"}
+          <label class="control-label col-sm-7 ver_js" >{$value.nombre}</label>
+        {/if}
+        {/loop}
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="toma_contacto_id">{$L_MOD.lbl_toma_contacto_id}</label>
+        <div class="col-sm-7 editar_js">                    
+          <select class="form-control validate[required]" id="toma_contacto_id" name="toma_contacto_id">
+            <option value="">{$L_APP.lbl_select}</option>
+            {loop name="$listasG.toma_de_contacto"}
+            <option value="{$value.id}" {if condition=" $registro.toma_contacto_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+        {loop name="$listasG.toma_de_contacto"}
+        {if condition="$registro.toma_contacto_id == $value.id"}
+          <label class="control-label col-sm-7 ver_js" >{$value.nombre}</label>
+        {/if}
+        {/loop}
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="descripcion_estado">{$L_MOD.lbl_descripcion_estado}</label>
+        <div class="col-sm-9 editar_js">                    
+          <textarea class="form-control" id="descripcion_estado" name="descripcion_estado" rows="3">{$registro.descripcion_estado}</textarea>
+        </div>
+        <label class="control-label col-sm-9 ver_js" >{$registro.descripcion_estado}</label>
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="descripcion_toma_contacto">{$L_MOD.lbl_descripcion_toma_contacto}</label>
+        <div class="col-sm-9 editar_js">                    
+          <textarea class="form-control" id="descripcion_toma_contacto" name="descripcion_toma_contacto" rows="3">{$registro.descripcion_toma_contacto}</textarea>
+        </div>
+        <label class="control-label col-sm-9 ver_js" >{$registro.descripcion_toma_contacto}</label>
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="clasificacion_id">{$L_MOD.lbl_clasificacion}</label>
+        <div class="col-sm-7 editar_js">                    
+          <select class="form-control validate[required]" id="clasificacion_id" name="clasificacion_id">
+            <option value="">{$L_APP.lbl_select}</option>
+            {loop name="$listasG.clasificacion"}
+            <option value="{$value.id}" {if condition=" $registro.clasificacion_id == $value.id"}selected="selected"{/if}>{$value.nombre}</option>
+            {/loop}
+          </select>
+        </div>
+        {loop name="$listasG.clasificacion"}
+        {if condition="$registro.clasificacion_id == $value.id"}
+          <label class="control-label col-sm-7 ver_js" >{$value.nombre}</label>
+        {/if}
+        {/loop}
+      </div>
+    </div>
+    <div class="col-sm-6 no-padding-left hidden">
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="referido_po">{$L_MOD.lbl_referido}</label>
+        <div class="col-sm-7 editar_js">                    
+          <input type="text" class="form-control " id="referido_por" name="referido_por" value="{$registro.referido_por}">
+        </div>
+        <label class="control-label col-sm-7 ver_js" >{$registro.referido_por}</label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{if condition="$registro.convertido != 0"}
+<!-- Modal -->
+<div class="modal modal-transparent fade" id="modal-transparent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-lg top_modal_exito">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-body" style="height: 215px;">
+            <h4 style="text-align: left">Se ha creado:</h4>
+            <div  class="col-sm-1"></div>
+            <div  class="col-sm-7">
+{loop name="$decendientes"}
+            <dl>
+            {if condition="!empty($value.cuenta_id)"}<dt>{$L_MOD.lbl_datos_cuenta}:</dt> <dd class="margin_left">{$value.cuenta}</dd>{/if}
+            {if condition="!empty($value.contacto_id)"}<dt>{$L_APP.lbl_actividad_contacto}:</dt> <dd class="margin_left">{$value.contacto}</dd>{/if}
+            {if condition="!empty($value.oportunidad_id)"}<dt>{$L_MOD.lbl_datos_oportunidad}:</dt> <dd class="margin_left">{$value.oportunidad}</dd>{/if}
+            </dl>
+{/loop} </div>
+            <div class="col-sm-4 text-center"><i class="fa fa-check-circle check_modal" aria-hidden="true"></i></div>
+         </div>
+
+      </div>
+   </div>  
+</div>
+{/if}
